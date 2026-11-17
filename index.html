@@ -57,6 +57,9 @@
   .lb-corpo{flex:1;position:relative;overflow:hidden;touch-action:pan-y pinch-zoom}
   .lb-corpo img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;object-fit:contain}
   .lb-corpo iframe{width:100%;height:100%;border:0;background:#fff}
+  .lb-pagine{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 0 16px}
+  .lb-corpo .lb-pagine img{position:static;display:block;width:100%;max-width:900px;height:auto;max-height:none;margin:0 auto 8px;background:#fff}
+  .tag-pdf{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.65);color:#fff;font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px}
   .nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
   .nav.prev{left:10px}.nav.next{right:10px}
   @media (hover:none){.nav{display:none}}
@@ -139,6 +142,8 @@
       url: CARTELLA + encodeURIComponent(nome),
       nome, titolo, dal, al,
       pdf: PDF.test(nome),
+      copertina: voce.copertina || null,
+      pagine: voce.pagine || [],
       aggiunto: voce.aggiunto ? new Date(voce.aggiunto*1000) : null
     };
   }
@@ -189,7 +194,9 @@
     c.innerHTML = elenco.map((v,i) => {
       const b = badge(v), d = testoDate(v);
       return '<article class="card" data-i="'+i+'">'+
-        (v.pdf
+        (v.pdf && v.copertina
+          ? '<div class="thumb"><img loading="lazy" src="'+v.copertina+'" alt="'+esc(v.titolo)+'"><span class="tag-pdf">PDF · '+v.pagine.length+(v.pagine.length===1?' pagina':' pagine')+'</span>'
+          : v.pdf
           ? '<div class="thumb pdf">'+ICONA_PDF+'<span>PDF</span>'
           : '<div class="thumb"><img loading="lazy" src="'+v.url+'" alt="'+esc(v.titolo)+'">')+
         (b ? '<span class="badge '+b[1]+'">'+b[0]+'</span>' : '')+
@@ -207,12 +214,22 @@
   function apri(i){
     corrente = (i + elenco.length) % elenco.length;
     const v = elenco[corrente];
-    corpo.querySelectorAll('img,iframe').forEach(n => n.remove());
-    const el = document.createElement(v.pdf ? 'iframe' : 'img');
-    el.src = v.url; if(!v.pdf) el.alt = v.titolo;
+    corpo.querySelectorAll('img,iframe,.lb-pagine').forEach(n => n.remove());
+    let el;
+    if(v.pdf && v.pagine.length){ // PDF già convertito in immagini: funziona su ogni telefono
+      el = document.createElement('div'); el.className = 'lb-pagine';
+      v.pagine.forEach((src,n) => {
+        const im = document.createElement('img');
+        im.src = src; im.alt = v.titolo+' – pagina '+(n+1); if(n>1) im.loading = 'lazy';
+        el.appendChild(im);
+      });
+    } else {
+      el = document.createElement(v.pdf ? 'iframe' : 'img');
+      el.src = v.url; if(!v.pdf) el.alt = v.titolo;
+    }
     corpo.appendChild(el);
     $('lbTit').textContent = v.titolo;
-    $('lbSub').textContent = testoDate(v);
+    $('lbSub').textContent = [testoDate(v), v.pagine.length>1 ? v.pagine.length+' pagine' : ''].filter(Boolean).join(' · ');
     $('lbScarica').href = v.url; $('lbScarica').setAttribute('download', v.nome);
     $('lbConta').textContent = elenco.length>1 ? (corrente+1)+' di '+elenco.length : '';
     $('lbPrev').style.visibility = $('lbNext').style.visibility = elenco.length>1 ? 'visible' : 'hidden';
@@ -221,7 +238,7 @@
   function chiudi(daStoria){
     if(!lb.classList.contains('aperto')) return;
     lb.classList.remove('aperto'); document.body.style.overflow='';
-    corpo.querySelectorAll('img,iframe').forEach(n => n.remove());
+    corpo.querySelectorAll('img,iframe,.lb-pagine').forEach(n => n.remove());
     if(!daStoria) history.back();
   }
   $('lbChiudi').onclick = () => chiudi();
