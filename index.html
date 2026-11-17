@@ -29,8 +29,19 @@
   html,body{background:var(--sfondo);color:var(--testo);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
   header{background:var(--brand);color:#fff;padding:calc(18px + env(safe-area-inset-top)) 20px 22px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px rgba(0,0,0,.15)}
   .head-in{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
-  .logo{height:30px;width:auto;max-width:100%;display:none;animation:entra .5s cubic-bezier(.2,.7,.2,1) both}
-  .logo[style*="block"] + div .marchio{display:none} /* con il logo non ripete il nome */
+  .logo-box{position:relative;display:inline-block;max-width:100%}
+  .logo{height:30px;width:auto;max-width:100%;display:none;animation:rivela .9s cubic-bezier(.3,.7,.2,1) both}
+  .logo-box.pronto + div .marchio{display:none} /* con il logo non ripete il nome */
+  @keyframes rivela{from{clip-path:inset(0 100% 0 0);opacity:.2;translate:-8px 0}to{clip-path:inset(0 0 0 0);opacity:1;translate:0 0}}
+  .luccichio{position:absolute;inset:0;pointer-events:none;display:none;
+    -webkit-mask:url(logo.png) left center/contain no-repeat;mask:url(logo.png) left center/contain no-repeat;
+    background:linear-gradient(105deg,transparent 30%,#14C850 40%,#fff 50%,#FF4048 60%,transparent 70%) no-repeat;background-size:300% 100%;
+    animation:brilla 1.3s .75s ease-in-out both,brillaPiano 9s 4s ease-in-out infinite}
+  .logo-box.pronto .luccichio{display:block}
+  @keyframes brilla{from{background-position:120% 0}to{background-position:-20% 0}}
+  @keyframes brillaPiano{0%,82%{background-position:120% 0;opacity:.0}83%{opacity:.75}100%{background-position:-20% 0;opacity:.75}}
+  .tricolore{display:block;height:3px;width:0;margin-top:5px;border-radius:2px;background:linear-gradient(90deg,#14C850 0 33.3%,#fff 33.3% 66.6%,#FF4048 66.6%);animation:cresci .7s 1.5s cubic-bezier(.3,.7,.2,1) forwards}
+  @keyframes cresci{to{width:54px}}
   .marchio{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;font-weight:600}
   h1{font-size:22px;font-weight:700;line-height:1.15;animation:entra .5s .08s cubic-bezier(.2,.7,.2,1) both}
   main{max-width:1100px;margin:0 auto;padding:20px 16px calc(40px + env(safe-area-inset-bottom))}
@@ -78,41 +89,52 @@
   .sk{aspect-ratio:3/4;border-radius:14px;background:linear-gradient(90deg,#e4ebf3 25%,#eef3f9 50%,#e4ebf3 75%);background-size:200% 100%;animation:sk 1.2s infinite}
   @keyframes sk{to{background-position:-200% 0}}
 
-  /* Visualizzatore a schermo intero */
-  .lb{position:fixed;inset:0;background:#0d0d0d;z-index:20;display:none;flex-direction:column}
+  /* Visualizzatore a schermo intero (chiaro: niente bande nere) */
+  .lb{position:fixed;inset:0;background:linear-gradient(180deg,#e3ebf5 0%,#f3f6fa 100%);z-index:20;display:none;flex-direction:column;color:var(--testo)}
   .lb.aperto{display:flex}
   .lb.entra{animation:lbEntra .3s cubic-bezier(.2,.7,.2,1) both}
   .lb.esce{animation:lbEsce .2s ease-in both}
   @keyframes lbEntra{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:none}}
   @keyframes lbEsce{to{opacity:0;transform:scale(.92)}}
-  .lb-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(10px + env(safe-area-inset-top)) 12px 10px;color:#fff}
-  .lb-tit{font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .lb-sub{font-size:12px;opacity:.7}
-  .btn{background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:999px;height:40px;min-width:40px;padding:0 14px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;text-decoration:none}
+  .lb-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(10px + env(safe-area-inset-top)) 12px 10px;background:rgba(255,255,255,.85);box-shadow:0 1px 0 rgba(0,40,90,.08)}
+  .lb-tit{font-weight:650;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lb-sub{font-size:12px;color:var(--testo-soft)}
+  .btn{background:rgba(0,60,130,.08);color:var(--testo);border:0;border-radius:999px;height:40px;min-width:40px;padding:0 14px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;text-decoration:none}
   .btn svg{width:20px;height:20px}
   .lb-azioni{display:flex;gap:8px;flex-shrink:0}
   .lb-corpo{flex:1;position:relative;overflow:hidden}
   .lb-corpo iframe{width:100%;height:100%;border:0;background:#fff}
-  .lb-pagine{position:absolute;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;padding:4px 0 16px;touch-action:pan-x pan-y pinch-zoom;overscroll-behavior:contain}
-  .lb-pagine img{display:block;width:100%;max-width:900px;height:auto;margin:0 auto 8px;background:#fff;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
-  .lb-pagine.singola{display:flex;align-items:center;justify-content:center;padding:0}
+  /* Libro da sfogliare */
+  .lb-libro{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .lb-libro .libro{filter:drop-shadow(0 8px 22px rgba(0,40,90,.22))}
+  .lb-libro .pagina{background:#fff;overflow:hidden}
+  .lb-libro .pagina img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;-webkit-user-select:none}
+  /* Pagina singola o immagine */
+  .lb-pagine{position:absolute;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;padding:12px 0 16px;touch-action:pan-x pan-y pinch-zoom;overscroll-behavior:contain}
+  .lb-pagine img{display:block;width:100%;max-width:900px;height:auto;margin:0 auto 12px;background:#fff;box-shadow:0 6px 20px rgba(0,40,90,.16);user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+  .lb-pagine.singola{display:flex;align-items:center;justify-content:center;padding:12px}
   .lb-pagine.singola img{width:auto;max-width:100%;max-height:100%;margin:0;object-fit:contain}
-  .lb-pagine.zoom{display:block}
-  .lb-pagine.zoom img{width:250%;max-width:none;max-height:none;margin:0 0 8px}
-  .lb-numero{position:absolute;z-index:3;top:10px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.7);color:#fff;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px;pointer-events:none;transition:opacity .3s}
+  .lb-pagine.zoom{display:block;padding:0}
+  .lb-pagine.zoom img{width:250%;max-width:none;max-height:none;margin:0}
+  /* Lente: doppio tocco su una pagina del libro */
+  .lente{position:absolute;inset:0;z-index:4;overflow:auto;background:#eef3f9;touch-action:pan-x pan-y pinch-zoom;overscroll-behavior:contain;animation:lente .25s ease-out both}
+  .lente img{display:block;width:250%;max-width:none;height:auto;background:#fff}
+  @keyframes lente{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+  .lente-chiudi{position:absolute;z-index:5;top:10px;right:10px;background:var(--brand);color:#fff;box-shadow:0 4px 14px rgba(0,40,90,.25)}
+  .lb-numero{position:absolute;z-index:3;top:10px;left:50%;transform:translateX(-50%);background:rgba(0,40,90,.78);color:#fff;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px;pointer-events:none;transition:opacity .3s}
   .lb-numero:empty{opacity:0}
-  .lb-aiuto{position:absolute;z-index:3;left:50%;bottom:18px;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:13.5px;font-weight:600;padding:9px 14px;border-radius:999px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .35s}
+  .lb-aiuto{position:absolute;z-index:6;left:50%;bottom:18px;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:13.5px;font-weight:600;padding:9px 14px;border-radius:999px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .35s;box-shadow:0 6px 18px rgba(0,98,189,.35)}
   .lb-aiuto.vedi{opacity:1}
   .lb-mini{display:flex;gap:8px;overflow-x:auto;padding:8px 12px 2px;scrollbar-width:none}
   .lb-mini::-webkit-scrollbar{display:none}
   .lb-mini:empty{display:none}
-  .lb-mini button{flex:0 0 auto;width:48px;aspect-ratio:3/4;border:2px solid transparent;border-radius:6px;overflow:hidden;padding:0;background:#222;cursor:pointer;opacity:.55;transition:opacity .2s,border-color .2s}
+  .lb-mini button{flex:0 0 auto;width:46px;aspect-ratio:3/4;border:2px solid transparent;border-radius:6px;overflow:hidden;padding:0;background:#fff;cursor:pointer;opacity:.6;box-shadow:0 1px 4px rgba(0,40,90,.15);transition:opacity .2s,border-color .2s,transform .2s}
   .lb-mini button img{width:100%;height:100%;object-fit:cover;display:block}
-  .lb-mini button.attiva{opacity:1;border-color:var(--brand)}
-  .nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
+  .lb-mini button.attiva{opacity:1;border-color:var(--brand);transform:translateY(-2px)}
+  .nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:#fff;box-shadow:0 3px 12px rgba(0,40,90,.18);font-size:22px}
   .nav.prev{left:10px}.nav.next{right:10px}
   @media (hover:none){.nav{display:none}}
-  .lb-conta{color:#fff;opacity:.6;text-align:center;font-size:12px;padding:8px 0 calc(10px + env(safe-area-inset-bottom))}
+  .lb-conta{color:var(--testo-soft);text-align:center;font-size:12px;padding:8px 0 calc(10px + env(safe-area-inset-bottom))}
 
   @media (prefers-reduced-motion:reduce){
     *,*::before{animation:none!important;transition:none!important}
@@ -122,7 +144,7 @@
 <body>
 <header>
   <div class="head-in">
-    <img class="logo" src="logo.png" alt="F.lli Petrillo" onload="this.style.display='block'">
+    <div class="logo-box"><img class="logo" src="logo.png" alt="F.lli Petrillo" onload="this.style.display='block';this.parentNode.classList.add('pronto')"><span class="luccichio" aria-hidden="true"></span><span class="tricolore" aria-hidden="true"></span></div>
     <div>
       <div class="marchio">F.lli Petrillo</div>
       <h1>Volantini e Promozioni</h1>
@@ -164,6 +186,7 @@
   <div class="lb-conta" id="lbConta"></div>
 </div>
 
+<script src="lib/page-flip.browser.js"></script>
 <script>
 (function(){
   const CARTELLA = 'volantini/';
@@ -175,7 +198,6 @@
   const IMG = /\.(jpe?g|png|webp|gif|avif)$/i;
   const PDF = /\.pdf$/i;
   const MESI = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
-  const ZOOM_AIUTO = 'volantini-aiuto-zoom';
 
   const oggi = new Date(); oggi.setHours(0,0,0,0);
   const $ = id => document.getElementById(id);
@@ -215,6 +237,7 @@
   function testoDate(v){
     if(v.dal && v.al) return 'Dal '+fmt(v.dal)+' al '+fmt(v.al);
     if(v.al) return 'Valido fino al '+fmt(v.al);
+    if(v.aggiunto){ const g = new Date(v.aggiunto); g.setHours(0,0,0,0); return 'Aggiornato il '+fmt(g); }
     return '';
   }
   function giorniRimasti(v){ return Math.round((v.al - oggi)/864e5); }
@@ -305,13 +328,15 @@
   }
 
   // ===== Visualizzatore =====
-  let corrente = 0, osservatore = null, timerAiuto = null;
+  let corrente = 0, osservatore = null, timerAiuto = null, libro = null, pagineLibro = [];
   const lb = $('lb'), corpo = $('lbCorpo'), mini = $('lbMini');
   if(navigator.share) $('lbCondividi').style.display='inline-flex';
 
   function pulisci(){
     if(osservatore){ osservatore.disconnect(); osservatore = null; }
-    corpo.querySelectorAll('iframe,.lb-pagine').forEach(n => n.remove());
+    if(libro){ try { libro.destroy(); } catch(e){} libro = null; }
+    pagineLibro = [];
+    corpo.querySelectorAll('iframe,.lb-pagine,.lb-libro,.lente,.lente-chiudi').forEach(n => n.remove());
     mini.innerHTML = ''; $('lbNumero').textContent = '';
   }
 
@@ -325,7 +350,23 @@
     }
   }
 
-  // Doppio tocco (o doppio clic): ingrandisce nel punto toccato, di nuovo per tornare
+  // Riconosce il doppio tocco (e il doppio clic) su un elemento
+  function doppioTocco(el, azione){
+    let ultimo = 0, ux = 0, uy = 0, sx = 0, sy = 0;
+    el.addEventListener('touchstart', e => { if(e.touches.length===1){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; } }, {passive:true});
+    el.addEventListener('touchend', e => {
+      if(e.touches.length || e.changedTouches.length !== 1) return;
+      const t = e.changedTouches[0];
+      if(Math.hypot(t.clientX - sx, t.clientY - sy) > 12){ ultimo = 0; return; }   // era uno scorrimento
+      const ora = Date.now();
+      if(ora - ultimo < 320 && Math.hypot(t.clientX - ux, t.clientY - uy) < 40){
+        e.preventDefault(); ultimo = 0; azione(t.clientX, t.clientY);
+      } else { ultimo = ora; ux = t.clientX; uy = t.clientY; }
+    }, {passive:false});
+    el.addEventListener('dblclick', e => azione(e.clientX, e.clientY));
+  }
+
+  // Pagina singola / immagine: il doppio tocco ingrandisce nel punto toccato
   function ingrandisci(cont, x, y){
     const r = cont.getBoundingClientRect(), px = x - r.left, py = y - r.top;
     const rx = (cont.scrollLeft + px) / cont.scrollWidth, ry = (cont.scrollTop + py) / cont.scrollHeight;
@@ -334,41 +375,110 @@
     cont.scrollTop = ry * cont.scrollHeight - py;
     nascondiAiuto();
   }
-  function gestisciZoom(cont){
-    let ultimo = 0, ux = 0, uy = 0, sx = 0, sy = 0;
-    cont.addEventListener('touchstart', e => { if(e.touches.length===1){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; } }, {passive:true});
-    cont.addEventListener('touchend', e => {
-      if(e.touches.length || e.changedTouches.length !== 1) return;
-      const t = e.changedTouches[0];
-      if(Math.hypot(t.clientX - sx, t.clientY - sy) > 12){ ultimo = 0; return; }   // era uno scorrimento
-      const ora = Date.now();
-      if(ora - ultimo < 320 && Math.hypot(t.clientX - ux, t.clientY - uy) < 40){
-        e.preventDefault(); ultimo = 0; ingrandisci(cont, t.clientX, t.clientY);
-      } else { ultimo = ora; ux = t.clientX; uy = t.clientY; }
-    }, {passive:false});
-    cont.addEventListener('dblclick', e => ingrandisci(cont, e.clientX, e.clientY));
-  }
 
-  function mostraAiuto(){
+  function mostraAiuto(testo, chiave){
     let visto = false;
-    try { visto = localStorage.getItem(ZOOM_AIUTO) === '1'; } catch(e){}
+    try { visto = localStorage.getItem(chiave) === '1'; } catch(e){}
     if(visto) return;
+    $('lbAiuto').textContent = testo; $('lbAiuto').dataset.chiave = chiave;
     $('lbAiuto').classList.add('vedi');
-    timerAiuto = setTimeout(nascondiAiuto, 3500);
+    timerAiuto = setTimeout(nascondiAiuto, 4000);
   }
   function nascondiAiuto(){
     clearTimeout(timerAiuto);
     if(!$('lbAiuto').classList.contains('vedi')) return;
     $('lbAiuto').classList.remove('vedi');
-    try { localStorage.setItem(ZOOM_AIUTO, '1'); } catch(e){}
+    try { localStorage.setItem($('lbAiuto').dataset.chiave, '1'); } catch(e){}
   }
+
+  // ----- Libro da sfogliare (PDF con più pagine)
+  function caricaVicine(n){
+    for(let k = Math.max(0, n-1); k <= n+3 && k < pagineLibro.length; k++){
+      const im = pagineLibro[k].querySelector('img');
+      if(!im.getAttribute('src')) im.src = im.dataset.src;
+    }
+  }
+  function costruisciLibro(v, inizio){
+    if(libro){ try { libro.destroy(); } catch(e){} libro = null; }
+    corpo.querySelectorAll('.lb-libro').forEach(n => n.remove());
+    const wrap = document.createElement('div'); wrap.className = 'lb-libro';
+    corpo.appendChild(wrap);
+    const tot = v.pagine.length;
+    const [pw, ph] = v.misure[0] || [990, 1400], r = pw / ph;
+    const W = wrap.clientWidth - 24, H = wrap.clientHeight - 24;
+    const affiancate = W >= 2 * H * r * 0.92;            // schermo largo: due pagine come un libro aperto
+    const lw = Math.floor(affiancate ? Math.min(W/2, H*r) : Math.min(W, H*r)), lh = Math.floor(lw / r);
+    const el = document.createElement('div'); el.className = 'libro';
+    el.style.width = (affiancate ? 2*lw : lw)+'px'; el.style.height = lh+'px';
+    pagineLibro = v.pagine.map((src, n) => {
+      const d = document.createElement('div'); d.className = 'pagina'; d.dataset.density = 'soft';
+      const im = document.createElement('img'); im.dataset.src = src; im.alt = v.titolo+' – pagina '+(n+1); im.decoding = 'async';
+      d.appendChild(im); el.appendChild(d); return d;
+    });
+    wrap.appendChild(el);
+    libro = new St.PageFlip(el, {
+      width: lw, height: lh, size: 'fixed', usePortrait: true, showCover: false,
+      drawShadow: true, maxShadowOpacity: 0.45, flippingTime: 650,
+      mobileScrollSupport: false, disableFlipByClick: true, showPageCorners: true,
+      swipeDistance: 25, startPage: inizio
+    });
+    libro.loadFromHTML(pagineLibro);
+    libro.on('flip', e => { segnaPagina(e.data, tot); caricaVicine(e.data); nascondiAiuto(); });
+    caricaVicine(inizio); segnaPagina(inizio, tot);
+    // doppio tocco: lente sulla pagina toccata
+    doppioTocco(wrap, (x, y) => {
+      const b = el.getBoundingClientRect(), ora = libro.getCurrentPageIndex();
+      let n = ora, left = b.left, w = b.width;
+      if(affiancate){ w = b.width/2; if(x > b.left + w){ n = Math.min(ora+1, tot-1); left = b.left + w; } }
+      apriLente(v, n, (x-left)/w, (y-b.top)/b.height);
+    });
+  }
+  function apriLente(v, n, rx, ry){
+    nascondiAiuto();
+    const l = document.createElement('div'); l.className = 'lente';
+    const im = document.createElement('img'); im.src = v.pagine[n]; im.alt = v.titolo+' – pagina '+(n+1);
+    if(v.misure[n]){ im.width = v.misure[n][0]; im.height = v.misure[n][1]; }
+    l.appendChild(im);
+    const x = document.createElement('button'); x.className = 'btn lente-chiudi'; x.setAttribute('aria-label','Chiudi ingrandimento');
+    x.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+    x.onclick = chiudiLente;
+    corpo.appendChild(l); corpo.appendChild(x);
+    const clamp = q => Math.min(1, Math.max(0, q));
+    l.scrollLeft = clamp(rx) * l.scrollWidth - l.clientWidth/2;
+    l.scrollTop = clamp(ry) * l.scrollHeight - l.clientHeight/2;
+    doppioTocco(l, chiudiLente);
+  }
+  function chiudiLente(){ corpo.querySelectorAll('.lente,.lente-chiudi').forEach(n => n.remove()); }
+  const lenteAperta = () => !!corpo.querySelector('.lente');
 
   function apri(i, daEl){
     corrente = (i + elenco.length) % elenco.length;
     const v = elenco[corrente];
     pulisci();
     const tot = v.pagine.length;
-    if(tot){
+    // il visualizzatore va mostrato prima di misurare lo spazio per il libro
+    if(!lb.classList.contains('aperto')){
+      if(daEl){ // si apre "uscendo" dalla scheda toccata
+        const r = daEl.getBoundingClientRect();
+        lb.style.transformOrigin = (r.left + r.width/2)+'px '+(r.top + r.height/2)+'px';
+      }
+      lb.classList.add('aperto','entra');
+      setTimeout(() => lb.classList.remove('entra'), 320);
+      document.body.style.overflow='hidden'; history.pushState({lb:1},'');
+    }
+    if(tot > 1 && v.miniature.length === tot){
+      v.miniature.forEach((src,n) => {
+        const b = document.createElement('button');
+        b.setAttribute('aria-label', 'Vai alla pagina '+(n+1));
+        b.innerHTML = '<img loading="lazy" src="'+src+'" alt="">';
+        mini.appendChild(b);
+      });
+    }
+    if(tot > 1 && window.St){
+      costruisciLibro(v, 0);
+      [...mini.children].forEach((b,n) => b.onclick = () => libro && libro.flip(n));
+      if(matchMedia('(hover:none)').matches) mostraAiuto('Scorri per sfogliare · doppio tocco per ingrandire', 'volantini-aiuto-libro');
+    } else if(tot){
       const cont = document.createElement('div');
       cont.className = 'lb-pagine' + (tot===1 ? ' singola' : '');
       v.pagine.forEach((src,n) => {
@@ -380,22 +490,15 @@
         cont.appendChild(im);
       });
       corpo.appendChild(cont);
-      gestisciZoom(cont);
-      if(tot > 1){
+      doppioTocco(cont, (x,y) => ingrandisci(cont, x, y));
+      if(tot > 1){ // riserva: pagine in colonna se la libreria non si carica
         osservatore = new IntersectionObserver(voci => voci.forEach(x => { if(x.isIntersecting) segnaPagina(+x.target.dataset.n, tot); }),
           {root: cont, rootMargin: '-45% 0px -45% 0px'});
         cont.querySelectorAll('img').forEach(im => osservatore.observe(im));
-        if(v.miniature.length === tot){
-          v.miniature.forEach((src,n) => {
-            const b = document.createElement('button');
-            b.setAttribute('aria-label', 'Vai alla pagina '+(n+1));
-            b.innerHTML = '<img loading="lazy" src="'+src+'" alt="">';
-            b.onclick = () => { const im = cont.children[n]; cont.scrollTo({top: im.offsetTop - 4, behavior:'smooth'}); };
-            mini.appendChild(b);
-          });
-        }
+        [...mini.children].forEach((b,n) => b.onclick = () => { const im = cont.children[n]; cont.scrollTo({top: im.offsetTop - 4, behavior:'smooth'}); });
         segnaPagina(0, tot);
       }
+      if(matchMedia('(hover:none)').matches) mostraAiuto('Tocca due volte per ingrandire', 'volantini-aiuto-zoom');
     } else {
       const fr = document.createElement('iframe'); fr.src = v.url; corpo.appendChild(fr);
     }
@@ -403,17 +506,7 @@
     $('lbSub').textContent = [testoDate(v), tot>1 ? tot+' pagine' : ''].filter(Boolean).join(' · ');
     $('lbScarica').href = v.url; $('lbScarica').setAttribute('download', v.nome);
     $('lbConta').textContent = elenco.length>1 ? (corrente+1)+' di '+elenco.length : '';
-    $('lbPrev').style.visibility = $('lbNext').style.visibility = elenco.length>1 ? 'visible' : 'hidden';
-    if(!lb.classList.contains('aperto')){
-      if(daEl){ // si apre "uscendo" dalla scheda toccata
-        const r = daEl.getBoundingClientRect();
-        lb.style.transformOrigin = (r.left + r.width/2)+'px '+(r.top + r.height/2)+'px';
-      }
-      lb.classList.add('aperto','entra');
-      setTimeout(() => lb.classList.remove('entra'), 320);
-      document.body.style.overflow='hidden'; history.pushState({lb:1},'');
-      if(tot && matchMedia('(hover:none)').matches) mostraAiuto();
-    }
+    $('lbPrev').style.visibility = $('lbNext').style.visibility = (elenco.length>1 || libro) ? 'visible' : 'hidden';
   }
   function chiudi(daStoria){
     if(!lb.classList.contains('aperto') || lb.classList.contains('esce')) return;
@@ -423,9 +516,12 @@
     document.body.style.overflow='';
     if(!daStoria) history.back();
   }
+  // Frecce: con un libro aperto girano le pagine, altrimenti passano alla grafica successiva
+  const indietro = () => { if(lenteAperta()) return; libro ? libro.flipPrev() : apri(corrente-1); };
+  const avanti = () => { if(lenteAperta()) return; libro ? libro.flipNext() : apri(corrente+1); };
   $('lbChiudi').onclick = () => chiudi();
-  $('lbPrev').onclick = () => apri(corrente-1);
-  $('lbNext').onclick = () => apri(corrente+1);
+  $('lbPrev').onclick = indietro;
+  $('lbNext').onclick = avanti;
   $('lbCondividi').onclick = () => {
     const v = elenco[corrente];
     navigator.share({title:v.titolo, text:'F.lli Petrillo – '+v.titolo, url:new URL(v.url, location.href).href}).catch(()=>{});
@@ -433,16 +529,23 @@
   window.addEventListener('popstate', () => chiudi(true)); // tasto "indietro" del telefono chiude il visualizzatore
   document.addEventListener('keydown', e => {
     if(!lb.classList.contains('aperto')) return;
-    if(e.key==='Escape') chiudi();
-    if(e.key==='ArrowLeft') apri(corrente-1);
-    if(e.key==='ArrowRight') apri(corrente+1);
+    if(e.key==='Escape') lenteAperta() ? chiudiLente() : chiudi();
+    if(e.key==='ArrowLeft') indietro();
+    if(e.key==='ArrowRight') avanti();
   });
-  // scorrimento laterale con il dito: grafica precedente/successiva (non quando è ingrandita)
+  // telefono girato o finestra ridimensionata: rifà il libro alla pagina corrente
+  let timerMisura = null;
+  window.addEventListener('resize', () => {
+    if(!libro) return;
+    clearTimeout(timerMisura);
+    timerMisura = setTimeout(() => { if(libro) costruisciLibro(elenco[corrente], libro.getCurrentPageIndex()); }, 250);
+  });
+  // scorrimento laterale con il dito su un'immagine singola: grafica precedente/successiva
   let x0=null, y0=null;
   corpo.addEventListener('touchstart', e => { if(e.touches.length===1){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; } else x0=null; }, {passive:true});
   corpo.addEventListener('touchend', e => {
     const pizzicato = window.visualViewport && visualViewport.scale > 1.05;
-    if(x0===null || pizzicato || corpo.querySelector('.lb-pagine.zoom')) { x0=null; return; }
+    if(x0===null || pizzicato || libro || lenteAperta() || corpo.querySelector('.lb-pagine.zoom')) { x0=null; return; }
     const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
     if(Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)*1.8 && elenco.length>1) apri(corrente + (dx<0 ? 1 : -1));
     x0=null;

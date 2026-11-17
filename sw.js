@@ -1,12 +1,12 @@
 // Permette di installare la pagina sul telefono e di rivedere senza rete
 // le ultime grafiche aperte. Pagina ed elenco vengono sempre presi aggiornati
 // quando c'è connessione.
-const VERSIONE = 'v1';
+const VERSIONE = 'v2';
 const BASE = 'volantini-base-' + VERSIONE;
 const GRAFICHE = 'volantini-grafiche';
 const MAX_GRAFICHE = 400;   // immagini tenute in memoria al massimo
 
-const FILE_BASE = ['./', 'index.html', 'logo.png', 'manifest.webmanifest',
+const FILE_BASE = ['./', 'index.html', 'logo.png', 'manifest.webmanifest', 'lib/page-flip.browser.js',
   'icone/icona-192.png', 'icone/apple-touch-icon.png', 'icone/favicon-32.png'];
 
 self.addEventListener('install', e => {

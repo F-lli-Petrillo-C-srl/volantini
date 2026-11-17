@@ -37,6 +37,10 @@ Dopo circa un minuto la grafica è online.
 **Togliere:** apri il file nella cartella `volantini` → menu **···** → **Delete file** → **Commit changes**.
 Di solito però non serve, perché le promo scadute si nascondono da sole (vedi sotto).
 
+### Novità Canvass: ogni settimana
+Carica il nuovo PDF nella cartella `volantini` chiamandolo **sempre** `Novità-Canvass.pdf`: sostituisce da solo quello vecchio.
+Non ha date (le novità restano valide finché ci sono), sotto il titolo compare "Aggiornato il …" e per 7 giorni il badge **NUOVO**.
+
 ### Come chiamare i file (così le date le gestisce la pagina)
 
 | Nome del file | Cosa succede |

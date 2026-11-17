@@ -37,7 +37,7 @@ jobs:
         run: |
           mkdir -p _sito
           cp index.html volantini.json sw.js manifest.webmanifest _sito/
-          cp -r icone _sito/
+          cp -r icone lib _sito/
           [ -f logo.png ] && cp logo.png _sito/ || true
           cp -r volantini _sito/
           [ -d pagine ] && cp -r pagine _sito/ || true
