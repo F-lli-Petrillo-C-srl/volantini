@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Volantini e Promozioni · F.lli Petrillo</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#B3121B">
+<style>
+  /* ====== COLORI DEL MARCHIO: cambia solo queste righe ====== */
+  :root{
+    --brand:#B3121B;        /* colore principale (testata, pulsanti) */
+    --brand-scuro:#7E0C13;  /* variante scura */
+    --accento:#F2B705;      /* badge "Ultimi giorni" */
+    --sfondo:#F5F3EF;
+    --testo:#1E1E1E;
+    --testo-soft:#6B6B6B;
+    --card:#FFFFFF;
+  }
+  /* ========================================================== */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--sfondo);color:var(--testo);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  header{background:var(--brand);color:#fff;padding:calc(18px + env(safe-area-inset-top)) 20px 22px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+  .head-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:14px}
+  .logo{height:44px;width:auto;display:none;background:#fff;border-radius:8px;padding:4px}
+  .marchio{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;font-weight:600}
+  h1{font-size:22px;font-weight:700;line-height:1.15}
+  main{max-width:1100px;margin:0 auto;padding:20px 16px calc(40px + env(safe-area-inset-bottom))}
+  .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  @media (max-width:520px){.griglia{grid-template-columns:1fr 1fr;gap:10px} h1{font-size:19px}}
+  .card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08),0 6px 18px rgba(0,0,0,.05);cursor:pointer;display:flex;flex-direction:column;transition:transform .15s}
+  .card:active{transform:scale(.98)}
+  .thumb{position:relative;aspect-ratio:3/4;background:#e9e6e0;overflow:hidden}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb.pdf{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--brand);font-weight:700}
+  .thumb.pdf svg{width:56px;height:56px}
+  .badge{position:absolute;top:8px;left:8px;background:var(--accento);color:#1E1E1E;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+  .badge.nuovo{background:var(--brand);color:#fff}
+  .info{padding:10px 12px 12px}
+  .titolo{font-weight:650;font-size:15px;line-height:1.25}
+  .date{font-size:12.5px;color:var(--testo-soft);margin-top:4px}
+  .vuoto,.errore{text-align:center;color:var(--testo-soft);padding:60px 20px;font-size:16px;line-height:1.5}
+  .caricamento{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .sk{aspect-ratio:3/4;border-radius:14px;background:linear-gradient(90deg,#e9e6e0 25%,#f2efe9 50%,#e9e6e0 75%);background-size:200% 100%;animation:sk 1.2s infinite}
+  @keyframes sk{to{background-position:-200% 0}}
+
+  /* Visualizzatore a schermo intero */
+  .lb{position:fixed;inset:0;background:#0d0d0d;z-index:20;display:none;flex-direction:column}
+  .lb.aperto{display:flex}
+  .lb-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(10px + env(safe-area-inset-top)) 12px 10px;color:#fff}
+  .lb-tit{font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lb-sub{font-size:12px;opacity:.7}
+  .btn{background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:999px;height:40px;min-width:40px;padding:0 14px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;text-decoration:none}
+  .btn svg{width:20px;height:20px}
+  .lb-azioni{display:flex;gap:8px;flex-shrink:0}
+  .lb-corpo{flex:1;position:relative;overflow:hidden;touch-action:pan-y pinch-zoom}
+  .lb-corpo img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;object-fit:contain}
+  .lb-corpo iframe{width:100%;height:100%;border:0;background:#fff}
+  .nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
+  .nav.prev{left:10px}.nav.next{right:10px}
+  @media (hover:none){.nav{display:none}}
+  .lb-conta{color:#fff;opacity:.6;text-align:center;font-size:12px;padding:8px 0 calc(10px + env(safe-area-inset-bottom))}
+</style>
+</head>
+<body>
+<header>
+  <div class="head-in">
+    <img class="logo" src="logo.png" alt="F.lli Petrillo" onload="this.style.display='block'">
+    <div>
+      <div class="marchio">F.lli Petrillo</div>
+      <h1>Volantini e Promozioni</h1>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="contenuto" class="caricamento">
+    <div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div>
+  </div>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <div class="lb-top">
+    <div style="min-width:0">
+      <div class="lb-tit" id="lbTit"></div>
+      <div class="lb-sub" id="lbSub"></div>
+    </div>
+    <div class="lb-azioni">
+      <a class="btn" id="lbScarica" download aria-label="Scarica">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+      </a>
+      <button class="btn" id="lbCondividi" aria-label="Condividi" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+      </button>
+      <button class="btn" id="lbChiudi" aria-label="Chiudi">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="lb-corpo" id="lbCorpo">
+    <button class="btn nav prev" id="lbPrev" aria-label="Precedente">‹</button>
+    <button class="btn nav next" id="lbNext" aria-label="Successivo">›</button>
+  </div>
+  <div class="lb-conta" id="lbConta"></div>
+</div>
+
+<script>
+(function(){
+  const CARTELLA = 'volantini/';
+  const GIORNI_NUOVO = 7;          // badge "Nuovo" per le grafiche caricate da meno di N giorni
+  const GIORNI_ULTIMI = 3;         // badge "Ultimi giorni" quando mancano N giorni alla scadenza
+  const IMG = /\.(jpe?g|png|webp|gif|avif)$/i;
+  const PDF = /\.pdf$/i;
+  const MESI = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+
+  const oggi = new Date(); oggi.setHours(0,0,0,0);
+  const $ = id => document.getElementById(id);
+
+  function data(s){ // "2026-11-30" -> Date locale
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s); if(!m) return null;
+    const d = new Date(+m[1], +m[2]-1, +m[3]); return isNaN(d) ? null : d;
+  }
+  function fmt(d){ return d.getDate()+' '+MESI[d.getMonth()]+(d.getFullYear()!==oggi.getFullYear()?' '+d.getFullYear():''); }
+
+  // Nome file: [DAL_][AL_]Titolo.ext
+  //  2026-11-20_2026-11-30_Promo-Natale.jpg  -> visibile dal 20 al 30 novembre
+  //  2026-11-30_Volantino-Novembre.pdf       -> visibile subito, fino al 30 novembre
+  //  Catalogo-Bevande.jpg                    -> sempre visibile
+  function analizza(voce){
+    const nome = voce.file.replace(/^.*\//,'');
+    let base = nome.replace(/\.[^.]+$/,'');
+    const parti = base.split('_');
+    let dal=null, al=null;
+    if(parti.length>=3 && data(parti[0]) && data(parti[1])){ dal=data(parti[0]); al=data(parti[1]); parti.splice(0,2); }
+    else if(parti.length>=2 && data(parti[0])){ al=data(parti[0]); parti.splice(0,1); }
+    const titolo = parti.join(' ').replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim() || 'Promozione';
+    return {
+      url: CARTELLA + encodeURIComponent(nome),
+      nome, titolo, dal, al,
+      pdf: PDF.test(nome),
+      aggiunto: voce.aggiunto ? new Date(voce.aggiunto*1000) : null
+    };
+  }
+  function visibile(v){ return (!v.dal || v.dal <= oggi) && (!v.al || v.al >= oggi); }
+  function testoDate(v){
+    if(v.dal && v.al) return 'Dal '+fmt(v.dal)+' al '+fmt(v.al);
+    if(v.al) return 'Valido fino al '+fmt(v.al);
+    return '';
+  }
+  function badge(v){
+    if(v.al){
+      const gg = Math.round((v.al - oggi)/864e5);
+      if(gg===0) return ['Ultimo giorno',''];
+      if(gg<=GIORNI_ULTIMI) return ['Ultimi giorni',''];
+    }
+    if(v.aggiunto && (Date.now()-v.aggiunto)/864e5 < GIORNI_NUOVO) return ['Nuovo','nuovo'];
+    return null;
+  }
+  const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  let elenco = [];
+
+  fetch('volantini.json?t='+Date.now(), {cache:'no-store'})
+    .then(r => { if(!r.ok) throw 0; return r.json(); })
+    .then(dati => {
+      elenco = dati
+        .filter(v => IMG.test(v.file) || PDF.test(v.file))
+        .map(analizza)
+        .filter(visibile)
+        .sort((a,b) => (b.aggiunto||0) - (a.aggiunto||0));
+      disegna();
+    })
+    .catch(() => {
+      $('contenuto').className='errore';
+      $('contenuto').textContent='Impossibile caricare le promozioni. Controlla la connessione e riprova.';
+    });
+
+  const ICONA_PDF = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/></svg>';
+
+  function disegna(){
+    const c = $('contenuto');
+    if(!elenco.length){
+      c.className='vuoto';
+      c.innerHTML='Al momento non ci sono promozioni attive.<br>Torna a trovarci presto!';
+      return;
+    }
+    c.className='griglia';
+    c.innerHTML = elenco.map((v,i) => {
+      const b = badge(v), d = testoDate(v);
+      return '<article class="card" data-i="'+i+'">'+
+        (v.pdf
+          ? '<div class="thumb pdf">'+ICONA_PDF+'<span>PDF</span>'
+          : '<div class="thumb"><img loading="lazy" src="'+v.url+'" alt="'+esc(v.titolo)+'">')+
+        (b ? '<span class="badge '+b[1]+'">'+b[0]+'</span>' : '')+
+        '</div><div class="info"><div class="titolo">'+esc(v.titolo)+'</div>'+
+        (d ? '<div class="date">'+d+'</div>' : '')+'</div></article>';
+    }).join('');
+    c.querySelectorAll('.card').forEach(el => el.addEventListener('click', () => apri(+el.dataset.i)));
+  }
+
+  // ===== Visualizzatore =====
+  let corrente = 0;
+  const lb = $('lb'), corpo = $('lbCorpo');
+  if(navigator.share) $('lbCondividi').style.display='inline-flex';
+
+  function apri(i){
+    corrente = (i + elenco.length) % elenco.length;
+    const v = elenco[corrente];
+    corpo.querySelectorAll('img,iframe').forEach(n => n.remove());
+    const el = document.createElement(v.pdf ? 'iframe' : 'img');
+    el.src = v.url; if(!v.pdf) el.alt = v.titolo;
+    corpo.appendChild(el);
+    $('lbTit').textContent = v.titolo;
+    $('lbSub').textContent = testoDate(v);
+    $('lbScarica').href = v.url; $('lbScarica').setAttribute('download', v.nome);
+    $('lbConta').textContent = elenco.length>1 ? (corrente+1)+' di '+elenco.length : '';
+    $('lbPrev').style.visibility = $('lbNext').style.visibility = elenco.length>1 ? 'visible' : 'hidden';
+    if(!lb.classList.contains('aperto')){ lb.classList.add('aperto'); document.body.style.overflow='hidden'; history.pushState({lb:1},''); }
+  }
+  function chiudi(daStoria){
+    if(!lb.classList.contains('aperto')) return;
+    lb.classList.remove('aperto'); document.body.style.overflow='';
+    corpo.querySelectorAll('img,iframe').forEach(n => n.remove());
+    if(!daStoria) history.back();
+  }
+  $('lbChiudi').onclick = () => chiudi();
+  $('lbPrev').onclick = () => apri(corrente-1);
+  $('lbNext').onclick = () => apri(corrente+1);
+  $('lbCondividi').onclick = () => {
+    const v = elenco[corrente];
+    navigator.share({title:v.titolo, text:'F.lli Petrillo – '+v.titolo, url:new URL(v.url, location.href).href}).catch(()=>{});
+  };
+  window.addEventListener('popstate', () => chiudi(true)); // tasto "indietro" del telefono chiude il visualizzatore
+  document.addEventListener('keydown', e => {
+    if(!lb.classList.contains('aperto')) return;
+    if(e.key==='Escape') chiudi();
+    if(e.key==='ArrowLeft') apri(corrente-1);
+    if(e.key==='ArrowRight') apri(corrente+1);
+  });
+  // scorrimento con il dito
+  let x0=null, y0=null;
+  corpo.addEventListener('touchstart', e => { if(e.touches.length===1){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; } }, {passive:true});
+  corpo.addEventListener('touchend', e => {
+    if(x0===null) return;
+    const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)*1.5 && elenco.length>1) apri(corrente + (dx<0 ? 1 : -1));
+    x0=null;
+  });
+})();
+</script>
+</body>
+</html>
+
