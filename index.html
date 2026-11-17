@@ -96,7 +96,7 @@
   .lb-pagine{position:absolute;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;padding:4px 0 16px;touch-action:pan-x pan-y pinch-zoom;overscroll-behavior:contain}
   .lb-pagine img{display:block;width:100%;max-width:900px;height:auto;margin:0 auto 8px;background:#fff;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
   .lb-pagine.singola{display:flex;align-items:center;justify-content:center;padding:0}
-  .lb-pagine.singola img{width:auto;max-width:100%;max-height:100%;margin:0}
+  .lb-pagine.singola img{width:auto;max-width:100%;max-height:100%;margin:0;object-fit:contain}
   .lb-pagine.zoom{display:block}
   .lb-pagine.zoom img{width:250%;max-width:none;max-height:none;margin:0 0 8px}
   .lb-numero{position:absolute;z-index:3;top:10px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.7);color:#fff;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px;pointer-events:none;transition:opacity .3s}
@@ -207,6 +207,7 @@
       sfocata: voce.sfocata || null,
       pagine: voce.pagine && voce.pagine.length ? voce.pagine : (pdf ? [] : [url]),
       miniature: voce.miniature || [],
+      misure: voce.misure || [],
       aggiunto: voce.aggiunto ? new Date(voce.aggiunto*1000) : null
     };
   }
@@ -374,6 +375,7 @@
         const im = document.createElement('img');
         im.src = src; im.alt = v.titolo+(tot>1 ? ' – pagina '+(n+1) : '');
         im.dataset.n = n; im.decoding = 'async'; im.draggable = false;
+        if(v.misure[n]){ im.width = v.misure[n][0]; im.height = v.misure[n][1]; } // spazio giusto prima del caricamento
         if(n>1) im.loading = 'lazy';
         cont.appendChild(im);
       });

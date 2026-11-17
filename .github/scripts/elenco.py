@@ -85,7 +85,12 @@ def prepara_pdf(percorso, dest, v):
     copertina = os.path.join(dest, "copertina.jpg")
     with Image.open(copertina) as im:
         anteprima = sfocata(im)
+    misure = []
+    for f in pagine:
+        with Image.open(f) as im:
+            misure.append(list(im.size))
     return {
+        "misure": misure,
         "copertina": web(copertina, v),
         "sfocata": anteprima,
         "pagine": [web(p, v) for p in pagine],
