@@ -1,12 +1,12 @@
 // Permette di installare la pagina sul telefono e di rivedere senza rete
 // le ultime grafiche aperte. Pagina ed elenco vengono sempre presi aggiornati
 // quando c'è connessione.
-const VERSIONE = 'v3';
+const VERSIONE = 'v4';
 const BASE = 'volantini-base-' + VERSIONE;
 const GRAFICHE = 'volantini-grafiche';
 const MAX_GRAFICHE = 400;   // immagini tenute in memoria al massimo
 
-const FILE_BASE = ['./', 'index.html', 'logo.png', 'manifest.webmanifest', 'lib/page-flip.browser.js',
+const FILE_BASE = ['./', 'index.html', 'manifest.webmanifest', 'lib/page-flip.browser.js',
   'icone/icona-192.png', 'icone/apple-touch-icon.png', 'icone/favicon-32.png'];
 
 self.addEventListener('install', e => {
@@ -21,7 +21,7 @@ self.addEventListener('activate', e => {
 
 async function primaLaRete(req){
   try {
-    const r = await fetch(req, {cache: 'no-store'});
+    const r = await fetch(req, {cache: 'no-cache'});
     if(r.ok){ const c = await caches.open(BASE); c.put(req.url.split('?')[0], r.clone()); }
     return r;
   } catch(err) {
@@ -31,17 +31,35 @@ async function primaLaRete(req){
   }
 }
 
-async function primaLaMemoria(req){
+// Immagini: se già in memoria arrivano all'istante; altrimenti si mostrano mentre
+// scaricano e si salvano dopo, senza far aspettare. Una stessa immagine chiesta
+// due volte (precaricamento + pagina) si scarica una volta sola.
+const inViaggio = new Map();
+let daPulire = 0;
+async function primaLaMemoria(e){
+  const req = e.request;
   const c = await caches.match(req);
   if(c) return c;
-  const r = await fetch(req);
-  if(r.ok){
-    const cache = await caches.open(GRAFICHE);
-    await cache.put(req, r.clone());
-    const chiavi = await cache.keys();
-    for(let i = 0; i < chiavi.length - MAX_GRAFICHE; i++) await cache.delete(chiavi[i]);
+  if(inViaggio.has(req.url)) return (await inViaggio.get(req.url)).clone();
+  const p = fetch(req);
+  inViaggio.set(req.url, p);
+  try {
+    const r = await p;
+    if(r.ok){
+      const copia = r.clone();
+      e.waitUntil(caches.open(GRAFICHE).then(cache => cache.put(req, copia)).then(() => {
+        if(++daPulire % 20) return;                      // controllo dello spazio ogni tanto, non ogni volta
+        return caches.open(GRAFICHE).then(async cache => {
+          const chiavi = await cache.keys();
+          for(let i = 0; i < chiavi.length - MAX_GRAFICHE; i++) await cache.delete(chiavi[i]);
+        });
+      }).catch(() => {}).finally(() => inViaggio.delete(req.url)));
+    } else inViaggio.delete(req.url);
+    return r.clone();
+  } catch(err) {
+    inViaggio.delete(req.url);
+    throw err;
   }
-  return r;
 }
 
 self.addEventListener('fetch', e => {
@@ -53,7 +71,7 @@ self.addEventListener('fetch', e => {
   if(req.mode === 'navigate' || url.pathname.endsWith('volantini.json')){
     e.respondWith(primaLaRete(req));
   } else if(url.pathname.includes('/pagine/') || url.pathname.includes('/volantini/volantini/')){
-    e.respondWith(primaLaMemoria(req));                // indirizzi con ?v=: cambiano se cambia il file
+    e.respondWith(primaLaMemoria(e));              // indirizzi con ?v=: cambiano se cambia il file
   } else {
     e.respondWith(fetch(req).catch(() => caches.match(req)));   // logo, icone: aggiornati, ma disponibili anche senza rete
   }

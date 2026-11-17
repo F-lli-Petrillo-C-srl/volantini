@@ -28,7 +28,7 @@ PAGINE = "pagine"
 ESTENSIONI = (".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif", ".pdf")
 LARGHEZZA_HD = 2400          # px: lente, testo piccolo leggibile
 LARGHEZZA_PAGINA = 1300      # px: pagina da sfogliare, nitida sugli schermi dei telefoni
-LARGHEZZA_COPERTINA = 600
+LARGHEZZA_COPERTINA = 500   # schede: nitide su telefono, metà del peso di prima
 LARGHEZZA_MINIATURA = 160
 LARGHEZZA_SFOCATA = 24
 
