@@ -1,0 +1,16 @@
+{
+  "name": "Volantini e Promozioni · F.lli Petrillo",
+  "short_name": "Volantini",
+  "description": "Volantini, promozioni e cataloghi F.lli Petrillo & C. srl",
+  "lang": "it",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F2F6FB",
+  "theme_color": "#0085FF",
+  "icons": [
+    { "src": "icone/icona-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icone/icona-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icone/icona-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

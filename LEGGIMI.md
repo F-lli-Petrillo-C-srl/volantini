@@ -49,7 +49,8 @@ Di solito però non serve, perché le promo scadute si nascondono da sole (vedi 
 - Il titolo mostrato sotto la grafica è quello del nome del file: i trattini diventano spazi.
 - Formati accettati: **JPG, PNG, WEBP, PDF**.
 - I PDF vengono trasformati da soli in immagini (copertina nella scheda e pagine da scorrere col dito), così si leggono bene su qualsiasi telefono. Il pulsante **Scarica** dà sempre il PDF originale.
-- Le grafiche più recenti compaiono per prime. Quelle caricate negli ultimi 7 giorni hanno il badge **NUOVO**, quelle con meno di 3 giorni alla scadenza hanno il badge **ULTIMI GIORNI**.
+- Le grafiche più recenti compaiono per prime. Quelle caricate negli ultimi 7 giorni hanno il badge **NUOVO**.
+- **Offerte a scadenza:** se nel titolo c'è *Promo*, *Offerta*, *Sconti* o *Volantino* (per esempio `2026-12-01_2026-12-24_Promo-Natale.jpg`), la pagina la tratta come offerta: quella che scade prima va **In evidenza** in alto con il conto alla rovescia, e negli ultimi 3 giorni ha il badge **ULTIMI GIORNI**. Le **Novità Canvass** e i **cataloghi** non sono mai trattati come offerte in scadenza.
 - Consiglio: esporta le immagini con una larghezza di circa 1500 px. Le grafiche restano nitide e la pagina si apre in fretta anche con il 4G.
 
 ---

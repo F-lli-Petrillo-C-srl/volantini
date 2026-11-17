@@ -26,8 +26,9 @@ jobs:
         with:
           fetch-depth: 0   # serve la cronologia per sapere quando è stata caricata ogni grafica
 
-      - name: Installa il convertitore PDF
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - name: Installa i convertitori di PDF e immagini
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils python3-pil
 
       - name: Crea l'elenco delle grafiche e le pagine dei PDF
         run: python3 .github/scripts/elenco.py
@@ -35,7 +36,8 @@ jobs:
       - name: Prepara il sito
         run: |
           mkdir -p _sito
-          cp index.html volantini.json _sito/
+          cp index.html volantini.json sw.js manifest.webmanifest _sito/
+          cp -r icone _sito/
           [ -f logo.png ] && cp logo.png _sito/ || true
           cp -r volantini _sito/
           [ -d pagine ] && cp -r pagine _sito/ || true

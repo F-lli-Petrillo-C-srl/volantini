@@ -6,6 +6,13 @@
 <title>Volantini e Promozioni · F.lli Petrillo</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0085FF">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icone/favicon-32.png">
+<link rel="apple-touch-icon" href="icone/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Volantini">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>
   /* ====== COLORI DEL MARCHIO: cambia solo queste righe ====== */
   :root{
@@ -22,48 +29,94 @@
   html,body{background:var(--sfondo);color:var(--testo);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
   header{background:var(--brand);color:#fff;padding:calc(18px + env(safe-area-inset-top)) 20px 22px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px rgba(0,0,0,.15)}
   .head-in{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
-  .logo{height:30px;width:auto;max-width:100%;display:none}
+  .logo{height:30px;width:auto;max-width:100%;display:none;animation:entra .5s cubic-bezier(.2,.7,.2,1) both}
   .logo[style*="block"] + div .marchio{display:none} /* con il logo non ripete il nome */
   .marchio{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;font-weight:600}
-  h1{font-size:22px;font-weight:700;line-height:1.15}
+  h1{font-size:22px;font-weight:700;line-height:1.15;animation:entra .5s .08s cubic-bezier(.2,.7,.2,1) both}
   main{max-width:1100px;margin:0 auto;padding:20px 16px calc(40px + env(safe-area-inset-bottom))}
   .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
   @media (max-width:520px){.griglia{grid-template-columns:1fr 1fr;gap:10px} h1{font-size:19px}}
-  .card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08),0 6px 18px rgba(0,0,0,.05);cursor:pointer;display:flex;flex-direction:column;transition:transform .15s}
+
+  /* Animazione d'ingresso: le schede salgono una dopo l'altra */
+  @keyframes entra{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+  .anima{animation:entra .55s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 70ms)}
+
+  .card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08),0 6px 18px rgba(0,0,0,.05);cursor:pointer;display:flex;flex-direction:column;transition:transform .15s,box-shadow .2s}
   .card:active{transform:scale(.98)}
-  .thumb{position:relative;aspect-ratio:3/4;background:#e9e6e0;overflow:hidden}
-  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  @media (hover:hover){.card:hover{box-shadow:0 2px 6px rgba(0,0,0,.1),0 12px 28px rgba(0,98,189,.14)}}
+  .thumb{position:relative;aspect-ratio:3/4;background:#e4ebf3;overflow:hidden}
+  .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .thumb .sfoca{filter:blur(14px);transform:scale(1.15)}
+  .thumb .vera{opacity:0;transition:opacity .45s ease}
+  .thumb .vera.ok{opacity:1}
   .thumb.pdf{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--brand);font-weight:700}
   .thumb.pdf svg{width:56px;height:56px}
-  .badge{position:absolute;top:8px;left:8px;background:var(--accento);color:#1E1E1E;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+  .badge{position:absolute;z-index:1;top:8px;left:8px;background:var(--accento);color:#1E1E1E;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
   .badge.nuovo{background:var(--brand);color:#fff}
+  .tag-pdf{position:absolute;z-index:1;right:8px;bottom:8px;background:rgba(0,0,0,.65);color:#fff;font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px}
   .info{padding:10px 12px 12px}
   .titolo{font-weight:650;font-size:15px;line-height:1.25}
   .date{font-size:12.5px;color:var(--testo-soft);margin-top:4px}
+
+  /* In evidenza: solo per le offerte a scadenza */
+  .ev-etichetta,.sez{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-scuro);margin:2px 2px 10px}
+  .sez{margin-top:26px}
+  .ev-card{display:grid;grid-template-columns:minmax(120px,38%) 1fr;background:var(--card);border-radius:18px;overflow:hidden;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.08),0 14px 34px rgba(0,98,189,.16);border:2px solid var(--accento);transition:transform .15s}
+  .ev-card:active{transform:scale(.99)}
+  .ev-card .thumb{aspect-ratio:3/4}
+  .ev-info{padding:16px;display:flex;flex-direction:column;justify-content:center;gap:6px;min-width:0}
+  .ev-tit{font-size:20px;font-weight:750;line-height:1.2}
+  .conto{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:6px;background:var(--accento);color:#1E1E1E;font-weight:750;font-size:14px;padding:7px 12px;border-radius:999px}
+  .conto::before{content:"";width:8px;height:8px;border-radius:50%;background:#1E1E1E;animation:pulsa 1.4s ease-in-out infinite}
+  @keyframes pulsa{50%{opacity:.25;transform:scale(.7)}}
+  .sfoglia{margin-top:10px;align-self:flex-start;background:var(--brand);color:#fff;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px}
+  @media (min-width:700px){.ev-card{grid-template-columns:260px 1fr}.ev-tit{font-size:26px}.ev-info{padding:24px 28px}}
+
   .vuoto,.errore{text-align:center;color:var(--testo-soft);padding:60px 20px;font-size:16px;line-height:1.5}
   .caricamento{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-  .sk{aspect-ratio:3/4;border-radius:14px;background:linear-gradient(90deg,#e9e6e0 25%,#f2efe9 50%,#e9e6e0 75%);background-size:200% 100%;animation:sk 1.2s infinite}
+  @media (max-width:520px){.caricamento{grid-template-columns:1fr 1fr;gap:10px}}
+  .sk{aspect-ratio:3/4;border-radius:14px;background:linear-gradient(90deg,#e4ebf3 25%,#eef3f9 50%,#e4ebf3 75%);background-size:200% 100%;animation:sk 1.2s infinite}
   @keyframes sk{to{background-position:-200% 0}}
 
   /* Visualizzatore a schermo intero */
   .lb{position:fixed;inset:0;background:#0d0d0d;z-index:20;display:none;flex-direction:column}
   .lb.aperto{display:flex}
+  .lb.entra{animation:lbEntra .3s cubic-bezier(.2,.7,.2,1) both}
+  .lb.esce{animation:lbEsce .2s ease-in both}
+  @keyframes lbEntra{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:none}}
+  @keyframes lbEsce{to{opacity:0;transform:scale(.92)}}
   .lb-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(10px + env(safe-area-inset-top)) 12px 10px;color:#fff}
   .lb-tit{font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .lb-sub{font-size:12px;opacity:.7}
   .btn{background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:999px;height:40px;min-width:40px;padding:0 14px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;text-decoration:none}
   .btn svg{width:20px;height:20px}
   .lb-azioni{display:flex;gap:8px;flex-shrink:0}
-  .lb-corpo{flex:1;position:relative;overflow:hidden;touch-action:pan-y pinch-zoom}
-  .lb-corpo img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;object-fit:contain}
+  .lb-corpo{flex:1;position:relative;overflow:hidden}
   .lb-corpo iframe{width:100%;height:100%;border:0;background:#fff}
-  .lb-pagine{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 0 16px}
-  .lb-corpo .lb-pagine img{position:static;display:block;width:100%;max-width:900px;height:auto;max-height:none;margin:0 auto 8px;background:#fff}
-  .tag-pdf{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.65);color:#fff;font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px}
+  .lb-pagine{position:absolute;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;padding:4px 0 16px;touch-action:pan-x pan-y pinch-zoom;overscroll-behavior:contain}
+  .lb-pagine img{display:block;width:100%;max-width:900px;height:auto;margin:0 auto 8px;background:#fff;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+  .lb-pagine.singola{display:flex;align-items:center;justify-content:center;padding:0}
+  .lb-pagine.singola img{width:auto;max-width:100%;max-height:100%;margin:0}
+  .lb-pagine.zoom{display:block}
+  .lb-pagine.zoom img{width:250%;max-width:none;max-height:none;margin:0 0 8px}
+  .lb-numero{position:absolute;z-index:3;top:10px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.7);color:#fff;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px;pointer-events:none;transition:opacity .3s}
+  .lb-numero:empty{opacity:0}
+  .lb-aiuto{position:absolute;z-index:3;left:50%;bottom:18px;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:13.5px;font-weight:600;padding:9px 14px;border-radius:999px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .35s}
+  .lb-aiuto.vedi{opacity:1}
+  .lb-mini{display:flex;gap:8px;overflow-x:auto;padding:8px 12px 2px;scrollbar-width:none}
+  .lb-mini::-webkit-scrollbar{display:none}
+  .lb-mini:empty{display:none}
+  .lb-mini button{flex:0 0 auto;width:48px;aspect-ratio:3/4;border:2px solid transparent;border-radius:6px;overflow:hidden;padding:0;background:#222;cursor:pointer;opacity:.55;transition:opacity .2s,border-color .2s}
+  .lb-mini button img{width:100%;height:100%;object-fit:cover;display:block}
+  .lb-mini button.attiva{opacity:1;border-color:var(--brand)}
   .nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
   .nav.prev{left:10px}.nav.next{right:10px}
   @media (hover:none){.nav{display:none}}
   .lb-conta{color:#fff;opacity:.6;text-align:center;font-size:12px;padding:8px 0 calc(10px + env(safe-area-inset-bottom))}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before{animation:none!important;transition:none!important}
+  }
 </style>
 </head>
 <body>
@@ -104,7 +157,10 @@
   <div class="lb-corpo" id="lbCorpo">
     <button class="btn nav prev" id="lbPrev" aria-label="Precedente">‹</button>
     <button class="btn nav next" id="lbNext" aria-label="Successivo">›</button>
+    <div class="lb-numero" id="lbNumero"></div>
+    <div class="lb-aiuto" id="lbAiuto">Tocca due volte per ingrandire</div>
   </div>
+  <div class="lb-mini" id="lbMini"></div>
   <div class="lb-conta" id="lbConta"></div>
 </div>
 
@@ -113,9 +169,13 @@
   const CARTELLA = 'volantini/';
   const GIORNI_NUOVO = 7;          // badge "Nuovo" per le grafiche caricate da meno di N giorni
   const GIORNI_ULTIMI = 3;         // badge "Ultimi giorni" quando mancano N giorni alla scadenza
+  // Solo queste sono offerte a scadenza (conto alla rovescia, "In evidenza", "Ultimi giorni").
+  // Le Novità Canvass e i cataloghi non lo sono mai.
+  const OFFERTA = /promo|offert|scont|volantin/i;
   const IMG = /\.(jpe?g|png|webp|gif|avif)$/i;
   const PDF = /\.pdf$/i;
   const MESI = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+  const ZOOM_AIUTO = 'volantini-aiuto-zoom';
 
   const oggi = new Date(); oggi.setHours(0,0,0,0);
   const $ = id => document.getElementById(id);
@@ -138,12 +198,15 @@
     if(parti.length>=3 && data(parti[0]) && data(parti[1])){ dal=data(parti[0]); al=data(parti[1]); parti.splice(0,2); }
     else if(parti.length>=2 && data(parti[0])){ al=data(parti[0]); parti.splice(0,1); }
     const titolo = parti.join(' ').replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim() || 'Promozione';
+    const url = CARTELLA + encodeURIComponent(nome);
+    const pdf = PDF.test(nome);
     return {
-      url: CARTELLA + encodeURIComponent(nome),
-      nome, titolo, dal, al,
-      pdf: PDF.test(nome),
-      copertina: voce.copertina || null,
-      pagine: voce.pagine || [],
+      url, nome, titolo, dal, al, pdf,
+      offerta: OFFERTA.test(titolo) && !/novit/i.test(titolo),
+      copertina: voce.copertina || (pdf ? null : url),
+      sfocata: voce.sfocata || null,
+      pagine: voce.pagine && voce.pagine.length ? voce.pagine : (pdf ? [] : [url]),
+      miniature: voce.miniature || [],
       aggiunto: voce.aggiunto ? new Date(voce.aggiunto*1000) : null
     };
   }
@@ -153,9 +216,18 @@
     if(v.al) return 'Valido fino al '+fmt(v.al);
     return '';
   }
+  function giorniRimasti(v){ return Math.round((v.al - oggi)/864e5); }
+  function scadeTra(v){
+    const gg = giorniRimasti(v);
+    if(gg>=2) return 'Scade tra '+gg+' giorni';
+    if(gg===1) return 'Scade domani';
+    const fine = new Date(v.al); fine.setHours(23,59,59,999);
+    const ms = Math.max(0, fine - Date.now()), h = Math.floor(ms/36e5), m = Math.floor(ms%36e5/6e4);
+    return 'Ultimo giorno · ancora '+(h ? h+' h ' : '')+m+' min';
+  }
   function badge(v){
-    if(v.al){
-      const gg = Math.round((v.al - oggi)/864e5);
+    if(v.offerta && v.al){
+      const gg = giorniRimasti(v);
       if(gg===0) return ['Ultimo giorno',''];
       if(gg<=GIORNI_ULTIMI) return ['Ultimi giorni',''];
     }
@@ -183,6 +255,16 @@
 
   const ICONA_PDF = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/></svg>';
 
+  // Apre il riquadro dell'anteprima (va chiuso da chi la usa, dopo l'eventuale badge)
+  function anteprima(v){
+    if(!v.copertina) return '<div class="thumb pdf">'+ICONA_PDF+'<span>PDF</span>';
+    const n = v.pagine.length;
+    return '<div class="thumb">'+
+      (v.sfocata ? '<img class="sfoca" src="'+v.sfocata+'" alt="" aria-hidden="true">' : '')+
+      '<img class="vera" loading="lazy" decoding="async" src="'+v.copertina+'" alt="'+esc(v.titolo)+'" onload="this.classList.add(\'ok\')">'+
+      (v.pdf && n ? '<span class="tag-pdf">PDF · '+n+(n===1?' pagina':' pagine')+'</span>' : '');
+  }
+
   function disegna(){
     const c = $('contenuto');
     if(!elenco.length){
@@ -190,55 +272,153 @@
       c.innerHTML='Al momento non ci sono promozioni attive.<br>Torna a trovarci presto!';
       return;
     }
-    c.className='griglia';
-    c.innerHTML = elenco.map((v,i) => {
+    // In evidenza: l'offerta a scadenza più vicina (mai Novità o cataloghi)
+    let iEv = -1;
+    elenco.forEach((v,i) => { if(v.offerta && v.al && (iEv<0 || v.al < elenco[iEv].al)) iEv = i; });
+
+    let html = '', k = 0;
+    if(iEv >= 0){
+      const v = elenco[iEv];
+      html += '<section class="anima" style="--i:0"><div class="ev-etichetta">In evidenza</div>'+
+        '<article class="ev-card" data-i="'+iEv+'">'+anteprima(v)+'</div>'+
+        '<div class="ev-info"><div class="ev-tit">'+esc(v.titolo)+'</div>'+
+        (testoDate(v) ? '<div class="date">'+testoDate(v)+'</div>' : '')+
+        '<div class="conto" data-i="'+iEv+'">'+scadeTra(v)+'</div>'+
+        '<span class="sfoglia">'+(v.pdf ? 'Sfoglia' : 'Guarda')+' →</span></div></article></section>';
+      if(elenco.length > 1) html += '<div class="sez anima" style="--i:1">Volantini e cataloghi</div>';
+      k = 2;
+    }
+    html += '<div class="griglia">'+elenco.map((v,i) => {
+      if(i===iEv) return '';
       const b = badge(v), d = testoDate(v);
-      return '<article class="card" data-i="'+i+'">'+
-        (v.pdf && v.copertina
-          ? '<div class="thumb"><img loading="lazy" src="'+v.copertina+'" alt="'+esc(v.titolo)+'"><span class="tag-pdf">PDF · '+v.pagine.length+(v.pagine.length===1?' pagina':' pagine')+'</span>'
-          : v.pdf
-          ? '<div class="thumb pdf">'+ICONA_PDF+'<span>PDF</span>'
-          : '<div class="thumb"><img loading="lazy" src="'+v.url+'" alt="'+esc(v.titolo)+'">')+
+      return '<article class="card anima" style="--i:'+(k++)+'" data-i="'+i+'">'+anteprima(v)+
         (b ? '<span class="badge '+b[1]+'">'+b[0]+'</span>' : '')+
         '</div><div class="info"><div class="titolo">'+esc(v.titolo)+'</div>'+
         (d ? '<div class="date">'+d+'</div>' : '')+'</div></article>';
-    }).join('');
-    c.querySelectorAll('.card').forEach(el => el.addEventListener('click', () => apri(+el.dataset.i)));
+    }).join('')+'</div>';
+
+    c.className=''; c.innerHTML = html;
+    c.querySelectorAll('img.vera').forEach(im => { if(im.complete && im.naturalWidth) im.classList.add('ok'); });
+    c.querySelectorAll('article[data-i]').forEach(el => el.addEventListener('click', () => apri(+el.dataset.i, el)));
+    if(iEv >= 0) setInterval(() => c.querySelectorAll('.conto').forEach(el => el.textContent = scadeTra(elenco[+el.dataset.i])), 30000);
   }
 
   // ===== Visualizzatore =====
-  let corrente = 0;
-  const lb = $('lb'), corpo = $('lbCorpo');
+  let corrente = 0, osservatore = null, timerAiuto = null;
+  const lb = $('lb'), corpo = $('lbCorpo'), mini = $('lbMini');
   if(navigator.share) $('lbCondividi').style.display='inline-flex';
 
-  function apri(i){
+  function pulisci(){
+    if(osservatore){ osservatore.disconnect(); osservatore = null; }
+    corpo.querySelectorAll('iframe,.lb-pagine').forEach(n => n.remove());
+    mini.innerHTML = ''; $('lbNumero').textContent = '';
+  }
+
+  function segnaPagina(n, tot){
+    $('lbNumero').textContent = 'Pagina '+(n+1)+' di '+tot;
+    const bott = mini.children[n];
+    mini.querySelectorAll('.attiva').forEach(b => b.classList.remove('attiva'));
+    if(bott){
+      bott.classList.add('attiva');
+      mini.scrollTo({left: bott.offsetLeft - mini.clientWidth/2 + bott.offsetWidth/2, behavior:'smooth'});
+    }
+  }
+
+  // Doppio tocco (o doppio clic): ingrandisce nel punto toccato, di nuovo per tornare
+  function ingrandisci(cont, x, y){
+    const r = cont.getBoundingClientRect(), px = x - r.left, py = y - r.top;
+    const rx = (cont.scrollLeft + px) / cont.scrollWidth, ry = (cont.scrollTop + py) / cont.scrollHeight;
+    cont.classList.toggle('zoom');
+    cont.scrollLeft = rx * cont.scrollWidth - px;
+    cont.scrollTop = ry * cont.scrollHeight - py;
+    nascondiAiuto();
+  }
+  function gestisciZoom(cont){
+    let ultimo = 0, ux = 0, uy = 0, sx = 0, sy = 0;
+    cont.addEventListener('touchstart', e => { if(e.touches.length===1){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; } }, {passive:true});
+    cont.addEventListener('touchend', e => {
+      if(e.touches.length || e.changedTouches.length !== 1) return;
+      const t = e.changedTouches[0];
+      if(Math.hypot(t.clientX - sx, t.clientY - sy) > 12){ ultimo = 0; return; }   // era uno scorrimento
+      const ora = Date.now();
+      if(ora - ultimo < 320 && Math.hypot(t.clientX - ux, t.clientY - uy) < 40){
+        e.preventDefault(); ultimo = 0; ingrandisci(cont, t.clientX, t.clientY);
+      } else { ultimo = ora; ux = t.clientX; uy = t.clientY; }
+    }, {passive:false});
+    cont.addEventListener('dblclick', e => ingrandisci(cont, e.clientX, e.clientY));
+  }
+
+  function mostraAiuto(){
+    let visto = false;
+    try { visto = localStorage.getItem(ZOOM_AIUTO) === '1'; } catch(e){}
+    if(visto) return;
+    $('lbAiuto').classList.add('vedi');
+    timerAiuto = setTimeout(nascondiAiuto, 3500);
+  }
+  function nascondiAiuto(){
+    clearTimeout(timerAiuto);
+    if(!$('lbAiuto').classList.contains('vedi')) return;
+    $('lbAiuto').classList.remove('vedi');
+    try { localStorage.setItem(ZOOM_AIUTO, '1'); } catch(e){}
+  }
+
+  function apri(i, daEl){
     corrente = (i + elenco.length) % elenco.length;
     const v = elenco[corrente];
-    corpo.querySelectorAll('img,iframe,.lb-pagine').forEach(n => n.remove());
-    let el;
-    if(v.pdf && v.pagine.length){ // PDF già convertito in immagini: funziona su ogni telefono
-      el = document.createElement('div'); el.className = 'lb-pagine';
+    pulisci();
+    const tot = v.pagine.length;
+    if(tot){
+      const cont = document.createElement('div');
+      cont.className = 'lb-pagine' + (tot===1 ? ' singola' : '');
       v.pagine.forEach((src,n) => {
         const im = document.createElement('img');
-        im.src = src; im.alt = v.titolo+' – pagina '+(n+1); if(n>1) im.loading = 'lazy';
-        el.appendChild(im);
+        im.src = src; im.alt = v.titolo+(tot>1 ? ' – pagina '+(n+1) : '');
+        im.dataset.n = n; im.decoding = 'async'; im.draggable = false;
+        if(n>1) im.loading = 'lazy';
+        cont.appendChild(im);
       });
+      corpo.appendChild(cont);
+      gestisciZoom(cont);
+      if(tot > 1){
+        osservatore = new IntersectionObserver(voci => voci.forEach(x => { if(x.isIntersecting) segnaPagina(+x.target.dataset.n, tot); }),
+          {root: cont, rootMargin: '-45% 0px -45% 0px'});
+        cont.querySelectorAll('img').forEach(im => osservatore.observe(im));
+        if(v.miniature.length === tot){
+          v.miniature.forEach((src,n) => {
+            const b = document.createElement('button');
+            b.setAttribute('aria-label', 'Vai alla pagina '+(n+1));
+            b.innerHTML = '<img loading="lazy" src="'+src+'" alt="">';
+            b.onclick = () => { const im = cont.children[n]; cont.scrollTo({top: im.offsetTop - 4, behavior:'smooth'}); };
+            mini.appendChild(b);
+          });
+        }
+        segnaPagina(0, tot);
+      }
     } else {
-      el = document.createElement(v.pdf ? 'iframe' : 'img');
-      el.src = v.url; if(!v.pdf) el.alt = v.titolo;
+      const fr = document.createElement('iframe'); fr.src = v.url; corpo.appendChild(fr);
     }
-    corpo.appendChild(el);
     $('lbTit').textContent = v.titolo;
-    $('lbSub').textContent = [testoDate(v), v.pagine.length>1 ? v.pagine.length+' pagine' : ''].filter(Boolean).join(' · ');
+    $('lbSub').textContent = [testoDate(v), tot>1 ? tot+' pagine' : ''].filter(Boolean).join(' · ');
     $('lbScarica').href = v.url; $('lbScarica').setAttribute('download', v.nome);
     $('lbConta').textContent = elenco.length>1 ? (corrente+1)+' di '+elenco.length : '';
     $('lbPrev').style.visibility = $('lbNext').style.visibility = elenco.length>1 ? 'visible' : 'hidden';
-    if(!lb.classList.contains('aperto')){ lb.classList.add('aperto'); document.body.style.overflow='hidden'; history.pushState({lb:1},''); }
+    if(!lb.classList.contains('aperto')){
+      if(daEl){ // si apre "uscendo" dalla scheda toccata
+        const r = daEl.getBoundingClientRect();
+        lb.style.transformOrigin = (r.left + r.width/2)+'px '+(r.top + r.height/2)+'px';
+      }
+      lb.classList.add('aperto','entra');
+      setTimeout(() => lb.classList.remove('entra'), 320);
+      document.body.style.overflow='hidden'; history.pushState({lb:1},'');
+      if(tot && matchMedia('(hover:none)').matches) mostraAiuto();
+    }
   }
   function chiudi(daStoria){
-    if(!lb.classList.contains('aperto')) return;
-    lb.classList.remove('aperto'); document.body.style.overflow='';
-    corpo.querySelectorAll('img,iframe,.lb-pagine').forEach(n => n.remove());
+    if(!lb.classList.contains('aperto') || lb.classList.contains('esce')) return;
+    nascondiAiuto();
+    lb.classList.add('esce');
+    setTimeout(() => { lb.classList.remove('aperto','esce'); pulisci(); }, 190);
+    document.body.style.overflow='';
     if(!daStoria) history.back();
   }
   $('lbChiudi').onclick = () => chiudi();
@@ -255,17 +435,22 @@
     if(e.key==='ArrowLeft') apri(corrente-1);
     if(e.key==='ArrowRight') apri(corrente+1);
   });
-  // scorrimento con il dito
+  // scorrimento laterale con il dito: grafica precedente/successiva (non quando è ingrandita)
   let x0=null, y0=null;
-  corpo.addEventListener('touchstart', e => { if(e.touches.length===1){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; } }, {passive:true});
+  corpo.addEventListener('touchstart', e => { if(e.touches.length===1){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; } else x0=null; }, {passive:true});
   corpo.addEventListener('touchend', e => {
-    if(x0===null) return;
+    const pizzicato = window.visualViewport && visualViewport.scale > 1.05;
+    if(x0===null || pizzicato || corpo.querySelector('.lb-pagine.zoom')) { x0=null; return; }
     const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
-    if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)*1.5 && elenco.length>1) apri(corrente + (dx<0 ? 1 : -1));
+    if(Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)*1.8 && elenco.length>1) apri(corrente + (dx<0 ? 1 : -1));
     x0=null;
   });
+
+  // Installabile sul telefono e consultabile anche senza rete
+  if('serviceWorker' in navigator && location.protocol === 'https:'){
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
+  }
 })();
 </script>
 </body>
 </html>
-
