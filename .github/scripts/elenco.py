@@ -2,9 +2,10 @@
 e la data in cui ciascuno è stato caricato (dalla cronologia git).
 
 Per ogni grafica ancora valida prepara anche, in pagine/<nome>/:
-  - copertina.jpg       anteprima leggera per la scheda
-  - p-N.jpg             le pagine dei PDF, leggibili su qualsiasi telefono
-  - m-N.jpg             le miniature delle pagine per il visualizzatore
+  - copertina.webp      anteprima leggera per la scheda
+  - p-N.webp            le pagine dei PDF da sfogliare (nitide su ogni telefono)
+  - hd-N.webp           le stesse pagine in alta definizione, caricate solo dalla lente
+  - m-N.webp            le miniature delle pagine
   - un'anteprima minuscola (sfocata) scritta direttamente nel JSON
 """
 import base64
@@ -14,20 +15,25 @@ import io
 import json
 import os
 import re
+import shutil
 import subprocess
+import tempfile
 import unicodedata
 from urllib.parse import quote
 
-from PIL import Image
+from PIL import Image, features
 
 CARTELLA = "volantini"
 PAGINE = "pagine"
 ESTENSIONI = (".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif", ".pdf")
-LARGHEZZA_PAGINA = 1400      # px: nitida anche ingrandita, leggera col 4G
-LARGHEZZA_COPERTINA = 500
-LARGHEZZA_MINIATURA = 140
+LARGHEZZA_HD = 2400          # px: lente, testo piccolo leggibile
+LARGHEZZA_PAGINA = 1300      # px: pagina da sfogliare, nitida sugli schermi dei telefoni
+LARGHEZZA_COPERTINA = 600
+LARGHEZZA_MINIATURA = 160
 LARGHEZZA_SFOCATA = 24
 
+WEBP = features.check("webp")
+EST = "webp" if WEBP else "jpg"
 oggi = datetime.date.today()
 
 
@@ -60,6 +66,18 @@ def web(percorso, versione):
     return percorso.replace(os.sep, "/") + f"?v={versione}"
 
 
+def salva(img, percorso, larghezza, qualita):
+    """Ridimensiona alla larghezza voluta (mai ingrandire) e salva in WebP (o JPG)."""
+    img = img.convert("RGB")
+    if img.width > larghezza:
+        img = img.resize((larghezza, round(img.height * larghezza / img.width)), Image.LANCZOS)
+    if WEBP:
+        img.save(percorso, "WEBP", quality=qualita, method=6)
+    else:
+        img.save(percorso, "JPEG", quality=qualita, optimize=True, progressive=True)
+    return img.size
+
+
 def sfocata(img):
     """Anteprima minuscola in base64: compare subito, poi arriva quella vera."""
     img = img.convert("RGB")
@@ -69,46 +87,55 @@ def sfocata(img):
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
-def pdftoppm(*argomenti):
-    subprocess.run(["pdftoppm", "-jpeg", "-jpegopt", "quality=80,progressive=y", *argomenti],
-                   check=True)
-
-
 def prepara_pdf(percorso, dest, v):
-    pdftoppm("-scale-to", str(LARGHEZZA_PAGINA), percorso, os.path.join(dest, "p"))
-    pdftoppm("-scale-to", str(LARGHEZZA_MINIATURA), percorso, os.path.join(dest, "m"))
-    pdftoppm("-f", "1", "-l", "1", "-singlefile", "-scale-to", str(LARGHEZZA_COPERTINA),
-             percorso, os.path.join(dest, "copertina"))
-    ordina = lambda f: int(re.search(r"-(\d+)\.jpg$", f).group(1))
-    pagine = sorted(glob.glob(os.path.join(dest, "p-*.jpg")), key=ordina)
-    mini = sorted(glob.glob(os.path.join(dest, "m-*.jpg")), key=ordina)
-    copertina = os.path.join(dest, "copertina.jpg")
-    with Image.open(copertina) as im:
-        anteprima = sfocata(im)
-    misure = []
-    for f in pagine:
-        with Image.open(f) as im:
-            misure.append(list(im.size))
+    tmp = tempfile.mkdtemp()
+    try:
+        # una sola resa ad alta risoluzione (PNG senza perdite), da cui si ricavano tutte le misure
+        subprocess.run(["pdftoppm", "-png", "-scale-to", str(LARGHEZZA_HD), percorso,
+                        os.path.join(tmp, "r")], check=True)
+        rese = sorted(glob.glob(os.path.join(tmp, "r-*.png")),
+                      key=lambda f: int(re.search(r"-(\d+)\.png$", f).group(1)))
+        pagine, hd, mini, misure = [], [], [], []
+        for n, f in enumerate(rese, 1):
+            with Image.open(f) as im:
+                im.load()
+                p_hd = os.path.join(dest, f"hd-{n}.{EST}")
+                p_pag = os.path.join(dest, f"p-{n}.{EST}")
+                p_min = os.path.join(dest, f"m-{n}.{EST}")
+                salva(im, p_hd, LARGHEZZA_HD, 78)
+                misure.append(list(salva(im, p_pag, LARGHEZZA_PAGINA, 84)))
+                salva(im, p_min, LARGHEZZA_MINIATURA, 70)
+                if n == 1:
+                    copertina = os.path.join(dest, f"copertina.{EST}")
+                    salva(im, copertina, LARGHEZZA_COPERTINA, 80)
+                    anteprima = sfocata(im)
+            hd.append(web(p_hd, v)); pagine.append(web(p_pag, v)); mini.append(web(p_min, v))
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
     return {
-        "misure": misure,
         "copertina": web(copertina, v),
         "sfocata": anteprima,
-        "pagine": [web(p, v) for p in pagine],
-        "miniature": [web(m, v) for m in mini],
+        "pagine": pagine,
+        "hd": hd,
+        "miniature": mini,
+        "misure": misure,
     }
 
 
 def prepara_immagine(percorso, nome, dest, v):
-    copertina = os.path.join(dest, "copertina.jpg")
+    copertina = os.path.join(dest, f"copertina.{EST}")
+    pagina = os.path.join(dest, f"p-1.{EST}")
     with Image.open(percorso) as im:
+        im.load()
         anteprima = sfocata(im.copy())
-        im = im.convert("RGB")
-        im.thumbnail((LARGHEZZA_COPERTINA, LARGHEZZA_COPERTINA * 3))
-        im.save(copertina, "JPEG", quality=80, progressive=True)
+        salva(im, copertina, LARGHEZZA_COPERTINA, 80)
+        misura = salva(im, pagina, LARGHEZZA_PAGINA, 84)
     return {
         "copertina": web(copertina, v),
         "sfocata": anteprima,
-        "pagine": [f"{CARTELLA}/{quote(nome)}?v={v}"],
+        "pagine": [web(pagina, v)],
+        "hd": [f"{CARTELLA}/{quote(nome)}?v={v}"],   # la lente usa l'originale
+        "misure": [list(misura)],
     }
 
 
@@ -140,4 +167,4 @@ for nome in sorted(os.listdir(CARTELLA)):
 with open("volantini.json", "w", encoding="utf-8") as f:
     json.dump(voci, f, ensure_ascii=False, indent=1)
 
-print(f"{len(voci)} grafiche trovate")
+print(f"{len(voci)} grafiche trovate ({EST})")

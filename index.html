@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Volantini e Promozioni · F.lli Petrillo</title>
+<title>Volantini e Promozioni · F.lli Petrillo &amp; C. srl</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0085FF">
 <link rel="manifest" href="manifest.webmanifest">
@@ -30,7 +30,7 @@
   header{background:var(--brand);color:#fff;padding:calc(18px + env(safe-area-inset-top)) 20px 22px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px rgba(0,0,0,.15)}
   .head-in{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
   .logo-box{position:relative;display:inline-block;max-width:100%}
-  .logo{height:30px;width:auto;max-width:100%;display:none;animation:rivela .9s cubic-bezier(.3,.7,.2,1) both}
+  .logo{height:30px;width:auto;max-width:100%;object-fit:contain;object-position:left center;display:none;animation:rivela .9s cubic-bezier(.3,.7,.2,1) both}
   .logo-box.pronto + div .marchio{display:none} /* con il logo non ripete il nome */
   @keyframes rivela{from{clip-path:inset(0 100% 0 0);opacity:.2;translate:-8px 0}to{clip-path:inset(0 0 0 0);opacity:1;translate:0 0}}
   .luccichio{position:absolute;inset:0;pointer-events:none;display:none;
@@ -107,8 +107,9 @@
   /* Libro da sfogliare */
   .lb-libro{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
   .lb-libro .libro{filter:drop-shadow(0 8px 22px rgba(0,40,90,.22))}
-  .lb-libro .pagina{background:#fff;overflow:hidden}
-  .lb-libro .pagina img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;-webkit-user-select:none}
+  .lb-libro .pagina{background:#fff center/100% 100% no-repeat;overflow:hidden}
+  .lb-libro .pagina img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;user-select:none;-webkit-user-select:none;opacity:0;transition:opacity .25s}
+  .lb-libro .pagina img.ok{opacity:1}
   /* Pagina singola o immagine */
   .lb-pagine{position:absolute;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;padding:12px 0 16px;touch-action:pan-x pan-y pinch-zoom;overscroll-behavior:contain}
   .lb-pagine img{display:block;width:100%;max-width:900px;height:auto;margin:0 auto 12px;background:#fff;box-shadow:0 6px 20px rgba(0,40,90,.16);user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
@@ -144,9 +145,9 @@
 <body>
 <header>
   <div class="head-in">
-    <div class="logo-box"><img class="logo" src="logo.png" alt="F.lli Petrillo" onload="this.style.display='block';this.parentNode.classList.add('pronto')"><span class="luccichio" aria-hidden="true"></span><span class="tricolore" aria-hidden="true"></span></div>
+    <div class="logo-box"><img class="logo" src="logo.png" alt="F.lli Petrillo &amp; C. srl" onload="this.style.display='block';this.parentNode.classList.add('pronto')"><span class="luccichio" aria-hidden="true"></span><span class="tricolore" aria-hidden="true"></span></div>
     <div>
-      <div class="marchio">F.lli Petrillo</div>
+      <div class="marchio">F.lli Petrillo &amp; C. srl</div>
       <h1>Volantini e Promozioni</h1>
     </div>
   </div>
@@ -230,6 +231,7 @@
       pagine: voce.pagine && voce.pagine.length ? voce.pagine : (pdf ? [] : [url]),
       miniature: voce.miniature || [],
       misure: voce.misure || [],
+      hd: voce.hd || [],
       aggiunto: voce.aggiunto ? new Date(voce.aggiunto*1000) : null
     };
   }
@@ -323,8 +325,20 @@
 
     c.className=''; c.innerHTML = html;
     c.querySelectorAll('img.vera').forEach(im => { if(im.complete && im.naturalWidth) im.classList.add('ok'); });
-    c.querySelectorAll('article[data-i]').forEach(el => el.addEventListener('click', () => apri(+el.dataset.i, el)));
+    c.querySelectorAll('article[data-i]').forEach(el => {
+      el.addEventListener('click', () => apri(+el.dataset.i, el));
+      el.addEventListener('pointerdown', () => precarica(elenco[+el.dataset.i]), {passive:true});
+      el.addEventListener('mouseenter', () => precarica(elenco[+el.dataset.i]));
+    });
     if(iEv >= 0) setInterval(() => c.querySelectorAll('.conto').forEach(el => el.textContent = scadeTra(elenco[+el.dataset.i])), 30000);
+  }
+
+  // Le prime pagine partono appena il dito tocca la scheda: all'apertura sono già pronte
+  const giaPrecaricate = new Set();
+  function precarica(v){
+    if(!v || giaPrecaricate.has(v.url)) return;
+    giaPrecaricate.add(v.url);
+    v.pagine.slice(0, 2).forEach((src, n) => { const im = new Image(); if(n===0) im.fetchPriority = 'high'; im.src = src; });
   }
 
   // ===== Visualizzatore =====
@@ -393,10 +407,16 @@
 
   // ----- Libro da sfogliare (PDF con più pagine)
   function caricaVicine(n){
-    for(let k = Math.max(0, n-1); k <= n+3 && k < pagineLibro.length; k++){
-      const im = pagineLibro[k].querySelector('img');
-      if(!im.getAttribute('src')) im.src = im.dataset.src;
-    }
+    const carica = (k, alta) => {
+      const d = pagineLibro[k]; if(!d) return null;
+      const im = d.querySelector('img');
+      if(!im.getAttribute('src')){ if(alta) im.fetchPriority = 'high'; im.src = im.dataset.src; }
+      return im;
+    };
+    // prima la pagina visibile (e quella accanto), poi le successive
+    const ora = carica(n, true); carica(n+1, true);
+    const resto = () => { carica(n+2); carica(n+3); carica(n-1); };
+    if(ora && !ora.complete){ ora.addEventListener('load', resto, {once:true}); setTimeout(resto, 600); } else resto();
   }
   function costruisciLibro(v, inizio){
     if(libro){ try { libro.destroy(); } catch(e){} libro = null; }
@@ -412,7 +432,10 @@
     el.style.width = (affiancate ? 2*lw : lw)+'px'; el.style.height = lh+'px';
     pagineLibro = v.pagine.map((src, n) => {
       const d = document.createElement('div'); d.className = 'pagina'; d.dataset.density = 'soft';
+      const anteprima = n===0 ? v.copertina : v.miniature[n];          // già in memoria: compare all'istante
+      if(anteprima) d.style.backgroundImage = 'url("'+anteprima+'")';
       const im = document.createElement('img'); im.dataset.src = src; im.alt = v.titolo+' – pagina '+(n+1); im.decoding = 'async';
+      im.onload = () => im.classList.add('ok');
       d.appendChild(im); el.appendChild(d); return d;
     });
     wrap.appendChild(el);
@@ -437,6 +460,7 @@
     nascondiAiuto();
     const l = document.createElement('div'); l.className = 'lente';
     const im = document.createElement('img'); im.src = v.pagine[n]; im.alt = v.titolo+' – pagina '+(n+1);
+    if(v.hd[n] && v.hd[n] !== v.pagine[n]){ const hd = new Image(); hd.onload = () => { if(im.isConnected) im.src = hd.src; }; hd.src = v.hd[n]; }
     if(v.misure[n]){ im.width = v.misure[n][0]; im.height = v.misure[n][1]; }
     l.appendChild(im);
     const x = document.createElement('button'); x.className = 'btn lente-chiudi'; x.setAttribute('aria-label','Chiudi ingrandimento');
@@ -486,11 +510,14 @@
         im.src = src; im.alt = v.titolo+(tot>1 ? ' – pagina '+(n+1) : '');
         im.dataset.n = n; im.decoding = 'async'; im.draggable = false;
         if(v.misure[n]){ im.width = v.misure[n][0]; im.height = v.misure[n][1]; } // spazio giusto prima del caricamento
-        if(n>1) im.loading = 'lazy';
+        if(n>1) im.loading = 'lazy'; else im.fetchPriority = 'high';
         cont.appendChild(im);
       });
       corpo.appendChild(cont);
-      doppioTocco(cont, (x,y) => ingrandisci(cont, x, y));
+      doppioTocco(cont, (x,y) => {
+        if(tot===1 && v.hd[0] && v.hd[0] !== v.pagine[0]){ const im = cont.querySelector('img'); if(!im.dataset.hd){ im.dataset.hd = 1; const hd = new Image(); hd.onload = () => { if(im.isConnected) im.src = hd.src; }; hd.src = v.hd[0]; } }
+        ingrandisci(cont, x, y);
+      });
       if(tot > 1){ // riserva: pagine in colonna se la libreria non si carica
         osservatore = new IntersectionObserver(voci => voci.forEach(x => { if(x.isIntersecting) segnaPagina(+x.target.dataset.n, tot); }),
           {root: cont, rootMargin: '-45% 0px -45% 0px'});
@@ -524,7 +551,7 @@
   $('lbNext').onclick = avanti;
   $('lbCondividi').onclick = () => {
     const v = elenco[corrente];
-    navigator.share({title:v.titolo, text:'F.lli Petrillo – '+v.titolo, url:new URL(v.url, location.href).href}).catch(()=>{});
+    navigator.share({title:v.titolo, text:'F.lli Petrillo & C. srl – '+v.titolo, url:new URL(v.url, location.href).href}).catch(()=>{});
   };
   window.addEventListener('popstate', () => chiudi(true)); // tasto "indietro" del telefono chiude il visualizzatore
   document.addEventListener('keydown', e => {

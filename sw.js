@@ -1,7 +1,7 @@
 // Permette di installare la pagina sul telefono e di rivedere senza rete
 // le ultime grafiche aperte. Pagina ed elenco vengono sempre presi aggiornati
 // quando c'è connessione.
-const VERSIONE = 'v2';
+const VERSIONE = 'v3';
 const BASE = 'volantini-base-' + VERSIONE;
 const GRAFICHE = 'volantini-grafiche';
 const MAX_GRAFICHE = 400;   // immagini tenute in memoria al massimo
