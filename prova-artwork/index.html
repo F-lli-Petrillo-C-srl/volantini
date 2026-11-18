@@ -325,16 +325,12 @@
       '<div class="sez" style="animation-delay:.14s">Nell\'artwork <span class="num">'+a.in_artwork.length+'</span></div>'+
       '<div class="prodotti" id="vetrina" style="animation:none">'+a.in_artwork.map((p, k) => card(p, 'v'+k)).join('')+'</div>'+
       (a.partecipano.length ?
-        '<div class="sez" style="animation:none">Partecipano anche <span class="num" id="altriNum">'+a.partecipano.length+'</span></div>'+
-        '<div class="cerca" style="animation:none">'+ICONA_CERCA+'<input id="cerca" type="search" placeholder="Cerca per nome, codice o EAN" autocomplete="off" enterkeyhint="search"></div>'+
-        (marche.length > 1 ? '<div class="filtri" id="filtri" style="animation:none"><button class="si" data-m="">Tutte</button>'+marche.map(x => '<button data-m="'+esc(x)+'">'+esc(x)+'</button>').join('')+'</div>' : '')+
-        '<div class="prodotti" id="altri" style="animation:none"></div>' : '');
+        (marche.length > 1 ? '<div class="filtri" id="filtri" style="animation:none;margin-top:18px"><button class="si" data-m="">Tutte</button>'+marche.map(x => '<button data-m="'+esc(x)+'">'+esc(x)+'</button>').join('')+'</div>' : '')+
+        '<div class="prodotti" id="altri" style="animation:none;margin-top:'+(marche.length > 1 ? 0 : 10)+'px"></div>' : '');
     filtroMarca = ''; testo = '';
     $('panImg').onclick = () => ingrandisci(a);
     $('vetrina').onclick = e => { const b = e.target.closest('.pr'); if(b) dettaglio(a.in_artwork[+b.dataset.k.slice(1)], b); };
     if($('altri')) $('altri').onclick = e => { const b = e.target.closest('.pr'); if(b) dettaglio(altri[+b.dataset.k.slice(1)], b); };
-    let attesaCerca = null;
-    if($('cerca')) $('cerca').oninput = e => { clearTimeout(attesaCerca); attesaCerca = setTimeout(() => { testo = e.target.value.trim().toUpperCase(); disegnaAltri(); }, 120); };
     if($('filtri')) $('filtri').onclick = e => {
       const b = e.target.closest('button'); if(!b) return;
       filtroMarca = b.dataset.m; $('filtri').querySelectorAll('button').forEach(x => x.classList.toggle('si', x === b));
@@ -356,7 +352,6 @@
     const parole = testo.split(/\s+/).filter(Boolean);
     altri = aperta.partecipano.filter(p => (!filtroMarca || p.marca === filtroMarca) &&
       parole.every(w => p.descrizione.includes(w) || p.nome.toUpperCase().includes(w) || p.ean.includes(w) || p.codice.includes(w)));
-    $('altriNum').textContent = altri.length;
     box.innerHTML = altri.length ? altri.map((p, k) => card(p, 'a'+k)).join('') : '<div class="vuoto">Nessun articolo trovato.</div>';
     osserva(box, '.pr');
   }
