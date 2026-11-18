@@ -12,6 +12,7 @@
     "In più: con almeno 3 prodotti ACE, subito in cassa il campione gratuito di Ace Gentile 900 ml."
    ],
    "immagine": "img/artwork/ace.webp",
+   "anteprima": "img/artwork/ace-piccola.webp",
    "misure": [
     1800,
     703
@@ -25,9 +26,6 @@
      "ivato": 2.841,
      "ean": "8001480724839",
      "pz_cartone": 6,
-     "cartoni_strato": 9,
-     "strati": 5,
-     "cartoni_pedana": 45,
      "iva": 22,
      "foto": "img/prodotti/01.000088.webp"
     },
@@ -39,9 +37,6 @@
      "ivato": 2.841,
      "ean": "8001480724846",
      "pz_cartone": 6,
-     "cartoni_strato": 9,
-     "strati": 5,
-     "cartoni_pedana": 45,
      "iva": 22,
      "foto": "img/prodotti/01.000089.webp"
     },
@@ -53,9 +48,6 @@
      "ivato": 1.396,
      "ean": "8001480722064",
      "pz_cartone": 8,
-     "cartoni_strato": 15,
-     "strati": 6,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/01.004311.webp"
     },
@@ -67,9 +59,6 @@
      "ivato": 1.396,
      "ean": "8001480708488",
      "pz_cartone": 8,
-     "cartoni_strato": 15,
-     "strati": 6,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/01.003739.webp"
     },
@@ -81,9 +70,6 @@
      "ivato": 1.396,
      "ean": "8001480703919",
      "pz_cartone": 8,
-     "cartoni_strato": 15,
-     "strati": 6,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/01.003592.webp"
     },
@@ -95,9 +81,6 @@
      "ivato": 1.396,
      "ean": "8001480703339",
      "pz_cartone": 8,
-     "cartoni_strato": 15,
-     "strati": 6,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/01.003591.webp"
     }
@@ -111,7 +94,6 @@
      "ivato": 2.301,
      "ean": "8001480055940",
      "pz_cartone": 12,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/01.000978.webp"
     },
@@ -123,9 +105,6 @@
      "ivato": 1.68,
      "ean": "8001480020368",
      "pz_cartone": 15,
-     "cartoni_strato": 15,
-     "strati": 6,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/01.002814.webp"
     },
@@ -137,9 +116,6 @@
      "ivato": 1.421,
      "ean": "8001480727137",
      "pz_cartone": 18,
-     "cartoni_strato": 6,
-     "strati": 6,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/01.004633.webp"
     },
@@ -151,9 +127,6 @@
      "ivato": 1.993,
      "ean": "8001480727182",
      "pz_cartone": 6,
-     "cartoni_strato": 9,
-     "strati": 5,
-     "cartoni_pedana": 45,
      "iva": 22,
      "foto": "img/prodotti/01.004624.webp"
     },
@@ -165,9 +138,6 @@
      "ivato": 3.087,
      "ean": "8001480727311",
      "pz_cartone": 2,
-     "cartoni_strato": 19,
-     "strati": 4,
-     "cartoni_pedana": 76,
      "iva": 22,
      "foto": "img/prodotti/01.004623.webp"
     },
@@ -179,9 +149,6 @@
      "ivato": 1.574,
      "ean": "8001480727144",
      "pz_cartone": 18,
-     "cartoni_strato": 6,
-     "strati": 6,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/01.004625.webp"
     },
@@ -193,9 +160,6 @@
      "ivato": 3.056,
      "ean": "8001480727199",
      "pz_cartone": 6,
-     "cartoni_strato": 9,
-     "strati": 5,
-     "cartoni_pedana": 45,
      "iva": 22,
      "foto": "img/prodotti/01.004164.webp"
     },
@@ -207,9 +171,6 @@
      "ivato": 1.884,
      "ean": "8001480727236",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 6,
-     "cartoni_pedana": 60,
      "iva": 22,
      "foto": "img/prodotti/01.004621.webp"
     },
@@ -221,9 +182,6 @@
      "ivato": 1.884,
      "ean": "8001480727229",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 6,
-     "cartoni_pedana": 60,
      "iva": 22,
      "foto": "img/prodotti/01.004634.webp"
     },
@@ -235,9 +193,6 @@
      "ivato": 2.946,
      "ean": "8001480727250",
      "pz_cartone": 6,
-     "cartoni_strato": 9,
-     "strati": 5,
-     "cartoni_pedana": 45,
      "iva": 22,
      "foto": "img/prodotti/01.004636.webp"
     },
@@ -249,9 +204,6 @@
      "ivato": 2.946,
      "ean": "8001480727243",
      "pz_cartone": 6,
-     "cartoni_strato": 9,
-     "strati": 5,
-     "cartoni_pedana": 45,
      "iva": 22,
      "foto": "img/prodotti/01.004635.webp"
     },
@@ -263,9 +215,6 @@
      "ivato": 1.787,
      "ean": "8001480723702",
      "pz_cartone": 10,
-     "cartoni_strato": 12,
-     "strati": 6,
-     "cartoni_pedana": 72,
      "iva": 22,
      "foto": "img/prodotti/01.003865.webp"
     },
@@ -277,9 +226,6 @@
      "ivato": 2.313,
      "ean": "8001480723696",
      "pz_cartone": 10,
-     "cartoni_strato": 11,
-     "strati": 5,
-     "cartoni_pedana": 55,
      "iva": 22,
      "foto": "img/prodotti/01.002813.webp"
     },
@@ -291,9 +237,6 @@
      "ivato": 2.313,
      "ean": "8001480723719",
      "pz_cartone": 10,
-     "cartoni_strato": 11,
-     "strati": 5,
-     "cartoni_pedana": 55,
      "iva": 22,
      "foto": "img/prodotti/01.003010.webp"
     },
@@ -305,9 +248,6 @@
      "ivato": 0.888,
      "ean": "8001480021280",
      "pz_cartone": 12,
-     "cartoni_strato": 9,
-     "strati": 6,
-     "cartoni_pedana": 54,
      "iva": 22,
      "foto": "img/prodotti/01.000993.webp"
     },
@@ -319,9 +259,6 @@
      "ivato": 0.888,
      "ean": "8001480021297",
      "pz_cartone": 12,
-     "cartoni_strato": 9,
-     "strati": 6,
-     "cartoni_pedana": 54,
      "iva": 22,
      "foto": "img/prodotti/01.000995.webp"
     },
@@ -333,9 +270,6 @@
      "ivato": 1.464,
      "ean": "8001480021273",
      "pz_cartone": 15,
-     "cartoni_strato": 15,
-     "strati": 6,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/01.002937.webp"
     },
@@ -347,9 +281,6 @@
      "ivato": 2.313,
      "ean": "8001480723672",
      "pz_cartone": 8,
-     "cartoni_strato": 20,
-     "strati": 6,
-     "cartoni_pedana": 120,
      "iva": 22,
      "foto": "img/prodotti/01.000061.webp"
     },
@@ -361,9 +292,6 @@
      "ivato": 3.521,
      "ean": "8001480719170",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 4,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004242.webp"
     },
@@ -375,9 +303,6 @@
      "ivato": 3.521,
      "ean": "8001480719194",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 4,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004243.webp"
     },
@@ -389,9 +314,6 @@
      "ivato": 1.774,
      "ean": "8001480719101",
      "pz_cartone": 8,
-     "cartoni_strato": 12,
-     "strati": 6,
-     "cartoni_pedana": 72,
      "iva": 22,
      "foto": "img/prodotti/01.000954.webp"
     },
@@ -403,9 +325,6 @@
      "ivato": 1.774,
      "ean": "8001480719118",
      "pz_cartone": 8,
-     "cartoni_strato": 12,
-     "strati": 6,
-     "cartoni_pedana": 72,
      "iva": 22,
      "foto": "img/prodotti/01.000953.webp"
     },
@@ -417,9 +336,6 @@
      "ivato": 2.66,
      "ean": "8001480721142",
      "pz_cartone": 4,
-     "cartoni_strato": 23,
-     "strati": 6,
-     "cartoni_pedana": 138,
      "iva": 22,
      "foto": "img/prodotti/02.001651.webp"
     },
@@ -431,9 +347,6 @@
      "ivato": 2.66,
      "ean": "8001480724976",
      "pz_cartone": 3,
-     "cartoni_strato": 24,
-     "strati": 6,
-     "cartoni_pedana": 144,
      "iva": 22,
      "foto": "img/prodotti/02.001416.webp"
     },
@@ -445,9 +358,6 @@
      "ivato": 2.66,
      "ean": "8001480720794",
      "pz_cartone": 4,
-     "cartoni_strato": 19,
-     "strati": 6,
-     "cartoni_pedana": 114,
      "iva": 22,
      "foto": "img/prodotti/02.001379.webp"
     },
@@ -459,9 +369,6 @@
      "ivato": 2.66,
      "ean": "8001480720800",
      "pz_cartone": 4,
-     "cartoni_strato": 19,
-     "strati": 6,
-     "cartoni_pedana": 114,
      "iva": 22,
      "foto": "img/prodotti/01.003205.webp"
     },
@@ -473,9 +380,6 @@
      "ivato": 2.66,
      "ean": "8001480720817",
      "pz_cartone": 4,
-     "cartoni_strato": 19,
-     "strati": 6,
-     "cartoni_pedana": 114,
      "iva": 22,
      "foto": "img/prodotti/02.001380.webp"
     },
@@ -487,9 +391,6 @@
      "ivato": 7.285,
      "ean": "8001480723016",
      "pz_cartone": 4,
-     "cartoni_strato": 10,
-     "strati": 4,
-     "cartoni_pedana": 40,
      "iva": 22,
      "foto": "img/prodotti/02.000073.webp"
     },
@@ -501,9 +402,6 @@
      "ivato": 7.285,
      "ean": "8001480723023",
      "pz_cartone": 4,
-     "cartoni_strato": 10,
-     "strati": 4,
-     "cartoni_pedana": 40,
      "iva": 22,
      "foto": "img/prodotti/02.000074.webp"
     },
@@ -515,9 +413,6 @@
      "ivato": 2.391,
      "ean": "8001480600652",
      "pz_cartone": 10,
-     "cartoni_strato": 8,
-     "strati": 12,
-     "cartoni_pedana": 96,
      "iva": 22,
      "foto": "img/prodotti/01.002913.webp"
     },
@@ -529,9 +424,6 @@
      "ivato": 1.836,
      "ean": "8001480721388",
      "pz_cartone": 8,
-     "cartoni_strato": 20,
-     "strati": 6,
-     "cartoni_pedana": 120,
      "iva": 22,
      "foto": "img/prodotti/01.004351.webp"
     },
@@ -543,9 +435,6 @@
      "ivato": 1.836,
      "ean": "8001480726062",
      "pz_cartone": 8,
-     "cartoni_strato": 20,
-     "strati": 6,
-     "cartoni_pedana": 120,
      "iva": 22,
      "foto": "img/prodotti/01.004468.webp"
     },
@@ -557,9 +446,6 @@
      "ivato": 1.836,
      "ean": "8001480721395",
      "pz_cartone": 10,
-     "cartoni_strato": 11,
-     "strati": 5,
-     "cartoni_pedana": 55,
      "iva": 22,
      "foto": "img/prodotti/01.004352.webp"
     },
@@ -571,9 +457,6 @@
      "ivato": 1.836,
      "ean": "8001480721449",
      "pz_cartone": 10,
-     "cartoni_strato": 11,
-     "strati": 5,
-     "cartoni_pedana": 55,
      "iva": 22,
      "foto": "img/prodotti/01.004350.webp"
     },
@@ -585,9 +468,6 @@
      "ivato": 1.836,
      "ean": "8001480721371",
      "pz_cartone": 8,
-     "cartoni_strato": 20,
-     "strati": 6,
-     "cartoni_pedana": 120,
      "iva": 22,
      "foto": "img/prodotti/01.004349.webp"
     },
@@ -599,9 +479,6 @@
      "ivato": 1.836,
      "ean": "8001480721357",
      "pz_cartone": 8,
-     "cartoni_strato": 20,
-     "strati": 6,
-     "cartoni_pedana": 120,
      "iva": 22,
      "foto": "img/prodotti/01.004347.webp"
     },
@@ -613,9 +490,6 @@
      "ivato": 1.836,
      "ean": "8001480721364",
      "pz_cartone": 8,
-     "cartoni_strato": 20,
-     "strati": 6,
-     "cartoni_pedana": 120,
      "iva": 22,
      "foto": "img/prodotti/01.004348.webp"
     },
@@ -627,9 +501,6 @@
      "ivato": 1.836,
      "ean": "8001480721340",
      "pz_cartone": 8,
-     "cartoni_strato": 20,
-     "strati": 6,
-     "cartoni_pedana": 120,
      "iva": 22,
      "foto": "img/prodotti/01.004346.webp"
     },
@@ -641,9 +512,6 @@
      "ivato": 3.715,
      "ean": "8001480725775",
      "pz_cartone": 10,
-     "cartoni_strato": 8,
-     "strati": 6,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004263.webp"
     },
@@ -655,9 +523,6 @@
      "ivato": 3.715,
      "ean": "8001480725782",
      "pz_cartone": 10,
-     "cartoni_strato": 8,
-     "strati": 6,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004264.webp"
     },
@@ -669,9 +534,6 @@
      "ivato": 3.715,
      "ean": "8001480725799",
      "pz_cartone": 10,
-     "cartoni_strato": 8,
-     "strati": 6,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004265.webp"
     },
@@ -683,9 +545,6 @@
      "ivato": 3.715,
      "ean": "8001480725805",
      "pz_cartone": 10,
-     "cartoni_strato": 8,
-     "strati": 6,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004262.webp"
     },
@@ -697,9 +556,6 @@
      "ivato": 1.215,
      "ean": "8001480703995",
      "pz_cartone": 12,
-     "cartoni_strato": 18,
-     "strati": 9,
-     "cartoni_pedana": 162,
      "iva": 22,
      "foto": "img/prodotti/02.001441.webp"
     },
@@ -711,9 +567,6 @@
      "ivato": 1.215,
      "ean": "8001480703889",
      "pz_cartone": 12,
-     "cartoni_strato": 18,
-     "strati": 9,
-     "cartoni_pedana": 162,
      "iva": 22,
      "foto": "img/prodotti/02.001439.webp"
     },
@@ -725,9 +578,6 @@
      "ivato": 1.215,
      "ean": "8001480703896",
      "pz_cartone": 12,
-     "cartoni_strato": 18,
-     "strati": 9,
-     "cartoni_pedana": 162,
      "iva": 22,
      "foto": "img/prodotti/02.001440.webp"
     }
@@ -743,6 +593,7 @@
     "Acquista 15 € di prodotti Henkel e ricevi il rimborso del 50% (massimo 7,50 €)."
    ],
    "immagine": "img/artwork/henkel.webp",
+   "anteprima": "img/artwork/henkel-piccola.webp",
    "misure": [
     1800,
     1195
@@ -756,9 +607,6 @@
      "ivato": 2.782,
      "ean": "8015100580729",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001779.webp"
     },
@@ -770,9 +618,6 @@
      "ivato": 4.229,
      "ean": "8015100578672",
      "pz_cartone": 8,
-     "cartoni_strato": 8,
-     "strati": 6,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004005.webp"
     },
@@ -784,9 +629,6 @@
      "ivato": 4.623,
      "ean": "8015100578559",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 4,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.001730.webp"
     },
@@ -798,9 +640,6 @@
      "ivato": 9.681,
      "ean": "8015100580910",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 4,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/31.000153.webp"
     },
@@ -812,9 +651,6 @@
      "ivato": 4.191,
      "ean": "8015100577125",
      "pz_cartone": 8,
-     "cartoni_strato": 16,
-     "strati": 6,
-     "cartoni_pedana": 96,
      "iva": 22,
      "foto": "img/prodotti/31.003153.webp"
     },
@@ -826,9 +662,6 @@
      "ivato": 1.504,
      "ean": "8015100574667",
      "pz_cartone": 10,
-     "cartoni_strato": 18,
-     "strati": 5,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/01.003241.webp"
     },
@@ -840,9 +673,6 @@
      "ivato": 3.526,
      "ean": "8015700170979",
      "pz_cartone": 6,
-     "cartoni_strato": 37,
-     "strati": 4,
-     "cartoni_pedana": 148,
      "iva": 22,
      "foto": "img/prodotti/21.000140.webp"
     },
@@ -854,7 +684,6 @@
      "ivato": 3.518,
      "ean": "8410436170697",
      "pz_cartone": 6,
-     "cartoni_strato": 33,
      "iva": 22,
      "foto": "img/prodotti/21.006029.webp"
     }
@@ -868,7 +697,6 @@
      "ivato": 2.173,
      "ean": "8000670010257",
      "pz_cartone": 12,
-     "cartoni_pedana": 72,
      "iva": 22,
      "foto": "img/prodotti/01.001188.webp"
     },
@@ -880,9 +708,6 @@
      "ivato": 11.176,
      "ean": "8015100581917",
      "pz_cartone": 1,
-     "cartoni_strato": 36,
-     "strati": 5,
-     "cartoni_pedana": 180,
      "iva": 22,
      "foto": "img/prodotti/01.004637.webp"
     },
@@ -894,7 +719,6 @@
      "ivato": 3.726,
      "ean": "8015100328000",
      "pz_cartone": 8,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.001184.webp"
     },
@@ -906,9 +730,6 @@
      "ivato": 3.806,
      "ean": "8015100578610",
      "pz_cartone": 4,
-     "cartoni_strato": 14,
-     "strati": 5,
-     "cartoni_pedana": 70,
      "iva": 22,
      "foto": "img/prodotti/01.000084.webp"
     },
@@ -920,9 +741,6 @@
      "ivato": 3.806,
      "ean": "8015100578597",
      "pz_cartone": 4,
-     "cartoni_strato": 14,
-     "strati": 5,
-     "cartoni_pedana": 70,
      "iva": 22,
      "foto": "img/prodotti/01.000085.webp"
     },
@@ -934,9 +752,6 @@
      "ivato": 3.806,
      "ean": "8015100578603",
      "pz_cartone": 4,
-     "cartoni_strato": 14,
-     "strati": 5,
-     "cartoni_pedana": 70,
      "iva": 22,
      "foto": "img/prodotti/01.000086.webp"
     },
@@ -948,9 +763,6 @@
      "ivato": 4.623,
      "ean": "8015100578542",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 4,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.002642.webp"
     },
@@ -962,9 +774,6 @@
      "ivato": 4.623,
      "ean": "8015100578566",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 4,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.001729.webp"
     },
@@ -976,9 +785,6 @@
      "ivato": 5.655,
      "ean": "8015100581597",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 4,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/31.005790.webp"
     },
@@ -990,9 +796,6 @@
      "ivato": 3.831,
      "ean": "8015100578474",
      "pz_cartone": 8,
-     "cartoni_strato": 12,
-     "strati": 7,
-     "cartoni_pedana": 84,
      "iva": 22,
      "foto": "img/prodotti/01.003822.webp"
     },
@@ -1004,9 +807,6 @@
      "ivato": 3.831,
      "ean": "8015100578481",
      "pz_cartone": 8,
-     "cartoni_strato": 12,
-     "strati": 7,
-     "cartoni_pedana": 84,
      "iva": 22,
      "foto": "img/prodotti/01.003823.webp"
     },
@@ -1018,9 +818,6 @@
      "ivato": 3.831,
      "ean": "8015100578498",
      "pz_cartone": 8,
-     "cartoni_strato": 12,
-     "strati": 7,
-     "cartoni_pedana": 84,
      "iva": 22,
      "foto": "img/prodotti/01.003974.webp"
     },
@@ -1032,8 +829,6 @@
      "ivato": 2.904,
      "ean": "8015100563524",
      "pz_cartone": 8,
-     "cartoni_strato": 15,
-     "cartoni_pedana": 75,
      "iva": 22,
      "foto": "img/prodotti/02.000536.webp"
     },
@@ -1045,7 +840,6 @@
      "ivato": 2.904,
      "ean": "8015100566778",
      "pz_cartone": 8,
-     "cartoni_pedana": 75,
      "iva": 22,
      "foto": "img/prodotti/01.002786.webp"
     },
@@ -1057,7 +851,6 @@
      "ivato": 2.904,
      "ean": "8015100564507",
      "pz_cartone": 8,
-     "cartoni_pedana": 75,
      "iva": 22,
      "foto": "img/prodotti/01.002487.webp"
     },
@@ -1069,9 +862,6 @@
      "ivato": 2.394,
      "ean": "8410436395083",
      "pz_cartone": 10,
-     "cartoni_strato": 18,
-     "strati": 4,
-     "cartoni_pedana": 72,
      "iva": 22,
      "foto": "img/prodotti/01.004552.webp"
     },
@@ -1083,9 +873,6 @@
      "ivato": 2.048,
      "ean": "8015100570980",
      "pz_cartone": 10,
-     "cartoni_strato": 18,
-     "strati": 4,
-     "cartoni_pedana": 72,
      "iva": 22,
      "foto": "img/prodotti/01.003359.webp"
     },
@@ -1097,9 +884,6 @@
      "ivato": 2.048,
      "ean": "8410436224840",
      "pz_cartone": 10,
-     "cartoni_strato": 18,
-     "strati": 4,
-     "cartoni_pedana": 72,
      "iva": 22,
      "foto": "img/prodotti/02.001371.webp"
     },
@@ -1111,9 +895,6 @@
      "ivato": 2.048,
      "ean": "8015100565351",
      "pz_cartone": 10,
-     "cartoni_strato": 18,
-     "strati": 4,
-     "cartoni_pedana": 72,
      "iva": 22,
      "foto": "img/prodotti/01.003258.webp"
     },
@@ -1125,9 +906,6 @@
      "ivato": 1.504,
      "ean": "8015100576319",
      "pz_cartone": 11,
-     "cartoni_strato": 18,
-     "strati": 5,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/01.003975.webp"
     },
@@ -1139,9 +917,6 @@
      "ivato": 1.36,
      "ean": "8015100568642",
      "pz_cartone": 10,
-     "cartoni_strato": 18,
-     "strati": 5,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/01.002490.webp"
     },
@@ -1153,9 +928,6 @@
      "ivato": 1.36,
      "ean": "8410436151061",
      "pz_cartone": 10,
-     "cartoni_strato": 18,
-     "strati": 5,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/01.001162.webp"
     },
@@ -1167,9 +939,6 @@
      "ivato": 4.917,
      "ean": "8015100571963",
      "pz_cartone": 6,
-     "cartoni_strato": 36,
-     "strati": 4,
-     "cartoni_pedana": 144,
      "iva": 22,
      "foto": "img/prodotti/31.004230.webp"
     },
@@ -1181,9 +950,6 @@
      "ivato": 4.917,
      "ean": "8015100571390",
      "pz_cartone": 6,
-     "cartoni_strato": 36,
-     "strati": 4,
-     "cartoni_pedana": 144,
      "iva": 22,
      "foto": "img/prodotti/31.004228.webp"
     },
@@ -1195,9 +961,6 @@
      "ivato": 4.917,
      "ean": "8015100571888",
      "pz_cartone": 6,
-     "cartoni_strato": 36,
-     "strati": 4,
-     "cartoni_pedana": 144,
      "iva": 22,
      "foto": "img/prodotti/31.004229.webp"
     },
@@ -1209,9 +972,6 @@
      "ivato": 4.917,
      "ean": "8015100571406",
      "pz_cartone": 6,
-     "cartoni_strato": 36,
-     "strati": 4,
-     "cartoni_pedana": 144,
      "iva": 22,
      "foto": "img/prodotti/31.004227.webp"
     },
@@ -1223,9 +983,6 @@
      "ivato": 4.917,
      "ean": "8015100571925",
      "pz_cartone": 6,
-     "cartoni_strato": 36,
-     "strati": 4,
-     "cartoni_pedana": 144,
      "iva": 22,
      "foto": "img/prodotti/31.004233.webp"
     },
@@ -1237,9 +994,6 @@
      "ivato": 7.747,
      "ean": "8015100581030",
      "pz_cartone": 5,
-     "cartoni_strato": 10,
-     "strati": 13,
-     "cartoni_pedana": 130,
      "iva": 22,
      "foto": "img/prodotti/01.003328.webp"
     },
@@ -1251,9 +1005,6 @@
      "ivato": 7.747,
      "ean": "8015100581047",
      "pz_cartone": 5,
-     "cartoni_strato": 10,
-     "strati": 13,
-     "cartoni_pedana": 130,
      "iva": 22,
      "foto": "img/prodotti/01.004185.webp"
     },
@@ -1265,9 +1016,6 @@
      "ivato": 7.747,
      "ean": "8015100579327",
      "pz_cartone": 5,
-     "cartoni_strato": 12,
-     "strati": 9,
-     "cartoni_pedana": 108,
      "iva": 22,
      "foto": "img/prodotti/01.003609.webp"
     },
@@ -1279,9 +1027,6 @@
      "ivato": 10.492,
      "ean": "8015100580941",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 6,
-     "cartoni_pedana": 72,
      "iva": 22,
      "foto": "img/prodotti/01.004321.webp"
     },
@@ -1293,9 +1038,6 @@
      "ivato": 14.488,
      "ean": "8015100580972",
      "pz_cartone": 1,
-     "cartoni_strato": 28,
-     "strati": 5,
-     "cartoni_pedana": 140,
      "iva": 22,
      "foto": "img/prodotti/01.004454.webp"
     },
@@ -1307,9 +1049,6 @@
      "ivato": 9.681,
      "ean": "8015100580903",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 4,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/31.000154.webp"
     },
@@ -1321,9 +1060,6 @@
      "ivato": 3.782,
      "ean": "8015100578856",
      "pz_cartone": 6,
-     "cartoni_strato": 16,
-     "strati": 5,
-     "cartoni_pedana": 80,
      "iva": 22,
      "foto": "img/prodotti/01.003469.webp"
     },
@@ -1335,9 +1071,6 @@
      "ivato": 3.782,
      "ean": "8015100578870",
      "pz_cartone": 6,
-     "cartoni_strato": 16,
-     "strati": 5,
-     "cartoni_pedana": 80,
      "iva": 22,
      "foto": "img/prodotti/01.004638.webp"
     },
@@ -1349,9 +1082,6 @@
      "ivato": 3.782,
      "ean": "8015100578825",
      "pz_cartone": 6,
-     "cartoni_strato": 16,
-     "strati": 5,
-     "cartoni_pedana": 80,
      "iva": 22,
      "foto": "img/prodotti/01.004639.webp"
     },
@@ -1363,9 +1093,6 @@
      "ivato": 1.798,
      "ean": "8015700169690",
      "pz_cartone": 6,
-     "cartoni_strato": 44,
-     "strati": 8,
-     "cartoni_pedana": 352,
      "iva": 22,
      "foto": "img/prodotti/21.000130.webp"
     },
@@ -1377,9 +1104,6 @@
      "ivato": 1.798,
      "ean": "8410436165495",
      "pz_cartone": 6,
-     "cartoni_strato": 44,
-     "strati": 8,
-     "cartoni_pedana": 352,
      "iva": 22,
      "foto": "img/prodotti/21.008070.webp"
     },
@@ -1391,9 +1115,6 @@
      "ivato": 1.798,
      "ean": "8015700162974",
      "pz_cartone": 6,
-     "cartoni_strato": 44,
-     "strati": 8,
-     "cartoni_pedana": 352,
      "iva": 22,
      "foto": "img/prodotti/21.008071.webp"
     },
@@ -1405,9 +1126,6 @@
      "ivato": 1.798,
      "ean": "8015700162936",
      "pz_cartone": 6,
-     "cartoni_strato": 44,
-     "strati": 8,
-     "cartoni_pedana": 352,
      "iva": 22,
      "foto": "img/prodotti/21.008069.webp"
     },
@@ -1419,9 +1137,6 @@
      "ivato": 1.798,
      "ean": "8410436236270",
      "pz_cartone": 6,
-     "cartoni_strato": 44,
-     "strati": 8,
-     "cartoni_pedana": 352,
      "iva": 22,
      "foto": "img/prodotti/21.008068.webp"
     },
@@ -1433,9 +1148,6 @@
      "ivato": 3.81,
      "ean": "8015700167801",
      "pz_cartone": 6,
-     "cartoni_strato": 16,
-     "strati": 9,
-     "cartoni_pedana": 144,
      "iva": 22,
      "foto": "img/prodotti/21.013867.webp"
     },
@@ -1447,9 +1159,6 @@
      "ivato": 3.81,
      "ean": "8410436457637",
      "pz_cartone": 6,
-     "cartoni_strato": 16,
-     "strati": 9,
-     "cartoni_pedana": 144,
      "iva": 22,
      "foto": "img/prodotti/21.008072.webp"
     },
@@ -1461,9 +1170,6 @@
      "ivato": 1.891,
      "ean": "8015700170115",
      "pz_cartone": 12,
-     "cartoni_strato": 24,
-     "strati": 8,
-     "cartoni_pedana": 192,
      "iva": 22,
      "foto": "img/prodotti/21.000131.webp"
     },
@@ -1475,9 +1181,6 @@
      "ivato": 1.891,
      "ean": "8410436235549",
      "pz_cartone": 12,
-     "cartoni_strato": 24,
-     "strati": 8,
-     "cartoni_pedana": 192,
      "iva": 22,
      "foto": "img/prodotti/21.008066.webp"
     },
@@ -1489,9 +1192,6 @@
      "ivato": 1.891,
      "ean": "8015700162837",
      "pz_cartone": 12,
-     "cartoni_strato": 24,
-     "strati": 4,
-     "cartoni_pedana": 96,
      "iva": 22,
      "foto": "img/prodotti/21.008067.webp"
     },
@@ -1503,9 +1203,6 @@
      "ivato": 1.891,
      "ean": "8015700162851",
      "pz_cartone": 12,
-     "cartoni_strato": 24,
-     "strati": 4,
-     "cartoni_pedana": 96,
      "iva": 22,
      "foto": "img/prodotti/21.008064.webp"
     },
@@ -1517,9 +1214,6 @@
      "ivato": 4.387,
      "ean": "5410091774790",
      "pz_cartone": 6,
-     "cartoni_strato": 70,
-     "strati": 8,
-     "cartoni_pedana": 560,
      "iva": 22,
      "foto": "img/prodotti/21.014133.webp"
     },
@@ -1531,9 +1225,6 @@
      "ivato": 4.387,
      "ean": "5410091709716",
      "pz_cartone": 6,
-     "cartoni_strato": 53,
-     "strati": 11,
-     "cartoni_pedana": 583,
      "iva": 22,
      "foto": "img/prodotti/21.014134.webp"
     },
@@ -1545,9 +1236,6 @@
      "ivato": 4.387,
      "ean": "8015700170399",
      "pz_cartone": 12,
-     "cartoni_strato": 54,
-     "strati": 5,
-     "cartoni_pedana": 270,
      "iva": 22,
      "foto": "img/prodotti/21.014132.webp"
     },
@@ -1559,9 +1247,6 @@
      "ivato": 4.387,
      "ean": "5012583105091",
      "pz_cartone": 6,
-     "cartoni_strato": 47,
-     "strati": 3,
-     "cartoni_pedana": 141,
      "iva": 22,
      "foto": "img/prodotti/21.014137.webp"
     },
@@ -1573,9 +1258,6 @@
      "ivato": 4.387,
      "ean": "9000100417839",
      "pz_cartone": 6,
-     "cartoni_strato": 49,
-     "strati": 12,
-     "cartoni_pedana": 588,
      "iva": 22,
      "foto": "img/prodotti/21.014135.webp"
     },
@@ -1587,9 +1269,6 @@
      "ivato": 4.387,
      "ean": "8015700170450",
      "pz_cartone": 6,
-     "cartoni_strato": 49,
-     "strati": 6,
-     "cartoni_pedana": 294,
      "iva": 22,
      "foto": "img/prodotti/21.014136.webp"
     },
@@ -1601,9 +1280,6 @@
      "ivato": 4.387,
      "ean": "5410091733377",
      "pz_cartone": 6,
-     "cartoni_strato": 64,
-     "strati": 4,
-     "cartoni_pedana": 256,
      "iva": 22,
      "foto": "img/prodotti/21.014128.webp"
     },
@@ -1615,9 +1291,6 @@
      "ivato": 4.387,
      "ean": "3178041321303",
      "pz_cartone": 6,
-     "cartoni_strato": 64,
-     "strati": 4,
-     "cartoni_pedana": 256,
      "iva": 22,
      "foto": "img/prodotti/21.014129.webp"
     },
@@ -1629,9 +1302,6 @@
      "ivato": 2.644,
      "ean": "8015100579464",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.000795.webp"
     },
@@ -1643,9 +1313,6 @@
      "ivato": 2.644,
      "ean": "8015100579440",
      "pz_cartone": 16,
-     "cartoni_strato": 20,
-     "strati": 4,
-     "cartoni_pedana": 80,
      "iva": 22,
      "foto": "img/prodotti/02.000641.webp"
     },
@@ -1657,9 +1324,6 @@
      "ivato": 2.722,
      "ean": "8015100579426",
      "pz_cartone": 16,
-     "cartoni_strato": 15,
-     "strati": 6,
-     "cartoni_pedana": 90,
      "iva": 22,
      "foto": "img/prodotti/02.001004.webp"
     },
@@ -1671,9 +1335,6 @@
      "ivato": 2.826,
      "ean": "8006320083671",
      "pz_cartone": 10,
-     "cartoni_strato": 14,
-     "strati": 3,
-     "cartoni_pedana": 42,
      "iva": 22,
      "foto": "img/prodotti/32.000972.webp"
     },
@@ -1685,9 +1346,6 @@
      "ivato": 1.497,
      "ean": "8015100581184",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 6,
-     "cartoni_pedana": 60,
      "iva": 22,
      "foto": "img/prodotti/01.004504.webp"
     },
@@ -1699,9 +1357,6 @@
      "ivato": 1.497,
      "ean": "8015100581160",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 6,
-     "cartoni_pedana": 60,
      "iva": 22,
      "foto": "img/prodotti/01.004502.webp"
     },
@@ -1713,9 +1368,6 @@
      "ivato": 1.497,
      "ean": "8015100581108",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 6,
-     "cartoni_pedana": 60,
      "iva": 22,
      "foto": "img/prodotti/01.004505.webp"
     },
@@ -1727,9 +1379,6 @@
      "ivato": 1.497,
      "ean": "8015100581122",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 6,
-     "cartoni_pedana": 60,
      "iva": 22,
      "foto": "img/prodotti/01.004506.webp"
     },
@@ -1741,9 +1390,6 @@
      "ivato": 2.734,
      "ean": "8015100581245",
      "pz_cartone": 6,
-     "cartoni_strato": 12,
-     "strati": 5,
-     "cartoni_pedana": 60,
      "iva": 22,
      "foto": "img/prodotti/02.001400.webp"
     },
@@ -1755,9 +1401,6 @@
      "ivato": 2.734,
      "ean": "8015100581221",
      "pz_cartone": 6,
-     "cartoni_strato": 12,
-     "strati": 5,
-     "cartoni_pedana": 60,
      "iva": 22,
      "foto": "img/prodotti/02.001399.webp"
     },
@@ -1769,9 +1412,6 @@
      "ivato": 1.549,
      "ean": "8015100581207",
      "pz_cartone": 16,
-     "cartoni_strato": 12,
-     "strati": 7,
-     "cartoni_pedana": 84,
      "iva": 22,
      "foto": "img/prodotti/01.004569.webp"
     },
@@ -1783,9 +1423,6 @@
      "ivato": 1.549,
      "ean": "8015100581146",
      "pz_cartone": 16,
-     "cartoni_strato": 12,
-     "strati": 7,
-     "cartoni_pedana": 84,
      "iva": 22,
      "foto": "img/prodotti/01.004568.webp"
     },
@@ -1808,9 +1445,6 @@
      "ivato": 5.39,
      "ean": "8015700168594",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009058.webp"
     },
@@ -1822,9 +1456,6 @@
      "ivato": 5.39,
      "ean": "8015700168754",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009071.webp"
     },
@@ -1836,9 +1467,6 @@
      "ivato": 5.39,
      "ean": "8015700168815",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.000137.webp"
     },
@@ -1850,9 +1478,6 @@
      "ivato": 5.39,
      "ean": "8015700168839",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.000138.webp"
     },
@@ -1864,9 +1489,6 @@
      "ivato": 5.39,
      "ean": "8015700168778",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009070.webp"
     },
@@ -1878,9 +1500,6 @@
      "ivato": 5.39,
      "ean": "8015700168990",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.012875.webp"
     },
@@ -1892,9 +1511,6 @@
      "ivato": 5.39,
      "ean": "8015700168679",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009072.webp"
     },
@@ -1906,9 +1522,6 @@
      "ivato": 5.39,
      "ean": "8015700169058",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009062.webp"
     },
@@ -1920,9 +1533,6 @@
      "ivato": 5.39,
      "ean": "8015700168570",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009068.webp"
     },
@@ -1934,9 +1544,6 @@
      "ivato": 5.39,
      "ean": "8015700168716",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009063.webp"
     },
@@ -1948,9 +1555,6 @@
      "ivato": 5.39,
      "ean": "8015700168792",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009060.webp"
     },
@@ -1962,9 +1566,6 @@
      "ivato": 5.39,
      "ean": "8015700168730",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009069.webp"
     },
@@ -1976,9 +1577,6 @@
      "ivato": 5.39,
      "ean": "8015700168693",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009073.webp"
     },
@@ -1990,9 +1588,6 @@
      "ivato": 5.39,
      "ean": "8015700169010",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009061.webp"
     },
@@ -2004,9 +1599,6 @@
      "ivato": 5.39,
      "ean": "8015700169072",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009065.webp"
     },
@@ -2018,9 +1610,6 @@
      "ivato": 5.39,
      "ean": "8015700168631",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009074.webp"
     },
@@ -2032,9 +1621,6 @@
      "ivato": 5.39,
      "ean": "8015700168976",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009064.webp"
     },
@@ -2046,9 +1632,6 @@
      "ivato": 5.39,
      "ean": "8015700168853",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009059.webp"
     },
@@ -2060,9 +1643,6 @@
      "ivato": 5.39,
      "ean": "8015700169034",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.011324.webp"
     },
@@ -2074,9 +1654,6 @@
      "ivato": 5.39,
      "ean": "8015700169553",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009067.webp"
     },
@@ -2088,9 +1665,6 @@
      "ivato": 5.39,
      "ean": "8015700168877",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.009066.webp"
     },
@@ -2102,9 +1676,6 @@
      "ivato": 5.39,
      "ean": "8015700168952",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.013929.webp"
     },
@@ -2116,9 +1687,6 @@
      "ivato": 5.39,
      "ean": "8015700168655",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.013930.webp"
     },
@@ -2130,9 +1698,6 @@
      "ivato": 5.39,
      "ean": "8015700168914",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.013932.webp"
     },
@@ -2144,9 +1709,6 @@
      "ivato": 5.39,
      "ean": "8015700168938",
      "pz_cartone": 6,
-     "cartoni_strato": 40,
-     "strati": 6,
-     "cartoni_pedana": 240,
      "iva": 22,
      "foto": "img/prodotti/21.013933.webp"
     },
@@ -2158,9 +1720,6 @@
      "ivato": 6.084,
      "ean": "8015700170092",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.008622.webp"
     },
@@ -2172,9 +1731,6 @@
      "ivato": 6.084,
      "ean": "8015700169973",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.008079.webp"
     },
@@ -2186,9 +1742,6 @@
      "ivato": 6.084,
      "ean": "8015700169898",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.008621.webp"
     },
@@ -2200,9 +1753,6 @@
      "ivato": 6.084,
      "ean": "8015700169751",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.013371.webp"
     },
@@ -2214,9 +1764,6 @@
      "ivato": 6.084,
      "ean": "8015700169836",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.008618.webp"
     },
@@ -2228,9 +1775,6 @@
      "ivato": 6.084,
      "ean": "8015700170016",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.008619.webp"
     },
@@ -2242,9 +1786,6 @@
      "ivato": 6.084,
      "ean": "8015700169997",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.008620.webp"
     },
@@ -2256,9 +1797,6 @@
      "ivato": 6.084,
      "ean": "8015700169850",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.013370.webp"
     },
@@ -2270,9 +1808,6 @@
      "ivato": 6.084,
      "ean": "8015700169713",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.012381.webp"
     },
@@ -2284,9 +1819,6 @@
      "ivato": 6.084,
      "ean": "8015700169737",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.013373.webp"
     },
@@ -2298,9 +1830,6 @@
      "ivato": 6.084,
      "ean": "8015700169935",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.012382.webp"
     },
@@ -2312,9 +1841,6 @@
      "ivato": 6.084,
      "ean": "8015700170054",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.013374.webp"
     },
@@ -2326,9 +1852,6 @@
      "ivato": 6.084,
      "ean": "8015700170078",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.012380.webp"
     },
@@ -2340,9 +1863,6 @@
      "ivato": 6.084,
      "ean": "8015700169812",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.008078.webp"
     },
@@ -2354,9 +1874,6 @@
      "ivato": 6.084,
      "ean": "8015700169874",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.008537.webp"
     },
@@ -2368,9 +1885,6 @@
      "ivato": 6.084,
      "ean": "8015700169959",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.000215.webp"
     },
@@ -2382,9 +1896,6 @@
      "ivato": 6.084,
      "ean": "8015700169911",
      "pz_cartone": 6,
-     "cartoni_strato": 32,
-     "strati": 10,
-     "cartoni_pedana": 320,
      "iva": 22,
      "foto": "img/prodotti/21.008538.webp"
     },
@@ -2396,9 +1907,6 @@
      "ivato": 3.584,
      "ean": "8015700169331",
      "pz_cartone": 6,
-     "cartoni_strato": 64,
-     "strati": 4,
-     "cartoni_pedana": 256,
      "iva": 22,
      "foto": "img/prodotti/21.009774.webp"
     },
@@ -2410,9 +1918,6 @@
      "ivato": 3.579,
      "ean": "8015700169096",
      "pz_cartone": 6,
-     "cartoni_strato": 48,
-     "strati": 8,
-     "cartoni_pedana": 384,
      "iva": 22,
      "foto": "img/prodotti/21.013928.webp"
     },
@@ -2424,9 +1929,6 @@
      "ivato": 3.584,
      "ean": "8015700169355",
      "pz_cartone": 6,
-     "cartoni_strato": 69,
-     "strati": 8,
-     "cartoni_pedana": 552,
      "iva": 22,
      "foto": "img/prodotti/21.013927.webp"
     },
@@ -2438,9 +1940,6 @@
      "ivato": 3.584,
      "ean": "8015700169157",
      "pz_cartone": 6,
-     "cartoni_strato": 45,
-     "strati": 6,
-     "cartoni_pedana": 270,
      "iva": 22,
      "foto": "img/prodotti/21.009428.webp"
     },
@@ -2452,9 +1951,6 @@
      "ivato": 3.584,
      "ean": "8015700169218",
      "pz_cartone": 6,
-     "cartoni_strato": 45,
-     "strati": 6,
-     "cartoni_pedana": 270,
      "iva": 22,
      "foto": "img/prodotti/21.009430.webp"
     },
@@ -2466,9 +1962,6 @@
      "ivato": 3.584,
      "ean": "8015700169393",
      "pz_cartone": 6,
-     "cartoni_strato": 45,
-     "strati": 6,
-     "cartoni_pedana": 270,
      "iva": 22,
      "foto": "img/prodotti/21.000129.webp"
     },
@@ -2480,9 +1973,6 @@
      "ivato": 3.584,
      "ean": "8015700169171",
      "pz_cartone": 6,
-     "cartoni_strato": 45,
-     "strati": 6,
-     "cartoni_pedana": 270,
      "iva": 22,
      "foto": "img/prodotti/21.009429.webp"
     },
@@ -2494,9 +1984,6 @@
      "ivato": 1.697,
      "ean": "8015700169270",
      "pz_cartone": 12,
-     "cartoni_strato": 56,
-     "strati": 10,
-     "cartoni_pedana": 560,
      "iva": 22,
      "foto": "img/prodotti/21.000141.webp"
     },
@@ -2508,9 +1995,6 @@
      "ivato": 3.584,
      "ean": "8015700169379",
      "pz_cartone": 6,
-     "cartoni_strato": 48,
-     "strati": 6,
-     "cartoni_pedana": 288,
      "iva": 22,
      "foto": "img/prodotti/21.009431.webp"
     },
@@ -2522,9 +2006,6 @@
      "ivato": 3.584,
      "ean": "8015700169317",
      "pz_cartone": 6,
-     "cartoni_strato": 48,
-     "strati": 6,
-     "cartoni_pedana": 288,
      "iva": 22,
      "foto": "img/prodotti/21.009433.webp"
     },
@@ -2536,9 +2017,6 @@
      "ivato": 3.584,
      "ean": "8015700169256",
      "pz_cartone": 6,
-     "cartoni_strato": 48,
-     "strati": 6,
-     "cartoni_pedana": 288,
      "iva": 22,
      "foto": "img/prodotti/21.009432.webp"
     },
@@ -2550,9 +2028,6 @@
      "ivato": 3.584,
      "ean": "80843528",
      "pz_cartone": 6,
-     "cartoni_strato": 53,
-     "strati": 10,
-     "cartoni_pedana": 530,
      "iva": 22,
      "foto": "img/prodotti/21.000142.webp"
     },
@@ -2564,9 +2039,6 @@
      "ivato": 3.584,
      "ean": "8015700169195",
      "pz_cartone": 6,
-     "cartoni_strato": 64,
-     "strati": 4,
-     "cartoni_pedana": 256,
      "iva": 22,
      "foto": "img/prodotti/21.013710.webp"
     },
@@ -2578,9 +2050,6 @@
      "ivato": 4.229,
      "ean": "8015100578665",
      "pz_cartone": 8,
-     "cartoni_strato": 8,
-     "strati": 6,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004007.webp"
     },
@@ -2592,9 +2061,6 @@
      "ivato": 4.229,
      "ean": "8015100579587",
      "pz_cartone": 8,
-     "cartoni_strato": 8,
-     "strati": 6,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.000074.webp"
     },
@@ -2606,9 +2072,6 @@
      "ivato": 4.229,
      "ean": "8015100578702",
      "pz_cartone": 8,
-     "cartoni_strato": 8,
-     "strati": 6,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004002.webp"
     },
@@ -2620,9 +2083,6 @@
      "ivato": 4.229,
      "ean": "8015100578719",
      "pz_cartone": 8,
-     "cartoni_strato": 8,
-     "strati": 6,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004001.webp"
     },
@@ -2634,9 +2094,6 @@
      "ivato": 4.229,
      "ean": "8015100578696",
      "pz_cartone": 8,
-     "cartoni_strato": 8,
-     "strati": 6,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/01.004003.webp"
     },
@@ -2648,9 +2105,6 @@
      "ivato": 7.637,
      "ean": "8015100578795",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 3,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/01.003477.webp"
     },
@@ -2662,9 +2116,6 @@
      "ivato": 7.637,
      "ean": "8015100578788",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 3,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/01.003063.webp"
     },
@@ -2676,9 +2127,6 @@
      "ivato": 7.637,
      "ean": "8015100578801",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 3,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/01.003064.webp"
     },
@@ -2690,9 +2138,6 @@
      "ivato": 2.745,
      "ean": "8015100579617",
      "pz_cartone": 10,
-     "cartoni_strato": 16,
-     "strati": 6,
-     "cartoni_pedana": 96,
      "iva": 22,
      "foto": "img/prodotti/01.000072.webp"
     },
@@ -2704,9 +2149,6 @@
      "ivato": 2.745,
      "ean": "8015100579624",
      "pz_cartone": 10,
-     "cartoni_strato": 16,
-     "strati": 6,
-     "cartoni_pedana": 96,
      "iva": 22,
      "foto": "img/prodotti/32.000044.webp"
     },
@@ -2718,9 +2160,6 @@
      "ivato": 2.745,
      "ean": "8015100579594",
      "pz_cartone": 8,
-     "cartoni_strato": 24,
-     "strati": 6,
-     "cartoni_pedana": 144,
      "iva": 22,
      "foto": "img/prodotti/31.000111.webp"
     },
@@ -2732,9 +2171,6 @@
      "ivato": 2.745,
      "ean": "8015100580668",
      "pz_cartone": 8,
-     "cartoni_strato": 32,
-     "strati": 5,
-     "cartoni_pedana": 160,
      "iva": 22,
      "foto": "img/prodotti/01.001214.webp"
     },
@@ -2746,9 +2182,6 @@
      "ivato": 4.191,
      "ean": "8015100577156",
      "pz_cartone": 8,
-     "cartoni_strato": 16,
-     "strati": 6,
-     "cartoni_pedana": 96,
      "iva": 22,
      "foto": "img/prodotti/31.002424.webp"
     },
@@ -2760,9 +2193,6 @@
      "ivato": 4.191,
      "ean": "8015100577132",
      "pz_cartone": 8,
-     "cartoni_strato": 16,
-     "strati": 6,
-     "cartoni_pedana": 96,
      "iva": 22,
      "foto": "img/prodotti/31.002846.webp"
     },
@@ -2774,9 +2204,6 @@
      "ivato": 4.191,
      "ean": "8015100577149",
      "pz_cartone": 8,
-     "cartoni_strato": 16,
-     "strati": 6,
-     "cartoni_pedana": 96,
      "iva": 22,
      "foto": "img/prodotti/32.001129.webp"
     },
@@ -2788,9 +2215,6 @@
      "ivato": 4.191,
      "ean": "8015100578146",
      "pz_cartone": 10,
-     "cartoni_strato": 13,
-     "strati": 6,
-     "cartoni_pedana": 78,
      "iva": 22,
      "foto": "img/prodotti/01.003433.webp"
     },
@@ -2802,9 +2226,6 @@
      "ivato": 4.191,
      "ean": "8015100577095",
      "pz_cartone": 10,
-     "cartoni_strato": 13,
-     "strati": 6,
-     "cartoni_pedana": 78,
      "iva": 22,
      "foto": "img/prodotti/01.004165.webp"
     },
@@ -2816,9 +2237,6 @@
      "ivato": 4.191,
      "ean": "8015100577163",
      "pz_cartone": 10,
-     "cartoni_strato": 16,
-     "strati": 6,
-     "cartoni_pedana": 78,
      "iva": 22,
      "foto": "img/prodotti/01.003432.webp"
     },
@@ -2830,9 +2248,6 @@
      "ivato": 4.191,
      "ean": "8015100578771",
      "pz_cartone": 8,
-     "cartoni_strato": 12,
-     "strati": 8,
-     "cartoni_pedana": 96,
      "iva": 22,
      "foto": "img/prodotti/01.004640.webp"
     },
@@ -2844,9 +2259,6 @@
      "ivato": 4.191,
      "ean": "8015100578986",
      "pz_cartone": 8,
-     "cartoni_strato": 12,
-     "strati": 7,
-     "cartoni_pedana": 84,
      "iva": 22,
      "foto": "img/prodotti/01.001212.webp"
     },
@@ -2858,9 +2270,6 @@
      "ivato": 4.191,
      "ean": "8015100580651",
      "pz_cartone": 8,
-     "cartoni_strato": 12,
-     "strati": 7,
-     "cartoni_pedana": 84,
      "iva": 22,
      "foto": "img/prodotti/01.004641.webp"
     },
@@ -2872,9 +2281,6 @@
      "ivato": 4.191,
      "ean": "8015100579013",
      "pz_cartone": 7,
-     "cartoni_strato": 16,
-     "strati": 8,
-     "cartoni_pedana": 128,
      "iva": 22,
      "foto": "img/prodotti/01.002989.webp"
     },
@@ -2886,9 +2292,6 @@
      "ivato": 3.526,
      "ean": "8015700171211",
      "pz_cartone": 6,
-     "cartoni_strato": 48,
-     "strati": 4,
-     "cartoni_pedana": 192,
      "iva": 22,
      "foto": "img/prodotti/21.011756.webp"
     },
@@ -2900,9 +2303,6 @@
      "ivato": 3.526,
      "ean": "8015700171037",
      "pz_cartone": 6,
-     "cartoni_strato": 48,
-     "strati": 4,
-     "cartoni_pedana": 192,
      "iva": 22,
      "foto": "img/prodotti/21.000216.webp"
     },
@@ -2914,9 +2314,6 @@
      "ivato": 3.526,
      "ean": "8015700171013",
      "pz_cartone": 6,
-     "cartoni_strato": 48,
-     "strati": 4,
-     "cartoni_pedana": 192,
      "iva": 22,
      "foto": "img/prodotti/21.011757.webp"
     },
@@ -2928,9 +2325,6 @@
      "ivato": 5.444,
      "ean": "8410436495646",
      "pz_cartone": 6,
-     "cartoni_strato": 79,
-     "strati": 4,
-     "cartoni_pedana": 316,
      "iva": 22,
      "foto": "img/prodotti/21.014142.webp"
     },
@@ -2942,9 +2336,6 @@
      "ivato": 5.444,
      "ean": "8410436495707",
      "pz_cartone": 6,
-     "cartoni_strato": 79,
-     "strati": 4,
-     "cartoni_pedana": 316,
      "iva": 22,
      "foto": "img/prodotti/21.014143.webp"
     },
@@ -2956,9 +2347,6 @@
      "ivato": 5.444,
      "ean": "8015700170290",
      "pz_cartone": 6,
-     "cartoni_strato": 79,
-     "strati": 4,
-     "cartoni_pedana": 316,
      "iva": 22,
      "foto": "img/prodotti/21.014140.webp"
     },
@@ -2970,9 +2358,6 @@
      "ivato": 5.444,
      "ean": "8015700170313",
      "pz_cartone": 6,
-     "cartoni_strato": 79,
-     "strati": 4,
-     "cartoni_pedana": 316,
      "iva": 22,
      "foto": "img/prodotti/21.014141.webp"
     },
@@ -2984,9 +2369,6 @@
      "ivato": 5.444,
      "ean": "8015700170337",
      "pz_cartone": 6,
-     "cartoni_strato": 79,
-     "strati": 4,
-     "cartoni_pedana": 316,
      "iva": 22,
      "foto": "img/prodotti/21.014144.webp"
     },
@@ -2998,9 +2380,6 @@
      "ivato": 5.444,
      "ean": "8410436495585",
      "pz_cartone": 6,
-     "cartoni_strato": 79,
-     "strati": 4,
-     "cartoni_pedana": 316,
      "iva": 22,
      "foto": "img/prodotti/21.014139.webp"
     },
@@ -3012,9 +2391,6 @@
      "ivato": 3.581,
      "ean": "8015700170276",
      "pz_cartone": 6,
-     "cartoni_strato": 69,
-     "strati": 4,
-     "cartoni_pedana": 276,
      "iva": 22,
      "foto": "img/prodotti/21.014145.webp"
     },
@@ -3026,9 +2402,6 @@
      "ivato": 3.526,
      "ean": "8015700171136",
      "pz_cartone": 6,
-     "cartoni_strato": 37,
-     "strati": 4,
-     "cartoni_pedana": 148,
      "iva": 22,
      "foto": "img/prodotti/21.011750.webp"
     },
@@ -3040,9 +2413,6 @@
      "ivato": 3.526,
      "ean": "8015700170993",
      "pz_cartone": 6,
-     "cartoni_strato": 37,
-     "strati": 4,
-     "cartoni_pedana": 148,
      "iva": 22,
      "foto": "img/prodotti/21.011751.webp"
     },
@@ -3054,9 +2424,6 @@
      "ivato": 2.782,
      "ean": "8015100581740",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001900.webp"
     },
@@ -3068,9 +2435,6 @@
      "ivato": 2.782,
      "ean": "8015100580828",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001787.webp"
     },
@@ -3082,9 +2446,6 @@
      "ivato": 2.782,
      "ean": "8015100580736",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001783.webp"
     },
@@ -3096,9 +2457,6 @@
      "ivato": 2.782,
      "ean": "8015100580842",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001782.webp"
     },
@@ -3110,9 +2468,6 @@
      "ivato": 2.782,
      "ean": "8015100580804",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001785.webp"
     },
@@ -3124,9 +2479,6 @@
      "ivato": 2.782,
      "ean": "8015100580811",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001786.webp"
     },
@@ -3138,9 +2490,6 @@
      "ivato": 2.782,
      "ean": "8015100580798",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001780.webp"
     },
@@ -3152,9 +2501,6 @@
      "ivato": 2.782,
      "ean": "8015100580743",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001784.webp"
     },
@@ -3166,9 +2512,6 @@
      "ivato": 2.782,
      "ean": "8015100581689",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001898.webp"
     },
@@ -3180,9 +2523,6 @@
      "ivato": 2.782,
      "ean": "8015100581702",
      "pz_cartone": 10,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 22,
      "foto": "img/prodotti/02.001899.webp"
     },
@@ -3194,9 +2534,6 @@
      "ivato": 3.498,
      "ean": "8015100580712",
      "pz_cartone": 8,
-     "cartoni_strato": 9,
-     "strati": 4,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/02.001788.webp"
     },
@@ -3208,9 +2545,6 @@
      "ivato": 3.498,
      "ean": "8015100580767",
      "pz_cartone": 8,
-     "cartoni_strato": 9,
-     "strati": 4,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/02.001792.webp"
     },
@@ -3222,9 +2556,6 @@
      "ivato": 3.498,
      "ean": "8015100580750",
      "pz_cartone": 8,
-     "cartoni_strato": 9,
-     "strati": 4,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/02.001791.webp"
     },
@@ -3236,9 +2567,6 @@
      "ivato": 3.498,
      "ean": "8015100580774",
      "pz_cartone": 8,
-     "cartoni_strato": 9,
-     "strati": 4,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/02.001793.webp"
     },
@@ -3250,9 +2578,6 @@
      "ivato": 3.498,
      "ean": "8015100580781",
      "pz_cartone": 8,
-     "cartoni_strato": 9,
-     "strati": 4,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/02.001789.webp"
     },
@@ -3264,9 +2589,6 @@
      "ivato": 3.498,
      "ean": "8015100580859",
      "pz_cartone": 8,
-     "cartoni_strato": 9,
-     "strati": 4,
-     "cartoni_pedana": 36,
      "iva": 22,
      "foto": "img/prodotti/02.001790.webp"
     },
@@ -3278,7 +2600,6 @@
      "ivato": 1.647,
      "ean": "8015100573691",
      "pz_cartone": 12,
-     "cartoni_pedana": 72,
      "iva": 22,
      "foto": "img/prodotti/01.002582.webp"
     },
@@ -3290,9 +2611,6 @@
      "ivato": 3.234,
      "ean": "8015100578115",
      "pz_cartone": 4,
-     "cartoni_strato": 12,
-     "strati": 4,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/02.000872.webp"
     },
@@ -3304,7 +2622,6 @@
      "ivato": 3.234,
      "ean": "8015100578160",
      "pz_cartone": 4,
-     "cartoni_pedana": 48,
      "iva": 22,
      "foto": "img/prodotti/02.000532.webp"
     },
@@ -3316,9 +2633,6 @@
      "ivato": 2.715,
      "ean": "4015000031837",
      "pz_cartone": 20,
-     "cartoni_strato": 7,
-     "strati": 5,
-     "cartoni_pedana": 35,
      "iva": 22,
      "foto": "img/prodotti/11.000527.webp"
     }
@@ -3335,6 +2649,7 @@
     "In palio Gift Card Mondadori Store da 100 €."
    ],
    "immagine": "img/artwork/lines.webp",
+   "anteprima": "img/artwork/lines-piccola.webp",
    "misure": [
     1800,
     715
@@ -3348,9 +2663,6 @@
      "ivato": 2.442,
      "ean": "8001480407770",
      "pz_cartone": 12,
-     "cartoni_strato": 13,
-     "strati": 7,
-     "cartoni_pedana": 91,
      "iva": 10,
      "foto": "img/prodotti/12.000491.webp"
     },
@@ -3362,9 +2674,6 @@
      "ivato": 2.442,
      "ean": "8001480407787",
      "pz_cartone": 12,
-     "cartoni_strato": 13,
-     "strati": 7,
-     "cartoni_pedana": 91,
      "iva": 10,
      "foto": "img/prodotti/12.000492.webp"
     },
@@ -3376,9 +2685,6 @@
      "ivato": 2.442,
      "ean": "8001480407794",
      "pz_cartone": 12,
-     "cartoni_strato": 15,
-     "strati": 7,
-     "cartoni_pedana": 105,
      "iva": 10,
      "foto": "img/prodotti/12.000493.webp"
     },
@@ -3390,9 +2696,6 @@
      "ivato": 3.116,
      "ean": "8001480405530",
      "pz_cartone": 12,
-     "cartoni_strato": 14,
-     "strati": 9,
-     "cartoni_pedana": 126,
      "iva": 10,
      "foto": "img/prodotti/12.000520.webp"
     },
@@ -3404,9 +2707,6 @@
      "ivato": 3.116,
      "ean": "8001480405547",
      "pz_cartone": 12,
-     "cartoni_strato": 12,
-     "strati": 10,
-     "cartoni_pedana": 120,
      "iva": 10,
      "foto": "img/prodotti/12.000521.webp"
     },
@@ -3418,9 +2718,6 @@
      "ivato": 3.116,
      "ean": "8001480054547",
      "pz_cartone": 8,
-     "cartoni_strato": 8,
-     "strati": 8,
-     "cartoni_pedana": 64,
      "iva": 10,
      "foto": "img/prodotti/12.000522.webp"
     },
@@ -3432,9 +2729,6 @@
      "ivato": 3.116,
      "ean": "8001480054554",
      "pz_cartone": 8,
-     "cartoni_strato": 9,
-     "strati": 6,
-     "cartoni_pedana": 54,
      "iva": 10,
      "foto": "img/prodotti/12.000523.webp"
     },
@@ -3446,9 +2740,6 @@
      "ivato": 2.559,
      "ean": "8001480002098",
      "pz_cartone": 12,
-     "cartoni_strato": 9,
-     "strati": 9,
-     "cartoni_pedana": 81,
      "iva": 10,
      "foto": "img/prodotti/12.000150.webp"
     },
@@ -3460,9 +2751,6 @@
      "ivato": 2.559,
      "ean": "8001480078758",
      "pz_cartone": 8,
-     "cartoni_strato": 12,
-     "strati": 11,
-     "cartoni_pedana": 132,
      "iva": 10,
      "foto": "img/prodotti/12.000311.webp"
     },
@@ -3474,9 +2762,6 @@
      "ivato": 3.116,
      "ean": "8001480054530",
      "pz_cartone": 12,
-     "cartoni_strato": 14,
-     "strati": 11,
-     "cartoni_pedana": 154,
      "iva": 10,
      "foto": "img/prodotti/12.000524.webp"
     },
@@ -3488,9 +2773,6 @@
      "ivato": 3.116,
      "ean": "8001480404908",
      "pz_cartone": 12,
-     "cartoni_strato": 12,
-     "strati": 11,
-     "cartoni_pedana": 132,
      "iva": 10,
      "foto": "img/prodotti/12.000585.webp"
     }
@@ -3504,9 +2786,6 @@
      "ivato": 0.767,
      "ean": "8001480401716",
      "pz_cartone": 20,
-     "cartoni_strato": 8,
-     "strati": 4,
-     "cartoni_pedana": 32,
      "iva": 10,
      "foto": "img/prodotti/12.000138.webp"
     },
@@ -3518,9 +2797,6 @@
      "ivato": 2.244,
      "ean": "8001480073463",
      "pz_cartone": 24,
-     "cartoni_strato": 4,
-     "strati": 4,
-     "cartoni_pedana": 16,
      "iva": 10,
      "foto": "img/prodotti/12.000341.webp"
     },
@@ -3532,9 +2808,6 @@
      "ivato": 2.471,
      "ean": "8001480031302",
      "pz_cartone": 30,
-     "cartoni_strato": 4,
-     "strati": 6,
-     "cartoni_pedana": 24,
      "iva": 10,
      "foto": "img/prodotti/12.000137.webp"
     },
@@ -3546,9 +2819,6 @@
      "ivato": 0.767,
      "ean": "8001480401648",
      "pz_cartone": 16,
-     "cartoni_strato": 12,
-     "strati": 6,
-     "cartoni_pedana": 72,
      "iva": 10,
      "foto": "img/prodotti/11.000215.webp"
     },
@@ -3560,9 +2830,6 @@
      "ivato": 0.767,
      "ean": "8001480401563",
      "pz_cartone": 20,
-     "cartoni_strato": 6,
-     "strati": 7,
-     "cartoni_pedana": 42,
      "iva": 10,
      "foto": "img/prodotti/12.000315.webp"
     },
@@ -3574,9 +2841,6 @@
      "ivato": 0.767,
      "ean": "8001480401662",
      "pz_cartone": 16,
-     "cartoni_strato": 12,
-     "strati": 6,
-     "cartoni_pedana": 72,
      "iva": 10,
      "foto": "img/prodotti/12.000131.webp"
     },
@@ -3588,9 +2852,6 @@
      "ivato": 0.767,
      "ean": "8001480401556",
      "pz_cartone": 24,
-     "cartoni_strato": 13,
-     "strati": 8,
-     "cartoni_pedana": 104,
      "iva": 10,
      "foto": "img/prodotti/12.000299.webp"
     },
@@ -3602,9 +2863,6 @@
      "ivato": 0.767,
      "ean": "8001480401600",
      "pz_cartone": 24,
-     "cartoni_strato": 12,
-     "strati": 8,
-     "cartoni_pedana": 96,
      "iva": 10,
      "foto": "img/prodotti/12.000290.webp"
     },
@@ -3616,9 +2874,6 @@
      "ivato": 0.767,
      "ean": "8001480401624",
      "pz_cartone": 18,
-     "cartoni_strato": 12,
-     "strati": 11,
-     "cartoni_pedana": 132,
      "iva": 10,
      "foto": "img/prodotti/12.000357.webp"
     },
@@ -3630,9 +2885,6 @@
      "ivato": 0.767,
      "ean": "8001480404090",
      "pz_cartone": 24,
-     "cartoni_strato": 12,
-     "strati": 10,
-     "cartoni_pedana": 120,
      "iva": 10,
      "foto": "img/prodotti/12.000566.webp"
     },
@@ -3644,9 +2896,6 @@
      "ivato": 1.99,
      "ean": "8001480080676",
      "pz_cartone": 24,
-     "cartoni_strato": 9,
-     "strati": 10,
-     "cartoni_pedana": 90,
      "iva": 10,
      "foto": "img/prodotti/12.000129.webp"
     },
@@ -3658,9 +2907,6 @@
      "ivato": 2.908,
      "ean": "8001480079311",
      "pz_cartone": 24,
-     "cartoni_strato": 9,
-     "strati": 7,
-     "cartoni_pedana": 63,
      "iva": 10,
      "foto": "img/prodotti/12.000147.webp"
     },
@@ -3672,9 +2918,6 @@
      "ivato": 1.03,
      "ean": "8001480080669",
      "pz_cartone": 24,
-     "cartoni_strato": 16,
-     "strati": 9,
-     "cartoni_pedana": 144,
      "iva": 10,
      "foto": "img/prodotti/12.000332.webp"
     },
@@ -3686,9 +2929,6 @@
      "ivato": 1.703,
      "ean": "8001480079151",
      "pz_cartone": 9,
-     "cartoni_strato": 10,
-     "strati": 10,
-     "cartoni_pedana": 100,
      "iva": 10,
      "foto": "img/prodotti/01.003320.webp"
     },
@@ -3700,9 +2940,6 @@
      "ivato": 1.03,
      "ean": "8001480401396",
      "pz_cartone": 20,
-     "cartoni_strato": 11,
-     "strati": 10,
-     "cartoni_pedana": 110,
      "iva": 10,
      "foto": "img/prodotti/12.000333.webp"
     },
@@ -3714,9 +2951,6 @@
      "ivato": 2.256,
      "ean": "8001480079274",
      "pz_cartone": 16,
-     "cartoni_strato": 13,
-     "strati": 10,
-     "cartoni_pedana": 130,
      "iva": 10,
      "foto": "img/prodotti/12.000092.webp"
     },
@@ -3728,9 +2962,6 @@
      "ivato": 2.256,
      "ean": "8001480079281",
      "pz_cartone": 16,
-     "cartoni_strato": 13,
-     "strati": 10,
-     "cartoni_pedana": 130,
      "iva": 10,
      "foto": "img/prodotti/12.000289.webp"
     },
@@ -3742,9 +2973,6 @@
      "ivato": 0.517,
      "ean": "8001480413399",
      "pz_cartone": 16,
-     "cartoni_strato": 8,
-     "strati": 8,
-     "cartoni_pedana": 64,
      "iva": 10,
      "foto": "img/prodotti/12.000306.webp"
     },
@@ -3756,9 +2984,6 @@
      "ivato": 1.834,
      "ean": "8001480401525",
      "pz_cartone": 8,
-     "cartoni_strato": 11,
-     "strati": 9,
-     "cartoni_pedana": 99,
      "iva": 10,
      "foto": "img/prodotti/21.010538.webp"
     },
@@ -3770,9 +2995,6 @@
      "ivato": 1.834,
      "ean": "8001480406469",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 7,
-     "cartoni_pedana": 70,
      "iva": 10,
      "foto": "img/prodotti/21.012768.webp"
     },
@@ -3784,9 +3006,6 @@
      "ivato": 1.834,
      "ean": "8001480401440",
      "pz_cartone": 24,
-     "cartoni_strato": 8,
-     "strati": 11,
-     "cartoni_pedana": 88,
      "iva": 10,
      "foto": "img/prodotti/12.000141.webp"
     },
@@ -3798,9 +3017,6 @@
      "ivato": 1.834,
      "ean": "8001480401464",
      "pz_cartone": 12,
-     "cartoni_strato": 16,
-     "strati": 11,
-     "cartoni_pedana": 176,
      "iva": 10,
      "foto": "img/prodotti/12.000558.webp"
     },
@@ -3812,9 +3028,6 @@
      "ivato": 1.834,
      "ean": "8001480401488",
      "pz_cartone": 12,
-     "cartoni_strato": 13,
-     "strati": 11,
-     "cartoni_pedana": 143,
      "iva": 10,
      "foto": "img/prodotti/12.000559.webp"
     },
@@ -3826,9 +3039,6 @@
      "ivato": 1.834,
      "ean": "8001480401501",
      "pz_cartone": 24,
-     "cartoni_strato": 10,
-     "strati": 8,
-     "cartoni_pedana": 80,
      "iva": 10,
      "foto": "img/prodotti/12.000560.webp"
     },
@@ -3840,7 +3050,6 @@
      "ivato": 3.08,
      "ean": "8001480406452",
      "pz_cartone": 20,
-     "cartoni_pedana": 32,
      "iva": 10,
      "foto": "img/prodotti/12.000588.webp"
     },
@@ -3852,9 +3061,6 @@
      "ivato": 3.08,
      "ean": "8001480031630",
      "pz_cartone": 16,
-     "cartoni_strato": 10,
-     "strati": 5,
-     "cartoni_pedana": 50,
      "iva": 10,
      "foto": "img/prodotti/12.000287.webp"
     },
@@ -3866,9 +3072,6 @@
      "ivato": 1.419,
      "ean": "8001480408265",
      "pz_cartone": 24,
-     "cartoni_strato": 8,
-     "strati": 11,
-     "cartoni_pedana": 88,
      "iva": 10,
      "foto": "img/prodotti/12.000620.webp"
     },
@@ -3880,9 +3083,6 @@
      "ivato": 1.419,
      "ean": "8001480408401",
      "pz_cartone": 24,
-     "cartoni_strato": 8,
-     "strati": 10,
-     "cartoni_pedana": 80,
      "iva": 10,
      "foto": "img/prodotti/12.000401.webp"
     },
@@ -3894,9 +3094,6 @@
      "ivato": 1.419,
      "ean": "8001480408388",
      "pz_cartone": 16,
-     "cartoni_strato": 12,
-     "strati": 11,
-     "cartoni_pedana": 132,
      "iva": 10,
      "foto": "img/prodotti/12.000421.webp"
     },
@@ -3908,9 +3105,6 @@
      "ivato": 1.419,
      "ean": "8001480408319",
      "pz_cartone": 12,
-     "cartoni_strato": 16,
-     "strati": 8,
-     "cartoni_pedana": 128,
      "iva": 10,
      "foto": "img/prodotti/21.008099.webp"
     },
@@ -3922,9 +3116,6 @@
      "ivato": 2.368,
      "ean": "8001480408340",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 8,
-     "cartoni_pedana": 80,
      "iva": 10,
      "foto": "img/prodotti/12.000089.webp"
     },
@@ -3936,9 +3127,6 @@
      "ivato": 1.419,
      "ean": "8001480408333",
      "pz_cartone": 24,
-     "cartoni_strato": 10,
-     "strati": 8,
-     "cartoni_pedana": 80,
      "iva": 10,
      "foto": "img/prodotti/21.009150.webp"
     },
@@ -3950,9 +3138,6 @@
      "ivato": 1.419,
      "ean": "8001480408449",
      "pz_cartone": 24,
-     "cartoni_strato": 10,
-     "strati": 8,
-     "cartoni_pedana": 80,
      "iva": 10,
      "foto": "img/prodotti/21.010633.webp"
     },
@@ -3964,9 +3149,6 @@
      "ivato": 1.419,
      "ean": "8001480408494",
      "pz_cartone": 16,
-     "cartoni_strato": 11,
-     "strati": 9,
-     "cartoni_pedana": 99,
      "iva": 10,
      "foto": "img/prodotti/12.000593.webp"
     },
@@ -3978,9 +3160,6 @@
      "ivato": 2.368,
      "ean": "8001480408487",
      "pz_cartone": 12,
-     "cartoni_strato": 8,
-     "strati": 11,
-     "cartoni_pedana": 88,
      "iva": 10,
      "foto": "img/prodotti/12.000088.webp"
     },
@@ -3992,9 +3171,6 @@
      "ivato": 2.368,
      "ean": "8001480408456",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 8,
-     "cartoni_pedana": 80,
      "iva": 10,
      "foto": "img/prodotti/12.000090.webp"
     },
@@ -4006,9 +3182,6 @@
      "ivato": 3.005,
      "ean": "4015400699095",
      "pz_cartone": 4,
-     "cartoni_strato": 25,
-     "strati": 11,
-     "cartoni_pedana": 275,
      "iva": 22,
      "foto": "img/prodotti/12.000435.webp"
     },
@@ -4020,9 +3193,6 @@
      "ivato": 5.657,
      "ean": "4015400761037",
      "pz_cartone": 4,
-     "cartoni_strato": 17,
-     "strati": 10,
-     "cartoni_pedana": 170,
      "iva": 22,
      "foto": "img/prodotti/12.000442.webp"
     },
@@ -4034,9 +3204,6 @@
      "ivato": 3.005,
      "ean": "4015400698883",
      "pz_cartone": 8,
-     "cartoni_strato": 18,
-     "strati": 10,
-     "cartoni_pedana": 180,
      "iva": 22,
      "foto": "img/prodotti/12.000440.webp"
     },
@@ -4048,9 +3215,6 @@
      "ivato": 3.005,
      "ean": "4015400698975",
      "pz_cartone": 6,
-     "cartoni_strato": 26,
-     "strati": 9,
-     "cartoni_pedana": 234,
      "iva": 22,
      "foto": "img/prodotti/12.000441.webp"
     },
@@ -4062,9 +3226,6 @@
      "ivato": 3.005,
      "ean": "4015400699033",
      "pz_cartone": 4,
-     "cartoni_strato": 30,
-     "strati": 12,
-     "cartoni_pedana": 360,
      "iva": 22,
      "foto": "img/prodotti/12.000434.webp"
     },
@@ -4076,9 +3237,6 @@
      "ivato": 6.207,
      "ean": "8001480015906",
      "pz_cartone": 2,
-     "cartoni_strato": 16,
-     "strati": 8,
-     "cartoni_pedana": 128,
      "iva": 22,
      "foto": "img/prodotti/12.000446.webp"
     },
@@ -4090,9 +3248,6 @@
      "ivato": 6.207,
      "ean": "8001480015890",
      "pz_cartone": 2,
-     "cartoni_strato": 16,
-     "strati": 8,
-     "cartoni_pedana": 128,
      "iva": 22,
      "foto": "img/prodotti/12.000445.webp"
     },
@@ -4104,9 +3259,6 @@
      "ivato": 8.181,
      "ean": "8001480015913",
      "pz_cartone": 2,
-     "cartoni_strato": 16,
-     "strati": 8,
-     "cartoni_pedana": 128,
      "iva": 22,
      "foto": "img/prodotti/12.000030.webp"
     },
@@ -4118,9 +3270,6 @@
      "ivato": 3.005,
      "ean": "8001480502222",
      "pz_cartone": 8,
-     "cartoni_strato": 16,
-     "strati": 8,
-     "cartoni_pedana": 128,
      "iva": 22,
      "foto": "img/prodotti/12.000428.webp"
     },
@@ -4132,9 +3281,6 @@
      "ivato": 12.124,
      "ean": "8001480500716",
      "pz_cartone": 2,
-     "cartoni_strato": 16,
-     "strati": 8,
-     "cartoni_pedana": 128,
      "iva": 22,
      "foto": "img/prodotti/12.000664.webp"
     },
@@ -4146,9 +3292,6 @@
      "ivato": 12.124,
      "ean": "8001480500723",
      "pz_cartone": 2,
-     "cartoni_strato": 16,
-     "strati": 8,
-     "cartoni_pedana": 128,
      "iva": 22,
      "foto": "img/prodotti/12.000663.webp"
     },
@@ -4160,9 +3303,6 @@
      "ivato": 9.543,
      "ean": "8001480507272",
      "pz_cartone": 4,
-     "cartoni_strato": 6,
-     "strati": 5,
-     "cartoni_pedana": 30,
      "iva": 22,
      "foto": "img/prodotti/12.000683.webp"
     },
@@ -4174,9 +3314,6 @@
      "ivato": 9.143,
      "ean": "8001480507258",
      "pz_cartone": 4,
-     "cartoni_strato": 4,
-     "strati": 7,
-     "cartoni_pedana": 28,
      "iva": 22,
      "foto": "img/prodotti/01.004432.webp"
     },
@@ -4188,9 +3325,6 @@
      "ivato": 6.405,
      "ean": "8001480507050",
      "pz_cartone": 4,
-     "cartoni_strato": 6,
-     "strati": 9,
-     "cartoni_pedana": 54,
      "iva": 22,
      "foto": "img/prodotti/12.000573.webp"
     },
@@ -4202,9 +3336,6 @@
      "ivato": 6.405,
      "ean": "8001480507081",
      "pz_cartone": 4,
-     "cartoni_strato": 6,
-     "strati": 9,
-     "cartoni_pedana": 54,
      "iva": 22,
      "foto": "img/prodotti/12.000574.webp"
     },
@@ -4216,9 +3347,6 @@
      "ivato": 6.405,
      "ean": "8001480507111",
      "pz_cartone": 4,
-     "cartoni_strato": 6,
-     "strati": 9,
-     "cartoni_pedana": 54,
      "iva": 22,
      "foto": "img/prodotti/12.000665.webp"
     },
@@ -4230,9 +3358,6 @@
      "ivato": 9.761,
      "ean": "8001480507104",
      "pz_cartone": 4,
-     "cartoni_strato": 6,
-     "strati": 9,
-     "cartoni_pedana": 54,
      "iva": 22,
      "foto": "img/prodotti/21.013258.webp"
     },
@@ -4244,9 +3369,6 @@
      "ivato": 9.761,
      "ean": "8001480507067",
      "pz_cartone": 4,
-     "cartoni_strato": 6,
-     "strati": 9,
-     "cartoni_pedana": 54,
      "iva": 22,
      "foto": "img/prodotti/21.013257.webp"
     },
@@ -4258,9 +3380,6 @@
      "ivato": 9.761,
      "ean": "8001480507098",
      "pz_cartone": 4,
-     "cartoni_strato": 6,
-     "strati": 9,
-     "cartoni_pedana": 54,
      "iva": 22,
      "foto": "img/prodotti/21.013256.webp"
     },
@@ -4272,9 +3391,6 @@
      "ivato": 5.794,
      "ean": "8001480507043",
      "pz_cartone": 4,
-     "cartoni_strato": 6,
-     "strati": 9,
-     "cartoni_pedana": 54,
      "iva": 22,
      "foto": "img/prodotti/12.000553.webp"
     },
@@ -4286,9 +3402,6 @@
      "ivato": 5.794,
      "ean": "8001480507074",
      "pz_cartone": 4,
-     "cartoni_strato": 6,
-     "strati": 9,
-     "cartoni_pedana": 54,
      "iva": 22,
      "foto": "img/prodotti/12.000430.webp"
     },
@@ -4300,9 +3413,6 @@
      "ivato": 9.504,
      "ean": "8001480505063",
      "pz_cartone": 4,
-     "cartoni_strato": 4,
-     "strati": 6,
-     "cartoni_pedana": 24,
      "iva": 22,
      "foto": "img/prodotti/21.013260.webp"
     },
@@ -4314,9 +3424,6 @@
      "ivato": 8.93,
      "ean": "8001480505070",
      "pz_cartone": 4,
-     "cartoni_strato": 6,
-     "strati": 5,
-     "cartoni_pedana": 30,
      "iva": 22,
      "foto": "img/prodotti/21.013259.webp"
     },
@@ -4328,9 +3435,6 @@
      "ivato": 3.005,
      "ean": "8001480503922",
      "pz_cartone": 6,
-     "cartoni_strato": 16,
-     "strati": 9,
-     "cartoni_pedana": 144,
      "iva": 22,
      "foto": "img/prodotti/12.000586.webp"
     },
@@ -4342,9 +3446,6 @@
      "ivato": 5.824,
      "ean": "8001480507296",
      "pz_cartone": 4,
-     "cartoni_strato": 8,
-     "strati": 7,
-     "cartoni_pedana": 56,
      "iva": 22,
      "foto": "img/prodotti/12.000424.webp"
     },
@@ -4356,7 +3457,6 @@
      "ivato": 5.274,
      "ean": "8001480500570",
      "pz_cartone": 4,
-     "cartoni_pedana": 56,
      "iva": 22,
      "foto": "img/prodotti/12.000425.webp"
     },
@@ -4368,9 +3468,6 @@
      "ivato": 5.13,
      "ean": "8001480505438",
      "pz_cartone": 4,
-     "cartoni_strato": 7,
-     "strati": 8,
-     "cartoni_pedana": 56,
      "iva": 22,
      "foto": "img/prodotti/12.000612.webp"
     },
@@ -4382,9 +3479,6 @@
      "ivato": 5.989,
      "ean": "8001480505421",
      "pz_cartone": 4,
-     "cartoni_strato": 7,
-     "strati": 8,
-     "cartoni_pedana": 56,
      "iva": 22,
      "foto": "img/prodotti/12.000613.webp"
     },
@@ -4396,9 +3490,6 @@
      "ivato": 3.925,
      "ean": "8001480410206",
      "pz_cartone": 12,
-     "cartoni_strato": 7,
-     "strati": 13,
-     "cartoni_pedana": 91,
      "iva": 10,
      "foto": "img/prodotti/12.000679.webp"
     },
@@ -4410,9 +3501,6 @@
      "ivato": 3.563,
      "ean": "8001480411487",
      "pz_cartone": 12,
-     "cartoni_strato": 12,
-     "strati": 5,
-     "cartoni_pedana": 60,
      "iva": 10,
      "foto": "img/prodotti/12.000180.webp"
     },
@@ -4424,9 +3512,6 @@
      "ivato": 3.563,
      "ean": "8001480411456",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 6,
-     "cartoni_pedana": 60,
      "iva": 10,
      "foto": "img/prodotti/12.000614.webp"
     },
@@ -4438,9 +3523,6 @@
      "ivato": 3.563,
      "ean": "8001480411463",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 6,
-     "cartoni_pedana": 60,
      "iva": 10,
      "foto": "img/prodotti/12.000518.webp"
     },
@@ -4452,9 +3534,6 @@
      "ivato": 3.563,
      "ean": "8001480411470",
      "pz_cartone": 12,
-     "cartoni_strato": 10,
-     "strati": 6,
-     "cartoni_pedana": 60,
      "iva": 10,
      "foto": "img/prodotti/12.000469.webp"
     },
@@ -4477,9 +3556,6 @@
      "ivato": 3.121,
      "ean": "4015400362920",
      "pz_cartone": 12,
-     "cartoni_strato": 14,
-     "strati": 7,
-     "cartoni_pedana": 98,
      "iva": 10,
      "foto": "img/prodotti/01.004137.webp"
     },
@@ -4491,9 +3567,6 @@
      "ivato": 3.121,
      "ean": "4015400362876",
      "pz_cartone": 12,
-     "cartoni_strato": 12,
-     "strati": 6,
-     "cartoni_pedana": 72,
      "iva": 10,
      "foto": "img/prodotti/12.000178.webp"
     },
@@ -4527,9 +3600,6 @@
      "ivato": 3.121,
      "ean": "3023100003013",
      "pz_cartone": 12,
-     "cartoni_strato": 20,
-     "strati": 7,
-     "cartoni_pedana": 140,
      "iva": 10,
      "foto": "img/prodotti/12.000174.webp"
     },
@@ -4541,9 +3611,6 @@
      "ivato": 3.121,
      "ean": "3023100003037",
      "pz_cartone": 12,
-     "cartoni_strato": 19,
-     "strati": 6,
-     "cartoni_pedana": 114,
      "iva": 10,
      "foto": "img/prodotti/12.000175.webp"
     },
@@ -4555,9 +3622,6 @@
      "ivato": 3.121,
      "ean": "8001480401341",
      "pz_cartone": 12,
-     "cartoni_strato": 24,
-     "strati": 3,
-     "cartoni_pedana": 72,
      "iva": 10,
      "foto": "img/prodotti/12.000179.webp"
     }
@@ -4573,6 +3637,7 @@
     "Acquista un prodotto Pampers qualsiasi, carica il codice sull'app Coccole Pampers e ricevi subito doppi punti (fino a 3750 punti)."
    ],
    "immagine": "img/artwork/pampers.webp",
+   "anteprima": "img/artwork/pampers-piccola.webp",
    "misure": [
     1800,
     686
@@ -4586,9 +3651,6 @@
      "ivato": 4.765,
      "ean": "8001480307780",
      "pz_cartone": 6,
-     "cartoni_strato": 6,
-     "strati": 7,
-     "cartoni_pedana": 42,
      "iva": 10,
      "foto": "img/prodotti/21.010449.webp"
     },
@@ -4600,9 +3662,6 @@
      "ivato": 4.765,
      "ean": "8001480307797",
      "pz_cartone": 6,
-     "cartoni_strato": 6,
-     "strati": 8,
-     "cartoni_pedana": 48,
      "iva": 10,
      "foto": "img/prodotti/21.010450.webp"
     },
@@ -4614,9 +3673,6 @@
      "ivato": 4.765,
      "ean": "8001480306721",
      "pz_cartone": 8,
-     "cartoni_strato": 7,
-     "strati": 5,
-     "cartoni_pedana": 35,
      "iva": 10,
      "foto": "img/prodotti/11.000227.webp"
     },
@@ -4628,9 +3684,6 @@
      "ivato": 4.765,
      "ean": "8001480307803",
      "pz_cartone": 8,
-     "cartoni_strato": 7,
-     "strati": 5,
-     "cartoni_pedana": 35,
      "iva": 10,
      "foto": "img/prodotti/11.000226.webp"
     },
@@ -4642,9 +3695,6 @@
      "ivato": 4.765,
      "ean": "8001480308053",
      "pz_cartone": 8,
-     "cartoni_strato": 6,
-     "strati": 5,
-     "cartoni_pedana": 30,
      "iva": 10,
      "foto": "img/prodotti/11.000224.webp"
     },
@@ -4656,9 +3706,6 @@
      "ivato": 4.765,
      "ean": "8001480307445",
      "pz_cartone": 4,
-     "cartoni_strato": 8,
-     "strati": 7,
-     "cartoni_pedana": 56,
      "iva": 10,
      "foto": "img/prodotti/11.000743.webp"
     },
@@ -4670,9 +3717,6 @@
      "ivato": 4.765,
      "ean": "8001480309951",
      "pz_cartone": 6,
-     "cartoni_strato": 6,
-     "strati": 7,
-     "cartoni_pedana": 42,
      "iva": 10,
      "foto": "img/prodotti/11.000056.webp"
     },
@@ -4684,9 +3728,6 @@
      "ivato": 4.765,
      "ean": "8001480310025",
      "pz_cartone": 6,
-     "cartoni_strato": 6,
-     "strati": 7,
-     "cartoni_pedana": 42,
      "iva": 10,
      "foto": "img/prodotti/11.000061.webp"
     }
@@ -4700,9 +3741,6 @@
      "ivato": 6.548,
      "ean": "8001480302174",
      "pz_cartone": 8,
-     "cartoni_strato": 6,
-     "strati": 7,
-     "cartoni_pedana": 42,
      "iva": 10,
      "foto": "img/prodotti/11.000883.webp"
     },
@@ -4714,9 +3752,6 @@
      "ivato": 6.548,
      "ean": "8001090943286",
      "pz_cartone": 8,
-     "cartoni_strato": 6,
-     "strati": 7,
-     "cartoni_pedana": 42,
      "iva": 10,
      "foto": "img/prodotti/11.000816.webp"
     },
@@ -4728,9 +3763,6 @@
      "ivato": 6.548,
      "ean": "8001090943316",
      "pz_cartone": 8,
-     "cartoni_strato": 6,
-     "strati": 6,
-     "cartoni_pedana": 36,
      "iva": 10,
      "foto": "img/prodotti/11.000817.webp"
     },
@@ -4742,9 +3774,6 @@
      "ivato": 9.661,
      "ean": "4015400327776",
      "pz_cartone": 6,
-     "cartoni_strato": 6,
-     "strati": 7,
-     "cartoni_pedana": 42,
      "iva": 10,
      "foto": "img/prodotti/11.000551.webp"
     },
@@ -4756,9 +3785,6 @@
      "ivato": 3.495,
      "ean": "8001480306448",
      "pz_cartone": 6,
-     "cartoni_strato": 6,
-     "strati": 8,
-     "cartoni_pedana": 48,
      "iva": 10,
      "foto": "img/prodotti/11.000618.webp"
     },
@@ -4770,9 +3796,6 @@
      "ivato": 3.495,
      "ean": "8001480306455",
      "pz_cartone": 6,
-     "cartoni_strato": 6,
-     "strati": 8,
-     "cartoni_pedana": 48,
      "iva": 10,
      "foto": "img/prodotti/11.000619.webp"
     },
@@ -4784,9 +3807,6 @@
      "ivato": 3.495,
      "ean": "8001480306462",
      "pz_cartone": 8,
-     "cartoni_strato": 7,
-     "strati": 5,
-     "cartoni_pedana": 35,
      "iva": 10,
      "foto": "img/prodotti/11.000615.webp"
     },
@@ -4798,9 +3818,6 @@
      "ivato": 3.495,
      "ean": "8001480306479",
      "pz_cartone": 8,
-     "cartoni_strato": 7,
-     "strati": 6,
-     "cartoni_pedana": 42,
      "iva": 10,
      "foto": "img/prodotti/11.000616.webp"
     },
@@ -4812,9 +3829,6 @@
      "ivato": 3.495,
      "ean": "8001480306486",
      "pz_cartone": 6,
-     "cartoni_strato": 9,
-     "strati": 6,
-     "cartoni_pedana": 54,
      "iva": 10,
      "foto": "img/prodotti/11.000617.webp"
     },
@@ -4826,9 +3840,6 @@
      "ivato": 3.495,
      "ean": "8001480306622",
      "pz_cartone": 4,
-     "cartoni_strato": 8,
-     "strati": 7,
-     "cartoni_pedana": 56,
      "iva": 10,
      "foto": "img/prodotti/11.000875.webp"
     },
@@ -4840,9 +3851,6 @@
      "ivato": 3.495,
      "ean": "8001480306639",
      "pz_cartone": 6,
-     "cartoni_strato": 8,
-     "strati": 7,
-     "cartoni_pedana": 56,
      "iva": 10,
      "foto": "img/prodotti/11.000876.webp"
     },
@@ -4854,9 +3862,6 @@
      "ivato": 3.495,
      "ean": "8001480306646",
      "pz_cartone": 6,
-     "cartoni_strato": 6,
-     "strati": 7,
-     "cartoni_pedana": 42,
      "iva": 10,
      "foto": "img/prodotti/11.000877.webp"
     },
@@ -4868,9 +3873,6 @@
      "ivato": 10.76,
      "ean": "8001480306516",
      "pz_cartone": 4,
-     "cartoni_strato": 7,
-     "strati": 4,
-     "cartoni_pedana": 28,
      "iva": 10,
      "foto": "img/prodotti/11.000801.webp"
     },
@@ -4882,9 +3884,6 @@
      "ivato": 10.76,
      "ean": "8001480306585",
      "pz_cartone": 4,
-     "cartoni_strato": 7,
-     "strati": 4,
-     "cartoni_pedana": 28,
      "iva": 10,
      "foto": "img/prodotti/11.000800.webp"
     },
@@ -4896,9 +3895,6 @@
      "ivato": 10.76,
      "ean": "8001480306592",
      "pz_cartone": 3,
-     "cartoni_strato": 8,
-     "strati": 4,
-     "cartoni_pedana": 32,
      "iva": 10,
      "foto": "img/prodotti/11.000799.webp"
     },
@@ -4910,9 +3906,6 @@
      "ivato": 1.773,
      "ean": "8001480059450",
      "pz_cartone": 18,
-     "cartoni_strato": 16,
-     "strati": 5,
-     "cartoni_pedana": 80,
      "iva": 22,
      "foto": "img/prodotti/13.000190.webp"
     }
