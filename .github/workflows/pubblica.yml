@@ -41,6 +41,7 @@ jobs:
           [ -f logo.png ] && cp logo.png _sito/ || true
           cp -r volantini _sito/
           [ -d pagine ] && cp -r pagine _sito/ || true
+          [ -d prova-artwork ] && cp -r prova-artwork _sito/ || true
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
