@@ -118,10 +118,10 @@
        transform:translateY(100%);transition:transform .42s var(--molla);box-shadow:0 -10px 40px rgba(0,30,70,.2)}
   .velo.vis .det{transform:none}
   @media (min-width:600px){.velo{align-items:center}.det{border-radius:24px;max-height:88vh;transform:translateY(40px) scale(.96);opacity:0;transition:transform .4s var(--molla),opacity .3s}.velo.vis .det{opacity:1}}
-  .det-scorre{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:10px 18px calc(24px + env(safe-area-inset-bottom));flex:1 1 auto;min-height:0}
-  .maniglia{width:42px;height:5px;border-radius:3px;background:#d6e0ec;margin:0 auto 6px}
+  .det-scorre{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:16px 18px calc(24px + env(safe-area-inset-bottom));flex:1 1 auto;min-height:0}
+  
   .det .chiudi{position:absolute;z-index:2;top:12px;right:12px;background:#eef3f9;color:var(--testo)}
-  .det-foto{width:min(62vw,250px);aspect-ratio:1;margin:4px auto 10px;position:relative}
+  .det-foto{width:min(68vw,330px);max-width:100%;aspect-ratio:1;max-height:44vh;margin:6px auto 12px;position:relative}
   .det-foto img{width:100%;height:100%;object-fit:contain;display:block}
   .det-in > *{opacity:0;transform:translateY(12px);transition:opacity .4s var(--molla),transform .4s var(--molla)}
   .velo.vis .det-in > *{opacity:1;transform:none}
@@ -129,7 +129,7 @@
   .velo.vis .det-in > :nth-child(3){transition-delay:.1s}
   .velo.vis .det-in > :nth-child(4){transition-delay:.15s}
   .velo.vis .det-in > :nth-child(5){transition-delay:.2s}
-  .det-marca{font-size:14px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--c)}
+  .det-marca{font-size:17px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:var(--c)}
   .det h2{font-size:20px;line-height:1.25;margin-top:3px;letter-spacing:-.01em}
   .det-prezzo{display:flex;gap:10px;margin-top:14px}
   .det-prezzo div{flex:1;background:#f2f6fb;border-radius:14px;padding:11px 13px}
@@ -309,8 +309,8 @@
       b.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
       disegnaAltri();
     };
-    $('panCorpo').scrollTop = 0;
     pan.classList.add('aperto'); document.body.classList.add('fermo');
+    $('panCorpo').scrollTop = 0;                 // ogni artwork riparte dall'alto (va fatto dopo averla mostrata)
     disegnaAltri();
     osserva($('vetrina'), '.pr');
     if(!calmo){
@@ -330,22 +330,38 @@
   }
   function chiudiPan(){
     const pan = $('pan');
-    const fine = () => { pan.classList.remove('aperto'); document.body.classList.remove('fermo'); $('panIn').innerHTML = ''; };
-    const c = cardAperta; aperta = null; cardAperta = null;
+    let finita = false;
+    const fine = () => { if(finita) return; finita = true; pan.getAnimations().forEach(x => x.cancel()); pan.classList.remove('aperto'); document.body.classList.remove('fermo'); $('panCorpo').scrollTop = 0; $('panIn').innerHTML = ''; };
+    const c = cardAperta, a = aperta; aperta = null; cardAperta = null;
     if(calmo) return fine();
-    const r = c && c.getBoundingClientRect();
+    const dest = c && c.querySelector('.aw-img'), r = dest && dest.getBoundingClientRect();
     const visibile = r && r.bottom > 0 && r.top < innerHeight;
-    const anim = visibile
-      ? pan.animate([{clipPath:'inset(0px 0px 0px 0px round 0px)'}, {clipPath: rettangolo(c)}], {duration:380, easing:MOLLA})
-      : pan.animate([{opacity:1}, {opacity:0, transform:'translateY(20px)'}], {duration:240, easing:'ease-in'});
-    anim.onfinish = fine;
+    if(!visibile){
+      pan.animate([{opacity:1}, {opacity:0, transform:'translateY(20px)'}], {duration:240, easing:'ease-in', fill:'forwards'}).onfinish = fine;
+      setTimeout(fine, 500);                     // riserva: se l'animazione non arriva in fondo, la scheda si chiude lo stesso
+      return;
+    }
+    // l'immagine dell'artwork "vola" indietro fino al suo riquadro, mentre la scheda svanisce:
+    // arriva esattamente sopra la foto della home, quindi non c'è nessuno scatto finale
+    const im = $('panImg'), ri = im.getBoundingClientRect(), top = $('panCorpo').getBoundingClientRect().top;
+    const da = (ri.bottom > top + 20) ? ri : {left: r.left, top: top + 14, width: r.width, height: r.height};
+    const g = document.createElement('img');
+    g.src = a.anteprima; g.alt = '';
+    g.style.cssText = 'position:fixed;z-index:25;left:'+r.left+'px;top:'+r.top+'px;width:'+r.width+'px;height:'+r.height+'px;transform-origin:0 0;pointer-events:none;border-radius:18px 18px 0 0;will-change:transform;box-shadow:0 10px 30px rgba(0,40,90,.18)';
+    document.body.appendChild(g);
+    const sx = da.width / r.width, sy = da.height / r.height;
+    g.animate([{transform:'translate('+(da.left-r.left)+'px,'+(da.top-r.top)+'px) scale('+sx+','+sy+')', borderRadius:'16px'},
+               {transform:'none', borderRadius:'18px 18px 0 0'}], {duration:420, easing:MOLLA});
+    pan.animate([{opacity:1}, {opacity:0}], {duration:260, easing:'ease-out', fill:'forwards'}).onfinish = fine;
+    setTimeout(fine, 600);
+    setTimeout(() => { g.animate([{opacity:1}, {opacity:0}], {duration:120}).onfinish = () => g.remove(); setTimeout(() => g.remove(), 400); }, 420);
   }
 
   // ---------- dettaglio dell'articolo: la foto "vola" dal riquadro alla scheda
   function dettaglio(p, daCard){
     const cartone = p.pz_cartone ? Math.round(p.pz_cartone * p.imponibile * 100) / 100 : null;
     $('detScorre').innerHTML =
-      '<div class="maniglia"></div><div class="det-in">'+
+      '<div class="det-in">'+
       (p.foto ? '<div class="det-foto"><img id="detImg" src="'+p.foto+'" alt=""></div>' : '<div></div>')+
       '<div><div class="det-marca">'+esc(p.marca)+'</div><h2>'+esc(p.nome)+'</h2></div>'+
       '<div class="det-prezzo"><div><span>Prezzo base</span><b>'+euro(p.imponibile)+'</b><span>+ IVA, al pezzo</span></div>'+
