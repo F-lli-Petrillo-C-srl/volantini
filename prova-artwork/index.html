@@ -21,6 +21,7 @@
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html,body{background:var(--sfondo);color:var(--testo);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   body.fermo{overflow:hidden}
+  html{-webkit-text-size-adjust:100%;touch-action:manipulation}
   button{font:inherit;color:inherit}
 
   /* Testata */
@@ -50,7 +51,7 @@
   .aw{background:var(--card);border-radius:18px;overflow:hidden;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.07),0 8px 22px rgba(0,40,90,.07);border:0;text-align:left;display:block;width:100%;
       opacity:0;transform:translateY(22px) scale(.98);transition:opacity .55s var(--molla),transform .55s var(--molla),box-shadow .25s}
   .aw.vis{opacity:1;transform:none}
-  .aw:active{transform:scale(.975);transition-duration:.12s}
+  @media (hover:hover){.aw:active{transform:scale(.975);transition-duration:.12s}}   /* sul telefono niente "pressione": scorrendo faceva saltellare i riquadri */
   @media (hover:hover){.aw:hover{box-shadow:0 2px 6px rgba(0,0,0,.08),0 16px 34px rgba(0,98,189,.16)}}
   .aw-img{display:block;width:100%;height:auto;background:#e4ebf3}
   .aw-info{padding:12px 14px 14px;display:flex;align-items:center;gap:12px}
@@ -87,7 +88,7 @@
   .filtri{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 12px;margin:0 -14px;padding-left:14px;padding-right:14px;scrollbar-width:none}
   .filtri::-webkit-scrollbar{display:none}
   .filtri button{flex:0 0 auto;border:1.5px solid var(--linea);background:#fff;border-radius:999px;padding:7px 13px;font-size:13px;font-weight:650;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .15s}
-  .filtri button:active{transform:scale(.94)}
+  @media (hover:hover){.filtri button:active{transform:scale(.94)}}
   .filtri button.si{background:var(--c);border-color:transparent;color:#fff}
 
   /* Riquadri degli articoli */
@@ -97,7 +98,7 @@
       content-visibility:auto;contain-intrinsic-size:auto 290px;
       opacity:0;transform:translateY(18px);transition:opacity .45s var(--molla),transform .45s var(--molla)}
   .pr.vis{opacity:1;transform:none}
-  .pr:active{transform:scale(.96);transition-duration:.12s}
+  @media (hover:hover){.pr:active{transform:scale(.96);transition-duration:.12s}}
   .pr-foto{aspect-ratio:1;background:#fff;position:relative}
   .pr-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s}
   .pr-foto img.ok{opacity:1}
@@ -261,7 +262,8 @@
       // la foto grande parte appena il dito tocca
       b.addEventListener('pointerdown', () => { const im = new Image(); im.src = d.artwork[+b.dataset.i].immagine; }, {passive:true, once:true});
     });
-    osserva($('elenco'), '.aw');
+    // le artwork sono poche: compaiono subito una dopo l'altra, poi restano ferme durante lo scorrimento
+    $('elenco').querySelectorAll('.aw').forEach((el, k) => setTimeout(() => el.classList.add('vis'), calmo ? 0 : 60 + k * 90));
     if(location.hash){ const i = d.artwork.findIndex(a => '#'+a.id === location.hash); if(i >= 0) apri(i, null, true); }
   }).catch(() => { $('elenco').innerHTML = '<div class="errore">Impossibile caricare le artwork. Controlla la connessione e riprova.</div>'; $('nota').textContent=''; });
 
