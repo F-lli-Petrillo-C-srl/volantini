@@ -151,6 +151,18 @@
   @media (orientation:landscape){.zoom img{height:auto;width:100vw}}
   .zoom .btn{position:fixed;top:calc(10px + env(safe-area-inset-top));right:10px;background:#fff;color:var(--testo)}
   .errore{text-align:center;color:var(--testo-soft);padding:60px 20px}
+  /* segnaposto con riflesso mentre arrivano le artwork */
+  .sk{border-radius:18px;aspect-ratio:2/1;background:linear-gradient(100deg,#e4ebf3 30%,#f1f5fa 50%,#e4ebf3 70%) 0 0/300% 100%;animation:sk 1.3s linear infinite}
+  @keyframes sk{from{background-position:100% 0}to{background-position:0 0}}
+  /* tocco vero (non scorrimento): il riquadro si abbassa appena e torna su */
+  .aw{transition:opacity .55s var(--molla),transform .55s var(--molla),scale .16s ease,box-shadow .25s}
+  .pr{transition:opacity .45s var(--molla),transform .45s var(--molla),scale .16s ease}
+  .filtri button{transition:background .2s,color .2s,border-color .2s,scale .16s ease}
+  .tocco{scale:.965}
+  .aw.tocco{scale:.982}
+  /* prezzo del dettaglio: entra con un piccolo "pop" */
+  .velo.vis .det-prezzo b{animation:pop .5s .18s var(--molla) both}
+  @keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
 
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
@@ -167,8 +179,8 @@
 </header>
 
 <main>
-  <p class="nota" id="nota">Caricamento…</p>
-  <div class="elenco" id="elenco"></div>
+  <p class="nota" id="nota">Tocca un'artwork per vedere gli articoli che trattiamo. Prezzi di <b>listino base, senza sconti</b><span id="validita"></span>.</p>
+  <div class="elenco" id="elenco"><div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>
 </main>
 
 <div class="pan" id="pan" role="dialog" aria-modal="true">
@@ -245,15 +257,35 @@
 
   let dati = null, aperta = null, cardAperta = null;
 
+  // Riscontro del tocco solo se il dito resta fermo: scorrendo i riquadri non si muovono
+  (function(){
+    let el = null, t = null, x0 = 0, y0 = 0;
+    const via = () => { clearTimeout(t); if(el){ const e = el; setTimeout(() => e.classList.remove('tocco'), 110); } el = null; };
+    document.addEventListener('pointerdown', e => {
+      const b = e.target.closest('.aw,.pr,.filtri button'); if(!b || calmo) return;
+      el = b; x0 = e.clientX; y0 = e.clientY;
+      t = setTimeout(() => el && el.classList.add('tocco'), 70);
+    }, {passive:true});
+    document.addEventListener('pointermove', e => { if(el && Math.hypot(e.clientX - x0, e.clientY - y0) > 8){ clearTimeout(t); el.classList.remove('tocco'); el = null; } }, {passive:true});
+    ['pointerup','pointercancel'].forEach(n => document.addEventListener(n, via, {passive:true}));
+    document.addEventListener('scroll', () => { if(el){ clearTimeout(t); el.classList.remove('tocco'); el = null; } }, {passive:true, capture:true});
+  })();
+
   window.datiArtwork.then(d => {
     dati = d;
     d.artwork.forEach(a => { a.in_artwork.forEach(arricchisci); a.partecipano.forEach(arricchisci); });
     const al = (d.listino || '').replace('Listino Ufficiale ', '');
-    $('nota').innerHTML = 'Tocca un\'artwork per vedere gli articoli che trattiamo. Prezzi di <b>listino base, senza sconti</b>, validi ' + esc(al) + '.';
+    $('validita').textContent = al ? ', validi ' + al : '';
+    // le anteprime si scaricano e si preparano PRIMA di mostrarle: scorrendo non resta niente da caricare
+    const pronte = d.artwork.map(a => { const im = new Image(); im.src = a.anteprima; return (im.decode ? im.decode() : Promise.resolve()).catch(() => {}); });
+    return Promise.race([Promise.all(pronte), new Promise(ok => setTimeout(ok, 1500))]).then(() => mostraElenco(d));
+  }).catch(() => { $('elenco').innerHTML = '<div class="errore">Impossibile caricare le artwork. Controlla la connessione e riprova.</div>'; });
+
+  function mostraElenco(d){
     $('elenco').innerHTML = d.artwork.map((a, i) => {
       const [m, t] = a.titolo.split(' · ');
       return '<button class="aw" style="--c:'+a.colore+'" data-i="'+i+'">'+
-        '<img class="aw-img" src="'+a.anteprima+'" width="'+a.misure[0]+'" height="'+a.misure[1]+'" alt="'+esc(a.titolo)+'" '+(i<2?'fetchpriority="high"':'loading="lazy"')+' decoding="async">'+
+        '<img class="aw-img" src="'+a.anteprima+'" width="'+a.misure[0]+'" height="'+a.misure[1]+'" alt="'+esc(a.titolo)+'" decoding="sync">'+
         '<div class="aw-info"><div><div class="aw-marca">'+esc(m)+'</div><div class="aw-tit">'+esc(t || m)+'</div><div class="aw-sub">'+esc(a.validita)+'</div></div>'+
         '<span class="aw-n">'+(a.in_artwork.length + a.partecipano.length)+' articoli'+ICONA_FRECCIA+'</span></div></button>';
     }).join('');
@@ -265,7 +297,7 @@
     // le artwork sono poche: compaiono subito una dopo l'altra, poi restano ferme durante lo scorrimento
     $('elenco').querySelectorAll('.aw').forEach((el, k) => setTimeout(() => el.classList.add('vis'), calmo ? 0 : 60 + k * 90));
     if(location.hash){ const i = d.artwork.findIndex(a => '#'+a.id === location.hash); if(i >= 0) apri(i, null, true); }
-  }).catch(() => { $('elenco').innerHTML = '<div class="errore">Impossibile caricare le artwork. Controlla la connessione e riprova.</div>'; $('nota').textContent=''; });
+  }
 
   function card(p, k){
     return '<button class="pr" data-k="'+k+'">'+
