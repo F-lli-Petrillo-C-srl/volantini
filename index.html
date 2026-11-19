@@ -270,14 +270,21 @@
     setTimeout(ok, 4000);
   });
 
+  const NOVITA_DA_TENERE = 2;
+  const novita = v => /novit/i.test(v.titolo) ? 1 : 0;
+  const numero = v => { const m = v.titolo.match(/\bnr\.?\s*(\d+)/i); return m ? +m[1] : 0; };
+
   window.datiVolantini
     .then(dati => {
       elenco = dati
         .filter(v => IMG.test(v.file) || PDF.test(v.file))
         .map(analizza)
         .filter(visibile)
-        // Novità Canvass sempre per prima, poi le altre dalla più recente
-        .sort((a,b) => (/novit/i.test(b.titolo) - /novit/i.test(a.titolo)) || (b.aggiunto||0) - (a.aggiunto||0));
+        // Novità Canvass per prime (dal numero più alto), poi le altre dalla più recente
+        .sort((a,b) => (novita(b) - novita(a)) || (numero(b) - numero(a)) || (b.aggiunto||0) - (a.aggiunto||0));
+      // delle Novità Canvass restano solo le ultime NOVITA_DA_TENERE: le più vecchie spariscono da sole
+      let tenute = 0;
+      elenco = elenco.filter(v => !novita(v) || ++tenute <= NOVITA_DA_TENERE);
       disegna();
     })
     .catch(() => {
