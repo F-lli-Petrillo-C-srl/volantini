@@ -68,7 +68,7 @@
   .thumb .vera.ok{opacity:1}
   .thumb.pdf{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--brand);font-weight:700}
   .thumb.pdf svg{width:56px;height:56px}
-  .badge{display:inline-block;margin-bottom:5px;background:var(--accento);color:#1E1E1E;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+  .badge{display:inline-block;margin-top:6px;background:var(--accento);color:#1E1E1E;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
   .badge.nuovo{background:var(--brand);color:#fff}
   .tag-pdf{position:absolute;z-index:1;right:8px;bottom:8px;background:rgba(0,0,0,.65);color:#fff;font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px}
   .info{padding:9px 12px 10px}
@@ -330,8 +330,8 @@
       if(i===iEv) return '';
       const b = badge(v);
       return '<article class="card anima" style="--i:'+k+'" data-i="'+i+'">'+anteprima(v, k++ < 8)+
-        '</div><div class="info">'+(b ? '<span class="badge '+b[1]+'">'+b[0]+'</span>' : '')+
-        '<div class="titolo">'+esc(v.titolo)+'</div>'+
+        '</div><div class="info"><div class="titolo">'+esc(v.titolo)+'</div>'+
+        (b ? '<span class="badge '+b[1]+'">'+b[0]+'</span>' : '')+
         '</div></article>';
     }).join('')+'</div>';
 
