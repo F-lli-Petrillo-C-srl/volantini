@@ -1,7 +1,7 @@
 // Permette di installare la pagina sul telefono e di rivedere senza rete
 // le ultime grafiche aperte. Pagina ed elenco vengono sempre presi aggiornati
 // quando c'è connessione.
-const VERSIONE = 'v4';
+const VERSIONE = 'v5';
 const BASE = 'volantini-base-' + VERSIONE;
 const GRAFICHE = 'volantini-grafiche';
 const MAX_GRAFICHE = 400;   // immagini tenute in memoria al massimo
@@ -10,7 +10,9 @@ const FILE_BASE = ['./', 'index.html', 'manifest.webmanifest', 'lib/page-flip.br
   'icone/icona-192.png', 'icone/apple-touch-icon.png', 'icone/favicon-32.png'];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(BASE).then(c => c.addAll(FILE_BASE)).then(() => self.skipWaiting()));
+  // 'reload': i file si prendono dal sito, mai da una copia vecchia del telefono
+  e.waitUntil(caches.open(BASE).then(c => c.addAll(FILE_BASE.map(f => new Request(f, {cache: 'reload'}))))
+    .then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', e => {
@@ -21,7 +23,9 @@ self.addEventListener('activate', e => {
 
 async function primaLaRete(req){
   try {
-    const r = await fetch(req, {cache: 'no-cache'});
+    // richiesta nuova costruita dall'indirizzo: alcuni telefoni (iPhone) con la richiesta
+    // di navigazione originale riusano la pagina vecchia invece di chiederla al sito
+    const r = await fetch(req.url, {cache: 'no-store', credentials: 'same-origin'});
     if(r.ok){ const c = await caches.open(BASE); c.put(req.url.split('?')[0], r.clone()); }
     return r;
   } catch(err) {

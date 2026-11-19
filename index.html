@@ -630,7 +630,12 @@
 
   // Installabile sul telefono e consultabile anche senza rete
   if('serviceWorker' in navigator && location.protocol === 'https:'){
-    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js', {updateViaCache: 'none'}).catch(()=>{}));
+    // quando arriva una versione nuova della pagina, si ricarica da sola una volta
+    if(navigator.serviceWorker.controller){
+      let ricaricata = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => { if(!ricaricata){ ricaricata = true; location.reload(); } });
+    }
   }
 })();
 </script>
