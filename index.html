@@ -632,6 +632,17 @@
       navigator.serviceWorker.addEventListener('controllerchange', () => { if(!ricaricata){ ricaricata = true; location.reload(); } });
     }
   }
+
+  // Tornando sulla pagina dopo un po' (scheda o app lasciata aperta), si ricarica:
+  // così mostra sempre l'ultima versione, senza dover ricaricare a mano.
+  // Non lo fa se è aperto un volantino, per non interrompere la lettura.
+  let nascostaDa = 0;
+  const torna = () => {
+    if(nascostaDa && Date.now() - nascostaDa > 5*60e3 && !$('lb').classList.contains('aperto')) location.reload();
+    nascostaDa = 0;
+  };
+  document.addEventListener('visibilitychange', () => { if(document.hidden) nascostaDa = Date.now(); else torna(); });
+  window.addEventListener('pageshow', e => { if(e.persisted){ nascostaDa = nascostaDa || 1; torna(); } });   // pagina ripresa dalla memoria del browser
 })();
 </script>
 </body>
