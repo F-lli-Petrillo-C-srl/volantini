@@ -244,7 +244,6 @@
   function testoDate(v){
     if(v.dal && v.al) return 'Dal '+fmt(v.dal)+' al '+fmt(v.al);
     if(v.al) return 'Valido fino al '+fmt(v.al);
-    if(v.aggiunto){ const g = new Date(v.aggiunto); g.setHours(0,0,0,0); return 'Aggiornato il '+fmt(g); }
     return '';
   }
   function giorniRimasti(v){ return Math.round((v.al - oggi)/864e5); }
