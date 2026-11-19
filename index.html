@@ -61,8 +61,8 @@
   .card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08),0 6px 18px rgba(0,0,0,.05);cursor:pointer;display:flex;flex-direction:column;transition:transform .15s,box-shadow .2s}
   @media (hover:hover){.card:active{transform:scale(.98)}}   /* sul telefono niente "pressione": scorrendo faceva saltellare le schede */
   @media (hover:hover){.card:hover{box-shadow:0 2px 6px rgba(0,0,0,.1),0 12px 28px rgba(0,98,189,.14)}}
-  .thumb{position:relative;aspect-ratio:3/4;background:#e4ebf3;overflow:hidden}
-  .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .thumb{position:relative;aspect-ratio:1300/1839;background:#e4ebf3;overflow:hidden}
+  .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
   .thumb .sfoca{filter:blur(14px);transform:scale(1.15)}
   .thumb .vera{opacity:0;transition:opacity .45s ease}
   .thumb .vera.ok{opacity:1}
@@ -80,7 +80,7 @@
   .sez{margin-top:26px}
   .ev-card{display:grid;grid-template-columns:minmax(120px,38%) 1fr;background:var(--card);border-radius:18px;overflow:hidden;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.08),0 14px 34px rgba(0,98,189,.16);border:2px solid var(--accento);transition:transform .15s}
   @media (hover:hover){.ev-card:active{transform:scale(.99)}}
-  .ev-card .thumb{aspect-ratio:3/4}
+  .ev-card .thumb{aspect-ratio:1300/1839}
   .ev-info{padding:16px;display:flex;flex-direction:column;justify-content:center;gap:6px;min-width:0}
   .ev-tit{font-size:20px;font-weight:750;line-height:1.2}
   .conto{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:6px;background:var(--accento);color:#1E1E1E;font-weight:750;font-size:14px;padding:7px 12px;border-radius:999px}
@@ -92,7 +92,7 @@
   .vuoto,.errore{text-align:center;color:var(--testo-soft);padding:60px 20px;font-size:16px;line-height:1.5}
   .caricamento{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
   @media (max-width:520px){.caricamento{grid-template-columns:1fr 1fr;gap:10px}}
-  .sk{aspect-ratio:3/4;border-radius:14px;background:linear-gradient(90deg,#e4ebf3 25%,#eef3f9 50%,#e4ebf3 75%);background-size:200% 100%;animation:sk 1.2s infinite}
+  .sk{aspect-ratio:1300/1839;border-radius:14px;background:linear-gradient(90deg,#e4ebf3 25%,#eef3f9 50%,#e4ebf3 75%);background-size:200% 100%;animation:sk 1.2s infinite}
   @keyframes sk{to{background-position:-200% 0}}
 
   /* Visualizzatore a schermo intero (chiaro: niente bande nere) */
