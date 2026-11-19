@@ -640,16 +640,24 @@
     }
   }
 
-  // Tornando sulla pagina dopo un po' (scheda o app lasciata aperta), si ricarica:
-  // così mostra sempre l'ultima versione, senza dover ricaricare a mano.
-  // Non lo fa se è aperto un volantino, per non interrompere la lettura.
-  let nascostaDa = 0;
+  // Tornando sulla pagina (scheda o app lasciata aperta) controlla subito se sul sito
+  // c'è una versione più nuova: se sì si ricarica, così si vede sempre l'ultima.
+  // Ogni pubblicazione cambia la data "Last-Modified" del sito: basta una richiesta minuscola.
+  // Non si ricarica se è aperto un volantino, per non interrompere la lettura.
+  const dataSito = () => fetch('./', {method:'HEAD', cache:'no-store'})
+    .then(r => r.headers.get('last-modified') || '').catch(() => '');
+  let versione = '';
+  dataSito().then(d => versione = d);
+  let ricaricando = false;
   const torna = () => {
-    if(nascostaDa && Date.now() - nascostaDa > 5*60e3 && !$('lb').classList.contains('aperto')) location.reload();
-    nascostaDa = 0;
+    if(ricaricando || !versione) return;
+    dataSito().then(d => {
+      if(d && d !== versione && !$('lb').classList.contains('aperto')){ ricaricando = true; location.reload(); }
+    });
   };
-  document.addEventListener('visibilitychange', () => { if(document.hidden) nascostaDa = Date.now(); else torna(); });
-  window.addEventListener('pageshow', e => { if(e.persisted){ nascostaDa = nascostaDa || 1; torna(); } });   // pagina ripresa dalla memoria del browser
+  document.addEventListener('visibilitychange', () => { if(!document.hidden) torna(); });
+  window.addEventListener('pageshow', e => { if(e.persisted) torna(); });   // pagina ripresa dalla memoria del browser
+  window.addEventListener('focus', torna);
 })();
 </script>
 </body>
