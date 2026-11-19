@@ -276,7 +276,8 @@
         .filter(v => IMG.test(v.file) || PDF.test(v.file))
         .map(analizza)
         .filter(visibile)
-        .sort((a,b) => (b.aggiunto||0) - (a.aggiunto||0));
+        // Novità Canvass sempre per prima, poi le altre dalla più recente
+        .sort((a,b) => (/novit/i.test(b.titolo) - /novit/i.test(a.titolo)) || (b.aggiunto||0) - (a.aggiunto||0));
       disegna();
     })
     .catch(() => {
