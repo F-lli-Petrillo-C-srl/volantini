@@ -105,9 +105,6 @@
   .pr-info{padding:9px 11px 12px;display:flex;flex-direction:column;gap:3px;flex:1;border-top:1px solid #f0f4f8}
   .pr-marca{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
   .pr-nome{font-size:13.5px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  .prezzo{margin-top:4px;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
-  .prezzo b{font-size:23px;font-weight:800;color:var(--testo);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
-  .prezzo small{font-size:12px;color:var(--testo-soft);font-weight:650}
   .vuoto{grid-column:1/-1;color:var(--testo-soft);font-size:14px;padding:24px 4px;text-align:center}
 
   /* Dettaglio di un articolo */
@@ -131,17 +128,11 @@
   .velo.vis .det-in > :nth-child(5){transition-delay:.2s}
   .det-marca{font-size:17px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:var(--c)}
   .det h2{font-size:20px;line-height:1.25;margin-top:3px;letter-spacing:-.01em}
-  .det-prezzo{display:flex;gap:10px;margin-top:14px}
-  .det-prezzo div{flex:1;background:#f2f6fb;border-radius:14px;padding:11px 13px}
-  .det-prezzo div:first-child{background:var(--c);color:#fff}
-  .det-prezzo b{display:block;font-size:27px;font-weight:800;margin:2px 0;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-  .det-prezzo span{font-size:12px;opacity:.85;font-weight:650}
   .det table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px}
   .det td{padding:11px 2px;border-bottom:1px solid #eef2f7}
   .det tr:last-child td{border-bottom:0}
   .det td:first-child{color:var(--testo-soft)}
   .det td:last-child{text-align:right;font-weight:650;font-variant-numeric:tabular-nums}
-  .det-nota{font-size:12.5px;color:var(--testo-soft);margin-top:10px;line-height:1.45;background:#f6f9fc;border-radius:12px;padding:10px 12px}
 
   /* Lente sull'artwork */
   .zoom{position:fixed;inset:0;z-index:40;background:#0d1b2e;display:none;overflow:auto;touch-action:pan-x pan-y pinch-zoom;opacity:0;transition:opacity .25s}
@@ -160,9 +151,6 @@
   .filtri button{transition:background .2s,color .2s,border-color .2s,scale .16s ease}
   .tocco{scale:.965}
   .aw.tocco{scale:.982}
-  /* prezzo del dettaglio: entra con un piccolo "pop" */
-  .velo.vis .det-prezzo b{animation:pop .5s .18s var(--molla) both}
-  @keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
 
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
@@ -179,7 +167,7 @@
 </header>
 
 <main>
-  <p class="nota" id="nota">Tocca un'artwork per vedere gli articoli che trattiamo. Prezzi di <b>listino base, senza sconti</b><span id="validita"></span>.</p>
+  <p class="nota" id="nota">Tocca un'artwork per vedere gli articoli che trattiamo.</p>
   <div class="elenco" id="elenco"><div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>
 </main>
 
@@ -208,7 +196,6 @@
   const ICONA_CERCA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>';
 
   // ---------- testi: dal codice del listino a un nome leggibile
-  const euro = n => '€ ' + n.toLocaleString('it-IT', {minimumFractionDigits:2, maximumFractionDigits:3});
   const MARCHE = [['PALETTE SYOSS','Syoss'],['BIO PRESTO','Bio Presto'],['LINES SPEC.','Lines Specialist'],['ACE','Ace'],['GOT2B','got2b'],
     ['COLORERIA','Coloreria Italiana'],['TAMPAX','Tampax'],['PAMPERS','Pampers'],['LINES','Lines']];
   function marca(d){
@@ -274,8 +261,6 @@
   window.datiArtwork.then(d => {
     dati = d;
     d.artwork.forEach(a => { a.in_artwork.forEach(arricchisci); a.partecipano.forEach(arricchisci); });
-    const al = (d.listino || '').replace('Listino Ufficiale ', '');
-    $('validita').textContent = al ? ', validi ' + al : '';
     // le anteprime si scaricano e si preparano PRIMA di mostrarle: scorrendo non resta niente da caricare
     const pronte = d.artwork.map(a => { const im = new Image(); im.src = a.anteprima; return (im.decode ? im.decode() : Promise.resolve()).catch(() => {}); });
     return Promise.race([Promise.all(pronte), new Promise(ok => setTimeout(ok, 1500))]).then(() => mostraElenco(d));
@@ -302,8 +287,7 @@
   function card(p, k){
     return '<button class="pr" data-k="'+k+'">'+
       '<div class="pr-foto">'+(p.foto ? '<img src="'+p.foto+'" alt="" loading="lazy" decoding="async" onload="this.classList.add(\'ok\')">' : '')+'</div>'+
-      '<div class="pr-info"><div class="pr-marca">'+esc(p.marca)+'</div><div class="pr-nome">'+esc(p.nome)+'</div>'+
-      '<div class="prezzo"><b>'+euro(p.imponibile)+'</b><small>+ IVA</small></div></div></button>';
+      '<div class="pr-info"><div class="pr-marca">'+esc(p.marca)+'</div><div class="pr-nome">'+esc(p.nome)+'</div>'+'</div></button>';
   }
 
   // ---------- apertura dell'artwork: si espande dal riquadro toccato
@@ -386,21 +370,16 @@
 
   // ---------- dettaglio dell'articolo: la foto "vola" dal riquadro alla scheda
   function dettaglio(p, daCard){
-    const cartone = p.pz_cartone ? Math.round(p.pz_cartone * p.imponibile * 100) / 100 : null;
     $('detScorre').innerHTML =
       '<div class="det-in">'+
       (p.foto ? '<div class="det-foto"><img id="detImg" src="'+p.foto+'" alt=""></div>' : '<div></div>')+
       '<div><div class="det-marca">'+esc(p.marca)+'</div><h2>'+esc(p.nome)+'</h2></div>'+
-      '<div class="det-prezzo"><div><span>Prezzo base</span><b>'+euro(p.imponibile)+'</b><span>+ IVA, al pezzo</span></div>'+
-      '<div><span>IVA inclusa</span><b>'+euro(p.ivato)+'</b><span>IVA '+p.iva+'%</span></div></div>'+
       '<table>'+
         '<tr><td>Codice articolo</td><td>'+esc(p.codice)+'</td></tr>'+
         '<tr><td>Codice EAN</td><td>'+esc(p.ean || '–')+'</td></tr>'+
         '<tr><td>Pezzi per cartone</td><td>'+(p.pz_cartone || '–')+'</td></tr>'+
-        (cartone ? '<tr><td>Prezzo del cartone</td><td>'+euro(cartone)+' + IVA</td></tr>' : '')+
         '<tr><td>Descrizione a listino</td><td style="font-size:12.5px">'+esc(p.descrizione)+'</td></tr>'+
-      '</table>'+
-      '<p class="det-nota">Prezzo di listino base, senza sconti né promozioni. Le condizioni dell\'artwork si applicano a parte.</p></div>';
+      '</table></div>';
     $('detScorre').scrollTop = 0;
     const velo = $('velo');
     velo.classList.add('aperto');
