@@ -306,8 +306,7 @@
     $('panIn').innerHTML =
       '<img class="pan-img" id="panImg" src="'+a.immagine+'" width="'+a.misure[0]+'" height="'+a.misure[1]+'" alt="'+esc(a.titolo)+'" decoding="async" style="background:url(\''+a.anteprima+'\') center/cover">'+
       '<div class="mecc" style="animation-delay:.08s"><div class="val">'+ICONA_CAL+esc(a.validita)+'</div>'+a.meccanica.map(x => '<p>'+esc(x)+'</p>').join('')+'</div>'+
-      '<div class="sez" style="animation-delay:.14s">Nell\'artwork <span class="num">'+a.in_artwork.length+'</span></div>'+
-      '<div class="prodotti" id="vetrina" style="animation:none">'+a.in_artwork.map((p, k) => card(p, 'v'+k)).join('')+'</div>'+
+      '<div class="prodotti" id="vetrina" style="animation:none;margin-top:18px">'+a.in_artwork.map((p, k) => card(p, 'v'+k)).join('')+'</div>'+
       (a.partecipano.length ?
         (marche.length > 1 ? '<div class="filtri" id="filtri" style="animation:none;margin-top:18px"><button class="si" data-m="">Tutte</button>'+marche.map(x => '<button data-m="'+esc(x)+'">'+esc(x)+'</button>').join('')+'</div>' : '')+
         '<div class="prodotti" id="altri" style="animation:none;margin-top:'+(marche.length > 1 ? 0 : 10)+'px"></div>' : '');
