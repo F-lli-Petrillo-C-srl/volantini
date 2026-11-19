@@ -196,7 +196,6 @@
 <script>
 (function(){
   const CARTELLA = 'volantini/';
-  const GIORNI_NUOVO = 7;          // badge "Nuovo" per le grafiche caricate da meno di N giorni
   const GIORNI_ULTIMI = 3;         // badge "Ultimi giorni" quando mancano N giorni alla scadenza
   // Solo queste sono offerte a scadenza (conto alla rovescia, "In evidenza", "Ultimi giorni").
   // Le Novità Canvass e i cataloghi non lo sono mai.
@@ -237,7 +236,8 @@
       miniature: voce.miniature || [],
       misure: voce.misure || [],
       hd: voce.hd || [],
-      aggiunto: voce.aggiunto ? new Date(voce.aggiunto*1000) : null
+      aggiunto: voce.aggiunto ? new Date(voce.aggiunto*1000) : null,
+      caricato: voce.caricato ? new Date(voce.caricato*1000) : null
     };
   }
   function visibile(v){ return (!v.dal || v.dal <= oggi) && (!v.al || v.al >= oggi); }
@@ -261,7 +261,8 @@
       if(gg===0) return ['Ultimo giorno',''];
       if(gg<=GIORNI_ULTIMI) return ['Ultimi giorni',''];
     }
-    if(v.aggiunto && (Date.now()-v.aggiunto)/864e5 < GIORNI_NUOVO) return ['Nuovo','nuovo'];
+    // "Nuovo" solo nel giorno in cui la grafica è stata caricata per la prima volta
+    if(v.caricato && v.caricato.toDateString() === new Date().toDateString()) return ['Nuovo','nuovo'];
     return null;
   }
   const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));

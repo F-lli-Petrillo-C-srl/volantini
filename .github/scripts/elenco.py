@@ -148,7 +148,13 @@ for nome in sorted(os.listdir(CARTELLA)):
         ["git", "log", "-1", "--format=%ct", "--", percorso],
         capture_output=True, text=True,
     ).stdout.strip()
-    voce = {"file": nome, "aggiunto": int(out) if out else None}
+    # primo caricamento del file: una rinomina non lo fa tornare "nuovo"
+    primo = subprocess.run(
+        ["git", "log", "--follow", "--diff-filter=A", "--format=%ct", "--", percorso],
+        capture_output=True, text=True,
+    ).stdout.split()
+    voce = {"file": nome, "aggiunto": int(out) if out else None,
+            "caricato": int(primo[-1]) if primo else (int(out) if out else None)}
     al = scadenza(nome)
     if not (al and al < oggi):   # le grafiche scadute non si preparano: non verranno mostrate
         dest = os.path.join(PAGINE, cartella_sicura(nome))
